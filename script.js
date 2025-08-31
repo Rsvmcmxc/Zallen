@@ -1,37 +1,30 @@
+// ======== Notificações de Compra Fake ========
 const notificacao = document.getElementById("notificacao-compra");
 
+// Lista de nomes simulados
 const nomes = [
-  "Maria Oliveira", "João Silva", "Ana Santos", "Pedro Almeida", 
-  "Carla Ferreira", "Lucas Souza", "Beatriz Costa", "Paulo Mendes",
-  "Fernanda Rocha", "André Carvalho", "Juliana Martins", "Ricardo Lima"
+  "Maria - São Paulo",
+  "João - Rio de Janeiro",
+  "Carla - Belo Horizonte",
+  "Pedro - Salvador",
+  "Ana - Curitiba",
+  "Lucas - Brasília",
+  "Fernanda - Recife",
+  "Ricardo - Porto Alegre"
 ];
 
-const cidades = [
-  "São Paulo - SP", "Rio de Janeiro - RJ", "Belo Horizonte - MG", 
-  "Porto Alegre - RS", "Curitiba - PR", "Recife - PE", 
-  "Salvador - BA", "Fortaleza - CE", "Brasília - DF", 
-  "Manaus - AM", "Florianópolis - SC", "Goiânia - GO"
-];
-
-const produto = "📖 Apocalipse: A Última Revelação";
-
+// Função para exibir notificação
 function mostrarNotificacao() {
   const nome = nomes[Math.floor(Math.random() * nomes.length)];
-  const cidade = cidades[Math.floor(Math.random() * cidades.length)];
-  
-  notificacao.innerHTML = `
-    ✅ <strong>${nome}</strong> de ${cidade}<br>
-    comprou <em>${produto}</em>
-  `;
+  notificacao.textContent = `${nome} acabou de comprar o e-book!`;
+
   notificacao.style.display = "block";
 
+  // Some automaticamente depois de 3 segundos
   setTimeout(() => {
     notificacao.style.display = "none";
-  }, 5000); // some em 5s
+  }, 3000);
 }
 
-// Exibe notificação a cada 25–45s
-setInterval(mostrarNotificacao, Math.floor(Math.random() * 20000) + 25000);
-
-// Primeira aparece em 6s
-setTimeout(mostrarNotificacao, 6000);
+// Exibe notificações de tempos em tempos
+setInterval(mostrarNotificacao, 10000); // a cada 10s
