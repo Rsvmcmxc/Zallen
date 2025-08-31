@@ -1,112 +1,173 @@
-/* Estilo geral */
-body {
-  font-family: Arial, sans-serif;
+/* ====== Reset ====== */
+* {
   margin: 0;
   padding: 0;
-  background-color: #1e1e1e; /* Fundo grafite */
-  color: #f1f1f1;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #1c1c1c; /* grafite escuro */
+  color: #f5f5f5;
+  line-height: 1.6;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 header {
   background: #111;
-  padding: 15px;
+  padding: 20px;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 1.5em;
+  font-size: 1.8em;
   color: #fff;
 }
 
 .hero {
-  padding: 20px;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
 }
 
 .hero p {
-  margin-bottom: 20px;
   font-size: 1.1em;
-  line-height: 1.4em;
-}
-
-.capa-principal {
-  width: 280px;
-  max-width: 90%;
-  border-radius: 10px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  color: #ddd;
 }
 
-.cta, .btn {
+.hero img {
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.hero .cta {
   display: inline-block;
-  background: #28a745;
+  padding: 12px 24px;
+  background: #ff4444;
   color: #fff;
   text-decoration: none;
-  padding: 12px 22px;
   border-radius: 6px;
-  font-size: 1em;
+  font-weight: bold;
   transition: background 0.3s;
 }
 
-.cta:hover, .btn:hover {
-  background: #218838;
+.hero .cta:hover {
+  background: #e63939;
 }
 
 .features {
-  background: #2b2b2b;
   padding: 20px;
-  margin: 20px 0;
-  border-radius: 8px;
+  background: #222;
+}
+
+.features p {
+  margin: 8px 0;
+  font-size: 1em;
 }
 
 .galeria {
-  padding: 20px;
+  padding: 30px 20px;
 }
 
 .galeria h2 {
-  margin-bottom: 15px;
+  font-size: 1.5em;
+  margin-bottom: 20px;
 }
 
 .galeria .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 15px;
 }
 
 .galeria img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
 }
 
-/* Notificações minimalistas estilo toast */
-.notificacao {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(40, 167, 69, 0.85); /* Verde translúcido */
-  backdrop-filter: blur(6px);
+.cta-final {
+  background: #111;
+  padding: 40px 20px;
+}
+
+.cta-final h2 {
+  margin-bottom: 15px;
+  font-size: 1.6em;
+}
+
+.cta-final p {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.cta-final .btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #ff4444;
   color: #fff;
-  padding: 12px 18px;
-  border-radius: 8px;
-  display: none;
-  font-size: 0.9em;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 9999;
-  animation: fadeInOut 5s ease forwards;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+  font-size: 1em;
 }
 
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(20px); }
-  10% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(20px); }
+.cta-final .btn:hover {
+  background: #e63939;
 }
 
 footer {
-  background: #111;
-  padding: 15px;
-  margin-top: 20px;
+  padding: 20px;
+  background: #0d0d0d;
   font-size: 0.9em;
-  color: #bbb;
+  color: #aaa;
+}
+
+/* ====== Notificações ====== */
+.notificacao {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(30, 30, 30, 0.75);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideDown 0.5s forwards;
+  z-index: 1000;
+}
+
+.notificacao img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
