@@ -1,22 +1,13 @@
-// Lista de notificações com fotos
-const notificacoes = [
-  { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/pessoas/ana.jpg" },
-  { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/pessoas/carlos.jpg" },
-  { nome: "Cleide - Salvador", mensagem: "fez sua compra agora mesmo!", foto: "imagens/pessoas/cleide.jpg" },
-  { nome: "João - Rio de Janeiro", mensagem: "adquiriu o guia completo!", foto: "imagens/pessoas/joao.jpg" }
-];
-
+// Notificação automática
 function mostrarNotificacao() {
-  const div = document.getElementById("notificacao-compra");
-  const random = notificacoes[Math.floor(Math.random() * notificacoes.length)];
-
-  div.innerHTML = `<img src="${random.foto}" alt="Foto de ${random.nome}"><span>${random.nome} ${random.mensagem}</span>`;
-  div.classList.add("show");
+  const notif = document.getElementById("notificacao");
+  notif.style.display = "block";
 
   setTimeout(() => {
-    div.classList.remove("show");
-  }, 4000);
+    notif.style.display = "none";
+  }, 6000); // fica visível por 6 segundos
 }
 
-// Exibe a cada 12 segundos
-setInterval(mostrarNotificacao, 12000);
+// Mostrar de tempos em tempos
+setInterval(mostrarNotificacao, 20000); 
+// aparece a cada 20 segundos
