@@ -1,4 +1,4 @@
-// Lista de notificações com fotos
+// Lista de notificações com fotos reais
 const notificacoes = [
   { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/pessoas/ana.jpg" },
   { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/pessoas/carlos.jpg" },
@@ -8,9 +8,15 @@ const notificacoes = [
 
 function mostrarNotificacao() {
   const div = document.getElementById("notificacao-compra");
+  if (!div) return;
+
   const random = notificacoes[Math.floor(Math.random() * notificacoes.length)];
 
-  div.innerHTML = `<img src="${random.foto}" alt="Foto de ${random.nome}"><span>${random.nome} ${random.mensagem}</span>`;
+  div.innerHTML = `
+    <img src="${random.foto}" alt="Foto de ${random.nome}" onerror="this.style.display='none'">
+    <span><strong>${random.nome}</strong> ${random.mensagem}</span>
+  `;
+
   div.classList.add("show");
 
   setTimeout(() => {
@@ -18,5 +24,8 @@ function mostrarNotificacao() {
   }, 4000);
 }
 
-// Exibe a cada 12 segundos
+// Primeira aparece após 2s
+setTimeout(mostrarNotificacao, 2000);
+
+// Depois a cada 12s
 setInterval(mostrarNotificacao, 12000);
