@@ -1,30 +1,30 @@
-// ======== Notificações de Compra Fake ========
-const notificacao = document.getElementById("notificacao-compra");
-
-// Lista de nomes simulados
-const nomes = [
-  "Maria - São Paulo",
-  "João - Rio de Janeiro",
-  "Carla - Belo Horizonte",
-  "Pedro - Salvador",
-  "Ana - Curitiba",
-  "Lucas - Brasília",
-  "Fernanda - Recife",
-  "Ricardo - Porto Alegre"
+// Lista de notificações simuladas
+const notificacoes = [
+  "Ana - Curitiba acabou de comprar o e-book!",
+  "Carlos - São Paulo garantiu o exemplar agora!",
+  "Talita - Recife fez a compra!",
+  "Diego - Belo Horizonte adquiriu o e-book!",
+  "Juliana - Porto Alegre comprou seu exemplar!"
 ];
 
-// Função para exibir notificação
-function mostrarNotificacao() {
-  const nome = nomes[Math.floor(Math.random() * nomes.length)];
-  notificacao.textContent = `${nome} acabou de comprar o e-book!`;
-
+function mostrarNotificacao(mensagem) {
+  const notificacao = document.getElementById("notificacao-compra");
+  notificacao.textContent = mensagem;
   notificacao.style.display = "block";
 
-  // Some automaticamente depois de 3 segundos
   setTimeout(() => {
     notificacao.style.display = "none";
-  }, 3000);
+  }, 5000);
 }
 
 // Exibe notificações de tempos em tempos
-setInterval(mostrarNotificacao, 10000); // a cada 10s
+setInterval(() => {
+  const msg = notificacoes[Math.floor(Math.random() * notificacoes.length)];
+  mostrarNotificacao(msg);
+}, 12000); // a cada 12 segundos
+
+// Primeira notificação aparece após 5s
+setTimeout(() => {
+  const msg = notificacoes[Math.floor(Math.random() * notificacoes.length)];
+  mostrarNotificacao(msg);
+}, 5000);
