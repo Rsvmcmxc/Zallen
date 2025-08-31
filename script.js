@@ -15,39 +15,23 @@ const cidades = [
 
 const produto = "📖 Apocalipse: A Última Revelação";
 
-// Avatares fictícios (pode trocar por fotos reais ou IA)
-const avatares = [
-  "https://i.pravatar.cc/100?img=1",
-  "https://i.pravatar.cc/100?img=2",
-  "https://i.pravatar.cc/100?img=3",
-  "https://i.pravatar.cc/100?img=4",
-  "https://i.pravatar.cc/100?img=5",
-  "https://i.pravatar.cc/100?img=6",
-  "https://i.pravatar.cc/100?img=7",
-  "https://i.pravatar.cc/100?img=8"
-];
-
 function mostrarNotificacao() {
   const nome = nomes[Math.floor(Math.random() * nomes.length)];
   const cidade = cidades[Math.floor(Math.random() * cidades.length)];
-  const avatar = avatares[Math.floor(Math.random() * avatares.length)];
   
   notificacao.innerHTML = `
-    <img src="${avatar}" alt="Comprador">
-    <div>
-      ✅ <strong>${nome}</strong> de ${cidade}<br>
-      comprou <em>${produto}</em>
-    </div>
+    ✅ <strong>${nome}</strong> de ${cidade}<br>
+    comprou <em>${produto}</em>
   `;
-  notificacao.style.display = "flex";
+  notificacao.style.display = "block";
 
   setTimeout(() => {
     notificacao.style.display = "none";
-  }, 5000); // desaparece após 5 segundos
+  }, 5000); // some em 5s
 }
 
-// Exibe uma nova notificação a cada 25–45s
+// Exibe notificação a cada 25–45s
 setInterval(mostrarNotificacao, Math.floor(Math.random() * 20000) + 25000);
 
-// Primeira notificação em 6s
+// Primeira aparece em 6s
 setTimeout(mostrarNotificacao, 6000);
