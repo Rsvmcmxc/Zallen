@@ -19,9 +19,11 @@ header h1 {
   color: #f9f9f9;
 }
 
-/* Seção principal */
+/* Principal */
 .principal {
   padding: 30px 15px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .principal h2 {
@@ -29,9 +31,9 @@ header h1 {
   margin-bottom: 10px;
 }
 
-.principal p {
-  font-size: 16px;
-  margin-bottom: 15px;
+.capa-container {
+  display: flex;
+  justify-content: center;
 }
 
 .capa {
@@ -70,6 +72,8 @@ header h1 {
 /* Bônus */
 .bonus {
   padding: 30px 15px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .bonus h2 {
@@ -92,21 +96,15 @@ header h1 {
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-/* CTA final */
+/* CTA */
 .cta {
   padding: 30px 15px;
   background: #111;
   margin-top: 40px;
   border-radius: 8px;
-}
-
-.cta h2 {
-  font-size: 22px;
-}
-
-.cta p {
-  font-size: 15px;
-  margin-bottom: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Rodapé */
@@ -122,7 +120,7 @@ footer {
   position: fixed;
   top: 15px;
   right: 15px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
   padding: 10px 15px;
   border-radius: 6px;
@@ -151,4 +149,19 @@ footer {
   10% { opacity: 1; transform: translateY(0); }
   90% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Responsividade Desktop */
+@media (min-width: 768px) {
+  .principal p {
+    font-size: 18px;
+  }
+
+  .capa {
+    max-width: 350px;
+  }
+
+  .bonus-grid img {
+    max-width: 160px;
+  }
 }
