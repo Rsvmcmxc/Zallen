@@ -1,146 +1,143 @@
-/* Reset básico */
+/* ======== ESTILO GERAL ======== */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: #fff;
-  color: #333;
+  background: linear-gradient(180deg, #2c2c2c, #000000); /* fundo grafite → preto */
+  color: #f1f1f1;        
   text-align: center;
+  min-height: 100vh;
 }
 
-/* Cabeçalho */
 header {
-  background: #111;
-  color: #fff;
-  padding: 15px;
+  background: transparent;
+  padding: 10px;
+  border-bottom: 1px solid #444;
 }
 
-/* Seção principal */
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* ======== HERO ======== */
 .hero {
   padding: 20px;
 }
 
 .hero p {
-  margin: 10px 0 20px;
-  font-size: 1.1em;
+  color: #ddd;
 }
 
-/* Capa principal maior */
-.capa-principal {
-  max-width: 240px;
-  height: auto;
-  margin: 0 auto 20px;
-  display: block;
+.hero img {
+  max-width: 180px;
+  margin: 15px 0;
   border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
-/* Botão principal */
 .cta {
   display: inline-block;
+  margin-top: 10px;
+  padding: 12px 20px;
   background: #28a745;
   color: #fff;
-  padding: 12px 20px;
+  font-weight: bold;
   text-decoration: none;
-  font-size: 1.1em;
   border-radius: 5px;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .cta:hover {
   background: #218838;
 }
 
-/* Benefícios */
+/* ======== FEATURES ======== */
 .features {
   padding: 15px;
-  background: #f9f9f9;
-  margin: 20px 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto;
 }
 
 .features p {
   margin: 8px 0;
+  font-size: 0.95rem;
+  color: #f8f8f8;
 }
 
-/* Outros títulos */
-.outros-titulos {
-  margin-top: 30px;
-  padding: 10px;
+/* ======== GALERIA ======== */
+.galeria {
+  padding: 20px;
 }
 
-.outros-titulos h2 {
-  font-size: 1.3em;
-  margin-bottom: 20px;
-  color: #333;
+.galeria h2 {
+  margin-bottom: 15px;
+  color: #fff;
 }
 
-/* Grid de imagens */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  justify-items: center;
 }
 
-/* Capas menores */
-.capa-outros {
-  max-width: 160px;
-  height: auto;
-  margin: 10px;
+.grid img {
+  width: 100%;
+  max-width: 120px;   /* capas menores que a principal */
   border-radius: 5px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: transform 0.3s;
 }
 
-.capa-outros:hover {
+.grid img:hover {
   transform: scale(1.05);
 }
 
-/* Seção final CTA */
-#comprar {
-  background: #222;
-  color: #fff;
-  padding: 30px 20px;
+/* ======== CTA FINAL ======== */
+.cta-final {
+  margin: 40px 0;
 }
 
-#comprar h2 {
-  margin-bottom: 10px;
-}
-
-#comprar .btn {
+.btn {
   display: inline-block;
-  background: #ffc107;
-  color: #222;
-  padding: 12px 20px;
+  padding: 14px 25px;
+  background: #007bff;
+  color: #fff;
   text-decoration: none;
-  font-size: 1.2em;
   border-radius: 5px;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
-#comprar .btn:hover {
-  background: #e0a800;
+.btn:hover {
+  background: #0056b3;
 }
 
-/* Rodapé */
+/* ======== RODAPÉ ======== */
 footer {
-  background: #111;
-  color: #fff;
+  margin-top: 40px;
   padding: 15px;
-  font-size: 0.9em;
-  margin-top: 20px;
+  font-size: 0.85rem;
+  background: rgba(0,0,0,0.7);
+  color: #bbb;
+  border-top: 1px solid #444;
 }
 
-/* Notificação */
+/* ======== NOTIFICAÇÕES ======== */
 .notificacao {
-  display: none;
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  top: 20px;                  
+  left: 50%;
+  transform: translateX(-50%);
   background: #28a745;
-  color: #fff;
-  padding: 10px 15px;
+  color: white;
+  padding: 8px 15px;
   border-radius: 5px;
-  font-size: 0.9em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: none;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  z-index: 1000;
 }
