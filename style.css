@@ -2,23 +2,22 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: linear-gradient(180deg, #2c2c2c, #000000); /* fundo grafite → preto */
-  color: #f1f1f1;        
+  background: linear-gradient(180deg, #2b2b2b, #000000); /* fundo grafite */
+  color: #f1f1f1;
   text-align: center;
   min-height: 100vh;
 }
 
 header {
-  background: transparent;
-  padding: 10px;
-  border-bottom: 1px solid #444;
+  background: #111;
+  padding: 15px;
+  border-bottom: 1px solid #333;
 }
 
 header h1 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
-  color: #ffffff;
+  color: #fff;
 }
 
 /* ======== HERO ======== */
@@ -26,14 +25,11 @@ header h1 {
   padding: 20px;
 }
 
-.hero p {
-  color: #ddd;
-}
-
 .hero img {
-  max-width: 180px;
+  width: 220px;          /* capa principal menor */
+  height: auto;
   margin: 15px 0;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
@@ -55,17 +51,17 @@ header h1 {
 
 /* ======== FEATURES ======== */
 .features {
+  margin: 20px auto;
   padding: 15px;
   background: rgba(255,255,255,0.05);
   border-radius: 8px;
-  max-width: 600px;
-  margin: 20px auto;
+  max-width: 500px;
 }
 
 .features p {
-  margin: 8px 0;
+  margin: 6px 0;
   font-size: 0.95rem;
-  color: #f8f8f8;
+  color: #ddd;
 }
 
 /* ======== GALERIA ======== */
@@ -75,7 +71,6 @@ header h1 {
 
 .galeria h2 {
   margin-bottom: 15px;
-  color: #fff;
 }
 
 .grid {
@@ -87,8 +82,8 @@ header h1 {
 
 .grid img {
   width: 100%;
-  max-width: 120px;   /* capas menores que a principal */
-  border-radius: 5px;
+  max-width: 120px;
+  border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.7);
   transition: transform 0.3s;
 }
@@ -121,9 +116,9 @@ footer {
   margin-top: 40px;
   padding: 15px;
   font-size: 0.85rem;
-  background: rgba(0,0,0,0.7);
+  background: #111;
   color: #bbb;
-  border-top: 1px solid #444;
+  border-top: 1px solid #333;
 }
 
 /* ======== NOTIFICAÇÕES ======== */
