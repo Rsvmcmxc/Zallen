@@ -1,23 +1,22 @@
-const notificacao = document.getElementById("notificacao-compra");
-
-const pessoas = [
-  { nome: "João - São Paulo", img: "imagens/joao.jpg" },
-  { nome: "Cleide - Rio de Janeiro", img: "imagens/cleide.jpg" },
-  { nome: "Carlos - Belo Horizonte", img: "imagens/carlos.jpg" },
-  { nome: "Ana - Salvador", img: "imagens/ana.jpg" },
-  { nome: "Marcos - Curitiba", img: "imagens/marcos.jpg" }
+// Lista de notificações com fotos
+const notificacoes = [
+  { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/pessoas/ana.jpg" },
+  { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/pessoas/carlos.jpg" },
+  { nome: "Cleide - Salvador", mensagem: "fez sua compra agora mesmo!", foto: "imagens/pessoas/cleide.jpg" },
+  { nome: "João - Rio de Janeiro", mensagem: "adquiriu o guia completo!", foto: "imagens/pessoas/joao.jpg" }
 ];
 
 function mostrarNotificacao() {
-  const pessoa = pessoas[Math.floor(Math.random() * pessoas.length)];
-  notificacao.innerHTML = `<img src="${pessoa.img}" alt="Foto de ${pessoa.nome}"> 
-                           <span>${pessoa.nome} acabou de comprar o e-book!</span>`;
-  notificacao.style.display = "flex";
+  const div = document.getElementById("notificacao-compra");
+  const random = notificacoes[Math.floor(Math.random() * notificacoes.length)];
+
+  div.innerHTML = `<img src="${random.foto}" alt="Foto de ${random.nome}"><span>${random.nome} ${random.mensagem}</span>`;
+  div.classList.add("show");
 
   setTimeout(() => {
-    notificacao.style.display = "none";
-  }, 5000);
+    div.classList.remove("show");
+  }, 4000);
 }
 
-// Mostra a cada 15 segundos
-setInterval(mostrarNotificacao, 15000);
+// Exibe a cada 12 segundos
+setInterval(mostrarNotificacao, 12000);
