@@ -1,30 +1,44 @@
-// Lista de notificações simuladas
-const notificacoes = [
-  "Ana - Curitiba acabou de comprar o e-book!",
-  "Carlos - São Paulo garantiu o exemplar agora!",
-  "Talita - Recife fez a compra!",
-  "Diego - Belo Horizonte adquiriu o e-book!",
-  "Juliana - Porto Alegre comprou seu exemplar!"
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const pessoas = [
+    { nome: "Ana", cidade: "Curitiba", foto: "imagens/ana.jpg" },
+    { nome: "Carlos", cidade: "São Paulo", foto: "imagens/carlos.jpg" },
+    { nome: "Mariana", cidade: "Belo Horizonte", foto: "imagens/mariana.jpg" },
+    { nome: "João", cidade: "Rio de Janeiro", foto: "imagens/joao.jpg" },
+    { nome: "Cleide", cidade: "Recife", foto: "imagens/cleide.jpg" }
+  ];
 
-function mostrarNotificacao(mensagem) {
-  const notificacao = document.getElementById("notificacao-compra");
-  notificacao.textContent = mensagem;
-  notificacao.style.display = "block";
+  let ultimaPessoa = null;
 
-  setTimeout(() => {
-    notificacao.style.display = "none";
-  }, 5000);
-}
+  function mostrarNotificacao() {
+    let pessoa;
 
-// Exibe notificações de tempos em tempos
-setInterval(() => {
-  const msg = notificacoes[Math.floor(Math.random() * notificacoes.length)];
-  mostrarNotificacao(msg);
-}, 12000); // a cada 12 segundos
+    // Evitar repetição da mesma pessoa consecutiva
+    do {
+      pessoa = pessoas[Math.floor(Math.random() * pessoas.length)];
+    } while (pessoa === ultimaPessoa && pessoas.length > 1);
 
-// Primeira notificação aparece após 5s
-setTimeout(() => {
-  const msg = notificacoes[Math.floor(Math.random() * notificacoes.length)];
-  mostrarNotificacao(msg);
-}, 5000);
+    ultimaPessoa = pessoa;
+
+    const notificacao = document.createElement("div");
+    notificacao.classList.add("notificacao");
+
+    notificacao.innerHTML = `
+      <img src="${pessoa.foto}" alt="${pessoa.nome}">
+      <span><strong>${pessoa.nome}</strong> de ${pessoa.cidade} acabou de comprar o e-book!</span>
+    `;
+
+    document.body.appendChild(notificacao);
+
+    // Remove depois de 4 segundos
+    setTimeout(() => {
+      notificacao.classList.add("fade-out");
+      setTimeout(() => notificacao.remove(), 500);
+    }, 4000);
+  }
+
+  // Mostra a primeira notificação após 3s
+  setTimeout(mostrarNotificacao, 3000);
+
+  // Depois repete a cada 12s
+  setInterval(mostrarNotificacao, 12000);
+});
