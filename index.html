@@ -3,78 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📖 Apocalipse: A Última Revelação</title>
+  <title>Apocalipse: A Última Revelação</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Notificação -->
-  <div id="notificacao-compra" class="notificacao"></div>
-
-  <header>
+  <!-- HERO -->
+  <section class="hero">
     <h1>📖 Apocalipse: A Última Revelação</h1>
-  </header>
+    <p><strong>Explicando o livro de Apocalipse:</strong> entenda cada capítulo da Bíblia 📖</p>
+    <p>Descubra os mistérios do Apocalipse explicados em linguagem clara, prática e emocionante.</p>
+    <img src="ebook-cover.jpg" alt="Capa do E-book Apocalipse" class="hero-img">
+    <a href="#" class="btn-comprar">Quero meu e-book agora</a>
+    <ul class="garantias">
+      <li>✅ Pagamento 100% seguro</li>
+      <li>✅ Entrega imediata em PDF</li>
+      <li>✅ Acesso vitalício ao conteúdo</li>
+    </ul>
+  </section>
 
-  <main>
-    <section class="principal">
-      <h2>Explicando o livro de Apocalipse: entenda cada capítulo da Bíblia 📖</h2>
-      <p>Descubra os mistérios do Apocalipse explicados em linguagem clara, prática e emocionante.</p>
+  <!-- PRÉVIAS -->
+  <section class="previas">
+    <h2>📖 Prévia – Alguns dos conteúdos do e-book</h2>
+    <div class="bonus-container">
+      <div class="bonus-item"><img src="ebook1.jpg" alt="Prévia 1"></div>
+      <div class="bonus-item"><img src="ebook2.jpg" alt="Prévia 2"></div>
+      <div class="bonus-item"><img src="ebook3.jpg" alt="Prévia 3"></div>
+      <div class="bonus-item"><img src="ebook4.jpg" alt="Prévia 4"></div>
+      <div class="bonus-item"><img src="ebook5.jpg" alt="Prévia 5"></div>
+      <div class="bonus-item"><img src="ebook6.jpg" alt="Prévia 6"></div>
+      <div class="bonus-item"><img src="ebook7.jpg" alt="Prévia 7"></div>
+      <div class="bonus-item"><img src="ebook8.jpg" alt="Prévia 8"></div>
+    </div>
+  </section>
 
-      <div class="capa-container">
-        <img src="imagens/apocalipse-ultima-revelacao.jpg" alt="Apocalipse: A Última Revelação" class="capa">
-      </div>
+  <!-- BÔNUS -->
+  <section class="bonus">
+    <h2>+ 7 Bônus inclusos totalmente gratuito 🎁</h2>
+    <div class="bonus-container">
+      <div class="bonus-item"><img src="bonus1.jpg" alt="Bônus 1"></div>
+      <div class="bonus-item"><img src="bonus2.jpg" alt="Bônus 2"></div>
+      <div class="bonus-item"><img src="bonus3.jpg" alt="Bônus 3"></div>
+      <div class="bonus-item"><img src="bonus4.jpg" alt="Bônus 4"></div>
+      <div class="bonus-item"><img src="bonus5.jpg" alt="Bônus 5"></div>
+      <div class="bonus-item"><img src="bonus6.jpg" alt="Bônus 6"></div>
+      <div class="bonus-item"><img src="bonus7.jpg" alt="Bônus 7"></div>
+    </div>
+  </section>
 
-      <a href="https://pay.kiwify.com.br/ldvJYX8" class="btn">Quero meu e-book agora</a>
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <h2>Garanta já o seu exemplar</h2>
+    <p>Transforme sua compreensão do Apocalipse com este guia poderoso.</p>
+    <a href="#" class="btn-comprar">Comprar Agora</a>
+  </section>
 
-      <div class="beneficios">
-        <p>✔️ Pagamento 100% seguro</p>
-        <p>✔️ Entrega imediata em PDF</p>
-        <p>✔️ Acesso vitalício ao conteúdo</p>
-      </div>
-    </section>
-
-    <!-- SLIDER DE PRÉVIA -->
-    <section class="previa">
-      <h2>📖 Prévia – Alguns dos conteúdos do e-book</h2>
-      <div class="slider">
-        <div class="slides">
-          <div><img src="imagens/ebook1.jpg" alt="Prévia 1"></div>
-          <div><img src="imagens/ebook2.jpg" alt="Prévia 2"></div>
-          <div><img src="imagens/ebook3.jpg" alt="Prévia 3"></div>
-          <div><img src="imagens/ebook4.jpg" alt="Prévia 4"></div>
-          <div><img src="imagens/ebook5.jpg" alt="Prévia 5"></div>
-          <div><img src="imagens/ebook6.jpg" alt="Prévia 6"></div>
-          <div><img src="imagens/ebook7.jpg" alt="Prévia 7"></div>
-          <div><img src="imagens/ebook8.jpg" alt="Prévia 8"></div>
-        </div>
-        <button class="prev" onclick="mudarSlide(-1)">❮</button>
-        <button class="next" onclick="mudarSlide(1)">❯</button>
-      </div>
-    </section>
-
-    <section class="bonus">
-      <h2>+ 7 Bônus inclusos totalmente gratuito 🎁</h2>
-      <div class="bonus-grid">
-        <img src="imagens/despertar-das-cinzas.jpg" alt="Despertar das Cinzas">
-        <img src="imagens/contagem-do-apocalipse.jpg" alt="Contagem do Apocalipse">
-        <img src="imagens/novo-reinado-anticristo.jpg" alt="O Novo Reinado do Anticristo">
-        <img src="imagens/revelacoes-apocalipse.jpg" alt="Revelações do Apocalipse">
-        <img src="imagens/devocional-profetico.jpg" alt="Devocional Profético">
-        <img src="imagens/profecias-grande-tribulacao.jpg" alt="Profecias da Grande Tribulação">
-        <img src="imagens/profecias-como-se-preparar.jpg" alt="Profecias - Como se Preparar">
-      </div>
-    </section>
-
-    <section class="cta">
-      <h2>Garanta já o seu exemplar</h2>
-      <p>Transforme sua compreensão do Apocalipse com este guia poderoso.</p>
-      <a href="https://pay.kiwify.com.br/ldvJYX8" class="btn">Comprar Agora</a>
-    </section>
-  </main>
-
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Apocalipse: A Última Revelação. Todos os direitos reservados.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
