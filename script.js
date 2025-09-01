@@ -1,9 +1,9 @@
 // ===== NOTIFICAÇÕES =====
 const notificacoes = [
-  { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/pessoas/ana.jpg" },
-  { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/pessoas/carlos.jpg" },
-  { nome: "Cleide - Salvador", mensagem: "fez sua compra agora mesmo!", foto: "imagens/pessoas/cleide.jpg" },
-  { nome: "João - Rio de Janeiro", mensagem: "adquiriu o guia completo!", foto: "imagens/pessoas/joao.jpg" }
+  { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/ana.jpg" },
+  { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/carlos.jpg" },
+  { nome: "Cleide - Salvador", mensagem: "fez sua compra agora mesmo!", foto: "imagens/cleide.jpg" },
+  { nome: "João - Rio de Janeiro", mensagem: "adquiriu o guia completo!", foto: "imagens/joao.jpg" }
 ];
 
 function mostrarNotificacao() {
@@ -20,7 +20,7 @@ function mostrarNotificacao() {
   }, 4000);
 }
 
-// Exibe uma notificação a cada 12 segundos
+// Exibe a cada 12 segundos
 setInterval(mostrarNotificacao, 12000);
 
 // ===== CONTADOR PROMOCIONAL (sempre reseta) =====
@@ -38,11 +38,10 @@ function iniciarContador(duracaoSegundos) {
     if (tempo > 0) {
       tempo--;
     } else {
-      // Quando zera, recomeça de novo
-      tempo = duracaoSegundos;
+      tempo = duracaoSegundos; // reinicia
     }
   }, 1000);
 }
 
-// Sempre inicia em 2 horas (7200 segundos) a cada entrada no site
+// Sempre inicia em 2 horas (7200 segundos)
 iniciarContador(7200);
