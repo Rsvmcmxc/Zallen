@@ -1,4 +1,4 @@
-// ===== Notificações de Compras =====
+// Lista de notificações
 const notificacoes = [
   { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/ana.jpg" },
   { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/carlos.jpg" },
@@ -8,32 +8,25 @@ const notificacoes = [
 
 function mostrarNotificacao() {
   const div = document.getElementById("notificacao-compra");
+  if (!div) return;
   const random = notificacoes[Math.floor(Math.random() * notificacoes.length)];
-  div.innerHTML = `<img src="${random.foto}" alt="Foto de ${random.nome}"><span>${random.nome} ${random.mensagem}</span>`;
+  div.innerHTML = `<img src="${random.foto}" alt="Foto de ${random.nome}" onerror="this.style.display='none'">
+                   <span><strong>${random.nome}</strong> ${random.mensagem}</span>`;
   div.classList.add("show");
-
-  setTimeout(() => {
-    div.classList.remove("show");
-  }, 4000);
+  setTimeout(() => { div.classList.remove("show"); }, 4000);
 }
-
-// Exibe a cada 12 segundos
+setTimeout(mostrarNotificacao, 2000);
 setInterval(mostrarNotificacao, 12000);
 
-// ===== Slider =====
+// Slider
 let indice = 0;
-
 function mudarSlide(direcao) {
   const slides = document.querySelector(".slides");
   const total = slides.children.length;
-
   indice += direcao;
-
-  if (indice < 0) {
-    indice = total - 1;
-  } else if (indice >= total) {
-    indice = 0;
-  }
-
+  if (indice < 0) indice = total - 1;
+  else if (indice >= total) indice = 0;
   slides.style.transform = `translateX(${-indice * 100}%)`;
 }
+// Automático
+setInterval(() => { mudarSlide(1); }, 5000);
