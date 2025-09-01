@@ -1,3 +1,32 @@
+/* ===== FAIXA PROMOCIONAL ===== */
+.faixa-promo {
+  background: #e63946;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.faixa-promo .de {
+  text-decoration: line-through;
+  margin: 0 5px;
+  color: #ffdddd;
+}
+
+.faixa-promo .por {
+  color: #ffd700;
+}
+
+#contador {
+  margin-left: 10px;
+  background: #000;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
 /* ===== PREÇO ===== */
 .preco {
   font-size: 1.2rem;
