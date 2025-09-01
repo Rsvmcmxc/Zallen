@@ -1,22 +1,15 @@
-// ===== NOTIFICAÇÕES =====
+// ===== Notificações de Compras =====
 const notificacoes = [
-  { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/pessoas/ana.jpg" },
-  { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/pessoas/carlos.jpg" },
-  { nome: "Cleide - Salvador", mensagem: "fez sua compra agora mesmo!", foto: "imagens/pessoas/cleide.jpg" },
-  { nome: "João - Rio de Janeiro", mensagem: "adquiriu o guia completo!", foto: "imagens/pessoas/joao.jpg" }
+  { nome: "Ana - Curitiba", mensagem: "acabou de comprar o e-book!", foto: "imagens/ana.jpg" },
+  { nome: "Carlos - São Paulo", mensagem: "garantiu o acesso vitalício!", foto: "imagens/carlos.jpg" },
+  { nome: "Cleide - Salvador", mensagem: "fez sua compra agora mesmo!", foto: "imagens/cleide.jpg" },
+  { nome: "João - Rio de Janeiro", mensagem: "adquiriu o guia completo!", foto: "imagens/joao.jpg" }
 ];
 
 function mostrarNotificacao() {
   const div = document.getElementById("notificacao-compra");
-  if (!div) return;
-
   const random = notificacoes[Math.floor(Math.random() * notificacoes.length)];
-
-  div.innerHTML = `
-    <img src="${random.foto}" alt="Foto de ${random.nome}" onerror="this.style.display='none'">
-    <span><strong>${random.nome}</strong> ${random.mensagem}</span>
-  `;
-
+  div.innerHTML = `<img src="${random.foto}" alt="Foto de ${random.nome}"><span>${random.nome} ${random.mensagem}</span>`;
   div.classList.add("show");
 
   setTimeout(() => {
@@ -24,49 +17,23 @@ function mostrarNotificacao() {
   }, 4000);
 }
 
-// Primeira aparece após 2s
-setTimeout(mostrarNotificacao, 2000);
-
-// Depois a cada 12s
+// Exibe a cada 12 segundos
 setInterval(mostrarNotificacao, 12000);
 
-// ===== SLIDER =====
-const slides = document.querySelector(".slides");
-const imagens = document.querySelectorAll(".slides img");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-const indicatorsContainer = document.querySelector(".indicators");
+// ===== Slider =====
+let indice = 0;
 
-let index = 0;
+function mudarSlide(direcao) {
+  const slides = document.querySelector(".slides");
+  const total = slides.children.length;
 
-// Criar indicadores dinamicamente
-imagens.forEach((_, i) => {
-  const span = document.createElement("span");
-  if (i === 0) span.classList.add("active");
-  span.addEventListener("click", () => mostrarSlide(i));
-  indicatorsContainer.appendChild(span);
-});
+  indice += direcao;
 
-const indicadores = indicatorsContainer.querySelectorAll("span");
+  if (indice < 0) {
+    indice = total - 1;
+  } else if (indice >= total) {
+    indice = 0;
+  }
 
-function atualizarIndicadores() {
-  indicadores.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
-  });
+  slides.style.transform = `translateX(${-indice * 100}%)`;
 }
-
-function mostrarSlide(i) {
-  if (i < 0) index = imagens.length - 1;
-  else if (i >= imagens.length) index = 0;
-  else index = i;
-  slides.style.transform = `translateX(${-index * 100}%)`;
-  atualizarIndicadores();
-}
-
-if (prev && next) {
-  prev.addEventListener("click", () => mostrarSlide(index - 1));
-  next.addEventListener("click", () => mostrarSlide(index + 1));
-}
-
-// Troca automática a cada 5s
-setInterval(() => mostrarSlide(index + 1), 5000);
