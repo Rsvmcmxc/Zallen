@@ -1,157 +1,247 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ebook Limpeza & Lucro</title>
-<link rel="icon" href="https://cdn.pixabay.com/photo/2017/06/30/11/28/liquid-soap-2453603_1280.jpg" type="image/png">
-<style>
-/* Reset e global */
-* {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
-body {background:#f8f8f8; color:#333; overflow-x:hidden;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ebook Limpeza & Lucro</title>
+  <link rel="icon" href="https://cdn.pixabay.com/photo/2017/06/30/11/28/liquid-soap-2453603_1280.jpg" type="image/png">
+  <style>
+    /* Reset e global */
+    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+    body {background:#f8f8f8; color:#333; overflow-x:hidden;}
 
-/* Hero Section */
-.hero {
-  height:100vh;
-  background-image:url('https://cdn.pixabay.com/photo/2017/08/10/03/37/kitchen-2618407_1280.jpg');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-}
-.hero-overlay {
-  position:absolute; top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.4);
-}
-.hero-content {
-  position:relative;
-  color:#fff;
-  z-index:2;
-  max-width:90%;
-}
-.hero h1 {font-size:3rem; margin-bottom:20px; text-shadow:2px 2px 10px rgba(0,0,0,0.6);}
-.hero p {font-size:1.3rem; margin-bottom:25px; text-shadow:1px 1px 8px rgba(0,0,0,0.5);}
+    /* Hero Section */
+    .hero {
+      height:100vh;
+      background-image:url('https://cdn.pixabay.com/photo/2017/08/10/03/37/kitchen-2618407_1280.jpg');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      position:relative;
+    }
+    .hero-overlay {
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4);
+    }
+    .hero-content {
+      position:relative;
+      color:#fff;
+      z-index:2;
+      max-width:90%;
+    }
+    .hero h1 {font-size:3rem; margin-bottom:20px; text-shadow:2px 2px 10px rgba(0,0,0,0.6);}
+    .hero p {font-size:1.3rem; margin-bottom:25px; text-shadow:1px 1px 8px rgba(0,0,0,0.5);}
 
-/* Botão pulsante */
-.btn {
-  background:#ff6f00; color:#fff; padding:18px 40px; font-size:1.4rem;
-  border:none; border-radius:12px; cursor:pointer; text-decoration:none;
-  transition: transform 0.3s, box-shadow 0.3s; animation: pulse 1.2s infinite;
-  margin-bottom:15px; display:inline-block;
-}
-.btn:hover {transform:scale(1.1); box-shadow:0 0 20px rgba(255,111,0,0.7);}
-@keyframes pulse {0% {transform:scale(1);}50% {transform:scale(1.1);}100% {transform:scale(1);}}
+    /* Botão pulsante */
+    .btn {
+      background:#ff6f00; color:#fff; padding:18px 40px; font-size:1.4rem;
+      border:none; border-radius:12px; cursor:pointer; text-decoration:none;
+      transition: transform 0.3s, box-shadow 0.3s; animation: pulse 1.2s infinite;
+      margin-bottom:15px; display:inline-block;
+    }
+    .btn:hover {transform:scale(1.1); box-shadow:0 0 20px rgba(255,111,0,0.7);}
+    @keyframes pulse {0% {transform:scale(1);}50% {transform:scale(1.1);}100% {transform:scale(1);}}
 
-.price {
-  font-size:1.8rem; background:rgba(255,255,255,0.85); padding:12px 25px;
-  border-radius:12px; color:#333; display:inline-block; font-weight:bold; margin-bottom:15px;
-}
-.price del {color:#999; margin-right:15px;}
+    .price {
+      font-size:1.8rem; background:rgba(255,255,255,0.85); padding:12px 25px;
+      border-radius:12px; color:#333; display:inline-block; font-weight:bold; margin-bottom:15px;
+    }
+    .price del {color:#999; margin-right:15px;}
 
-.guarantee {
-  position:absolute; top:25px; right:25px;
-  background:gold; color:#333; padding:12px 18px;
-  font-weight:bold; border-radius:50%; box-shadow:0 0 15px gold;
-  font-size:1rem; animation: glow 1.5s infinite alternate;
-}
-@keyframes glow {0% {box-shadow:0 0 15px gold;} 100% {box-shadow:0 0 30px gold;}}
+    .guarantee {
+      position:absolute; top:25px; right:25px;
+      background:gold; color:#333; padding:12px 18px;
+      font-weight:bold; border-radius:50%; box-shadow:0 0 15px gold;
+      font-size:1rem; animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {0% {box-shadow:0 0 15px gold;} 100% {box-shadow:0 0 30px gold;}}
 
-.countdown {
-  font-size:1.4rem; color:#fff; background:red; padding:10px 18px;
-  border-radius:12px; font-weight:bold; text-shadow:1px 1px 5px rgba(0,0,0,0.5);
-  margin-bottom:25px; display:inline-block;
-}
+    .countdown {
+      font-size:1.4rem; color:#fff; background:red; padding:10px 18px;
+      border-radius:12px; font-weight:bold; text-shadow:1px 1px 5px rgba(0,0,0,0.5);
+      margin-bottom:25px; display:inline-block;
+    }
 
-/* Produtos */
-.products {padding:60px 20px; text-align:center; background:#fff;}
-.products h2 {font-size:2.2rem; margin-bottom:40px;}
-.product-grid {
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-  gap:25px; justify-items:center;
-}
-.product-grid img {
-  width:180px; border-radius:15px; transition: transform 0.4s, box-shadow 0.4s; cursor:pointer;
-}
-.product-grid img:hover {transform:scale(1.08); box-shadow:0 0 20px rgba(0,0,0,0.2);}
+    /* Produtos */
+    .products {padding:60px 20px; text-align:center; background:#fff;}
+    .products h2 {font-size:2.2rem; margin-bottom:40px;}
+    .product-grid {
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap:25px; justify-items:center;
+    }
+    .product-grid img {
+      width:180px; border-radius:15px; transition: transform 0.4s, box-shadow 0.4s; cursor:pointer;
+    }
+    .product-grid img:hover {transform:scale(1.08); box-shadow:0 0 20px rgba(0,0,0,0.2);}
 
-/* Footer */
-footer {text-align:center; padding:25px; font-size:0.9rem; background:#f1f1f1;}
+    /* Benefícios */
+    .benefits {
+      background:#f9f9f9; padding:60px 20px; text-align:center;
+    }
+    .benefits h2 {font-size:2rem; margin-bottom:25px;}
+    .benefits ul {list-style:none; max-width:600px; margin:0 auto; text-align:left; font-size:1.2rem;}
+    .benefits li {margin-bottom:12px;}
 
-/* Responsivo */
-@media(max-width:768px){
-  .hero h1 {font-size:2.2rem;} .hero p {font-size:1rem;}
-  .btn {padding:15px 30px; font-size:1.2rem;}
-  .price {font-size:1.4rem;} .countdown {font-size:1.2rem; padding:8px 15px;}
-}
-</style>
+    /* Depoimentos */
+    .testimonials {padding:60px 20px; background:#fff; text-align:center;}
+    .testimonials h2 {font-size:2rem; margin-bottom:35px;}
+    .testimonial-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px; max-width:1000px; margin:0 auto;
+    }
+    .testimonial {
+      background:#f1f1f1; padding:20px; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    .testimonial img {
+      width:60px; height:60px; border-radius:50%; margin-bottom:15px;
+    }
+    .testimonial p {font-size:1rem; margin-bottom:10px; font-style:italic;}
+    .testimonial span {font-weight:bold; color:#555;}
+
+    /* CTA Final */
+    .cta-final {background:#ff6f00; color:#fff; text-align:center; padding:60px 20px;}
+    .cta-final h2 {font-size:2rem; margin-bottom:15px;}
+    .cta-final p {font-size:1.2rem; margin-bottom:25px;}
+    .cta-final .btn {background:#fff; color:#ff6f00; font-weight:bold;}
+
+    /* Footer */
+    footer {text-align:center; padding:25px; font-size:0.9rem; background:#f1f1f1;}
+
+    /* Botão flutuante (mobile) */
+    .floating-btn {
+      position:fixed; bottom:20px; right:20px;
+      background:#ff6f00; color:#fff; padding:15px 25px;
+      border-radius:50px; text-decoration:none; font-weight:bold;
+      box-shadow:0 0 15px rgba(0,0,0,0.3);
+      display:none; z-index:999;
+    }
+    @media(max-width:768px){
+      .hero h1 {font-size:2.2rem;} .hero p {font-size:1rem;}
+      .btn {padding:15px 30px; font-size:1.2rem;}
+      .price {font-size:1.4rem;} .countdown {font-size:1.2rem; padding:8px 15px;}
+      .floating-btn {display:block;}
+    }
+  </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Ebook Limpeza & Lucro</h1>
-    <p>Transforme produtos simples em um negócio lucrativo!</p>
-    <div class="countdown" id="countdown">Oferta termina em 00:00:00</div>
-    <a href="#buy" class="btn">Adquira já</a>
-    <div class="price">De <del>109,90</del> por 29,90</div>
-  </div>
-  <div class="guarantee">7 dias</div>
-</section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Ebook Limpeza & Lucro</h1>
+      <p>Transforme produtos simples em um negócio lucrativo!</p>
+      <div class="countdown" id="countdown">Oferta termina em 00:00:00</div>
+      <a href="#buy" class="btn">Adquira já</a>
+      <div class="price">De <del>109,90</del> por 29,90</div>
+    </div>
+    <div class="guarantee">7 dias</div>
+  </section>
 
-<section class="products" id="buy">
-  <h2>Alguns Produtos do Ebook</h2>
-  <div class="product-grid">
-    <img src="https://cdn.pixabay.com/photo/2017/06/23/18/38/baking-soda-2430117_1280.jpg" alt="Bicarbonato">
-    <img src="https://cdn.pixabay.com/photo/2017/08/30/00/23/cleaning-2698664_1280.jpg" alt="Álcool">
-    <img src="https://cdn.pixabay.com/photo/2017/03/08/12/53/soap-2120986_1280.jpg" alt="Sabão Caseiro">
-    <img src="https://cdn.pixabay.com/photo/2017/06/30/11/28/liquid-soap-2453603_1280.jpg" alt="Sabonete Líquido">
-  </div>
-</section>
+  <!-- Produtos -->
+  <section class="products" id="buy">
+    <h2>Alguns Produtos do Ebook</h2>
+    <div class="product-grid">
+      <img src="https://cdn.pixabay.com/photo/2017/06/23/18/38/baking-soda-2430117_1280.jpg" alt="Bicarbonato">
+      <img src="https://cdn.pixabay.com/photo/2017/08/30/00/23/cleaning-2698664_1280.jpg" alt="Álcool">
+      <img src="https://cdn.pixabay.com/photo/2017/03/08/12/53/soap-2120986_1280.jpg" alt="Sabão Caseiro">
+      <img src="https://cdn.pixabay.com/photo/2017/06/30/11/28/liquid-soap-2453603_1280.jpg" alt="Sabonete Líquido">
+    </div>
+  </section>
 
-<footer>&copy; 2025 Limpeza & Lucro | Garantia de 7 dias</footer>
+  <!-- Benefícios -->
+  <section class="benefits">
+    <h2>Por que adquirir o Ebook?</h2>
+    <ul>
+      <li>✅ Aprenda receitas fáceis e lucrativas</li>
+      <li>✅ Transforme sua casa em uma fonte de renda</li>
+      <li>✅ Invista pouco e lucre muito</li>
+      <li>✅ Materiais simples e acessíveis</li>
+    </ul>
+  </section>
 
-<script>
-// Scroll suave
-document.querySelector('.btn').addEventListener('click', function(e){
-  e.preventDefault();
-  window.scrollTo({ top: document.querySelector('#buy').offsetTop - 20, behavior: 'smooth' });
-});
+  <!-- Depoimentos -->
+  <section class="testimonials">
+    <h2>O que dizem nossos leitores</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
+        <p>"Consegui uma renda extra vendendo sabonetes caseiros. O ebook mudou minha vida!"</p>
+        <span>- Mariana S.</span>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Cliente">
+        <p>"Aprendi receitas fáceis, comecei pequeno e hoje já tenho clientes fixos."</p>
+        <span>- João P.</span>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente">
+        <p>"Vale cada centavo! Já recuperei o investimento na primeira semana."</p>
+        <span>- Camila R.</span>
+      </div>
+    </div>
+  </section>
 
-// Contador aleatório para cada visitante
-function startRandomCountdown() {
-  const countdownEl = document.getElementById('countdown');
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <h2>Garanta já o seu Ebook Limpeza & Lucro</h2>
+    <p>Transforme conhecimento em lucro hoje mesmo!</p>
+    <a href="#buy" class="btn">Quero meu Ebook</a>
+  </section>
 
-  function randomFutureTime() {
-    const now = new Date();
-    const randomMinutes = Math.floor(Math.random() * (240 - 60 + 1)) + 60; // 60 a 240 min
-    return new Date(now.getTime() + randomMinutes*60000);
-  }
+  <!-- Footer -->
+  <footer>&copy; 2025 Limpeza & Lucro | Garantia de 7 dias</footer>
 
-  let endTime = randomFutureTime();
+  <!-- Botão fixo -->
+  <a href="#buy" class="floating-btn">📘 Comprar Agora</a>
 
-  function updateCountdown() {
-    const now = new Date();
-    if(now >= endTime) { endTime = randomFutureTime(); }
+  <script>
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
 
-    const diff = endTime - now;
-    const hours = Math.floor(diff / 1000 / 60 / 60);
-    const minutes = Math.floor((diff / 1000 / 60) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    // Contador aleatório
+    function startRandomCountdown() {
+      const countdownEl = document.getElementById('countdown');
 
-    countdownEl.textContent = `Oferta termina em ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-  }
+      function randomFutureTime() {
+        const now = new Date();
+        const randomMinutes = Math.floor(Math.random() * (240 - 60 + 1)) + 60; // 1 a 4h
+        return new Date(now.getTime() + randomMinutes * 60000);
+      }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-}
+      let endTime = randomFutureTime();
 
-startRandomCountdown();
-</script>
+      function updateCountdown() {
+        const now = new Date();
+        if (now >= endTime) {
+          endTime = randomFutureTime();
+        }
 
+        const diff = endTime - now;
+        const hours = Math.floor(diff / 1000 / 60 / 60);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        countdownEl.textContent =
+          `Oferta termina em ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    startRandomCountdown();
+  </script>
 </body>
 </html>
