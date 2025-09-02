@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +52,7 @@
       margin-top: 30px;
     }
     .hero img {
-      max-width: 280px;
+      max-width: 220px; /* capa menor e mais harmônica */
       border-radius: 10px;
     }
     section {
@@ -105,6 +106,7 @@
       margin: 40px auto;
       max-width: 500px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: relative;
     }
     .old-price {
       text-decoration: line-through;
@@ -115,6 +117,10 @@
       font-size: 2rem;
       color: #d32f2f;
       font-weight: bold;
+    }
+    .selo-garantia {
+      margin-top: 15px;
+      max-width: 120px;
     }
     .faq {
       max-width: 700px;
@@ -151,14 +157,18 @@
     <div class="hero">
       <img src="imagens/capa-ebook.jpg" alt="Capa do Ebook">
     </div>
-  </header>  <section>
+  </header>
+
+  <section>
     <h2>O que você vai encontrar</h2>
     <div class="benefits">
       <div class="benefit"><i class="fa-solid fa-spray-can"></i><p>Receitas de limpeza fáceis e lucrativas</p></div>
       <div class="benefit"><i class="fa-solid fa-leaf"></i><p>Fórmulas sustentáveis e econômicas</p></div>
       <div class="benefit"><i class="fa-solid fa-wallet"></i><p>Aumente sua renda com baixo investimento</p></div>
     </div>
-  </section>  <section>
+  </section>
+
+  <section>
     <h2>Um pouco do conteúdo do nosso Ebook</h2>
     <div class="prints">
       <img src="imagens/print1.jpg" alt="Print 1">
@@ -166,31 +176,40 @@
       <img src="imagens/print3.jpg" alt="Print 3">
       <img src="imagens/print4.jpg" alt="Print 4">
     </div>
-  </section>  <section class="testimonial">
+  </section>
+
+  <section class="testimonial">
     <h2>Resultados Reais</h2>
     <img src="imagens/whatsapp-feedback.png" alt="Feedback real do WhatsApp">
-  </section>  <section class="price-box">
+  </section>
+
+  <section class="price-box">
     <p class="old-price">De R$ 79,90</p>
     <p class="new-price">Por apenas R$ 29,90</p>
     <button class="cta-btn">Quero meu Ebook com desconto!</button>
     <p>Garantia de 7 dias ou seu dinheiro de volta!</p>
-  </section>  <section class="faq">
+    <img src="imagens/selo-garantia.png" alt="Selo de Garantia" class="selo-garantia">
+  </section>
+
+  <section class="faq">
     <h2>Perguntas Frequentes</h2>
-    <div class="faq-item">
-      <h3>Recebo na hora?</h3>
-      <p>Sim! Após a compra você recebe o acesso imediato por e-mail.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Preciso de experiência?</h3>
-      <p>Não! O conteúdo foi feito para iniciantes e profissionais.</p>
-    </div>
-    <div class="faq-item">
-      <h3>É seguro comprar?</h3>
-      <p>Sim! Pagamento 100% seguro e com garantia.</p>
-    </div>
-  </section>  <footer>
+    <div class="faq-item"><h3>Recebo na hora?</h3><p>Sim! Após a compra você recebe o acesso imediato por e-mail.</p></div>
+    <div class="faq-item"><h3>Preciso de experiência?</h3><p>Não! O conteúdo foi feito para iniciantes e profissionais.</p></div>
+    <div class="faq-item"><h3>É seguro comprar?</h3><p>Sim! Pagamento 100% seguro e com garantia.</p></div>
+    <div class="faq-item"><h3>Posso acessar pelo celular?</h3><p>Sim, o ebook é compatível com celular, tablet e computador.</p></div>
+    <div class="faq-item"><h3>O que acontece se eu não gostar?</h3><p>Você tem 7 dias para pedir reembolso sem burocracia.</p></div>
+    <div class="faq-item"><h3>Posso revender os produtos ensinados?</h3><p>Sim! O ebook mostra como produzir e vender para aumentar sua renda.</p></div>
+    <div class="faq-item"><h3>O ebook tem suporte?</h3><p>Sim, oferecemos suporte por e-mail para tirar dúvidas.</p></div>
+    <div class="faq-item"><h3>O desconto é por tempo limitado?</h3><p>Sim, essa oferta pode sair do ar a qualquer momento.</p></div>
+    <div class="faq-item"><h3>Preciso investir muito para começar?</h3><p>Não, as receitas usam ingredientes acessíveis e de baixo custo.</p></div>
+    <div class="faq-item"><h3>É para qualquer idade?</h3><p>Sim, qualquer pessoa pode aprender e aplicar.</p></div>
+  </section>
+
+  <footer>
     <p>&copy; 2025 Limpeza & Lucro - Todos os direitos reservados.</p>
-  </footer>  <script>
+  </footer>
+
+  <script>
     const faqItems = document.querySelectorAll('.faq-item h3');
     faqItems.forEach(item => {
       item.addEventListener('click', () => {
@@ -198,5 +217,6 @@
         content.style.display = content.style.display === 'block' ? 'none' : 'block';
       });
     });
-  </script></body>
+  </script>
+</body>
 </html>
