@@ -3,208 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ebook Produtos de Limpeza Caseiros</title>
+  <title>Ebook Limpeza & Lucro</title>
   <style>
-    /* Fundo geral do site */
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #e0f7fa, #e8f5e9);
-      color:#333;
-      overflow-x:hidden;
-      line-height:1.45;
-      position: relative;
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background: #f7f9fc;
+      color: #333;
     }
 
-    /* Bolhas no fundo do site */
-    body::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url('https://png.pngtree.com/png-vector/20201225/ourmid/pngtree-soap-bubbles-png-image_2631681.jpg');
-      background-size:250px;
-      opacity:0.07;
-      pointer-events:none;
-      z-index:-1;
+    header {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
     }
 
-    h1, h2, h3{
-      text-align:center;
-      color:#00695c;
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
-    p.lead{
-      text-align:center;
-      font-size:1.2em;
-      color:#444;
+    header p {
+      font-size: 1.2rem;
     }
 
-    /* FAQ */
-    .faq{
-      background:#fff;
-      border-radius: 20px;
-      margin: 40px auto;
+    .cta-button {
+      display: inline-block;
+      background: #e74c3c;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .timer {
+      font-size: 1.4rem;
+      color: #c0392b;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .benefits, .faq, .testimonials {
+      padding: 50px 20px;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .benefits h2, .faq h2, .testimonials h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .benefit-box {
+      display: inline-block;
+      width: 220px;
+      margin: 15px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .benefit-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #27ae60;
+    }
+
+    .faq-item {
+      text-align: left;
+      margin: 15px auto;
+      max-width: 800px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .faq-item h4 {
+      margin-bottom: 10px;
+      color: #27ae60;
+    }
+
+    .testimonials img {
+      width: 280px;
+      margin: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .guarantee {
+      text-align: center;
       padding: 40px 20px;
-      max-width: 900px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+      background: #fff;
     }
 
-    .accordion .item{
-      margin-bottom:15px;
-      border-bottom:1px solid #eee;
+    .guarantee img {
+      width: 160px;
+      margin-bottom: 15px;
     }
 
-    .accordion button{
-      width:100%;
-      padding:15px;
-      text-align:left;
-      background:none;
-      border:none;
-      font-size:1em;
-      font-weight:bold;
-      color:#00695c;
-      cursor:pointer;
-      outline:none;
-    }
-
-    .accordion .content{
-      display:none;
-      padding:0 15px 15px;
-      font-size:.95em;
-      color:#555;
-    }
-
-    .accordion .item.active .content{
-      display:block;
-    }
-
-    /* Call-to-action */
-    .cta{
-      text-align:center;
-      margin:40px 0;
-    }
-
-    .cta a{
-      background:#009688;
-      color:#fff;
-      padding:15px 30px;
-      border-radius:30px;
-      text-decoration:none;
-      font-size:1.2em;
-      font-weight:bold;
-      box-shadow:0 6px 15px rgba(0,0,0,.2);
-      transition:.3s;
-    }
-
-    .cta a:hover{
-      background:#00796b;
-      transform:scale(1.05);
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Receitas de Produtos de Limpeza Caseiros</h1>
-    <p class="lead">Economize, cuide do meio ambiente e até lucre com seu próprio negócio.</p>
+    <h1>Ebook Limpeza & Lucro</h1>
+    <p>Mais de <strong>70 receitas exclusivas</strong> para economizar, cuidar da sua casa e ainda lucrar com produtos caseiros!</p>
+    <div class="timer" id="countdown"></div>
+    <a href="#comprar" class="cta-button">Quero meu Ebook Agora</a>
   </header>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="wrap">
-      <h2>Perguntas Frequentes</h2>
-      <p class="lead">Tire suas dúvidas antes de comprar.</p>
-
-      <div class="accordion">
-        <div class="item">
-          <button>As receitas são fáceis de fazer?</button>
-          <div class="content">
-            <p>Sim! Todas as receitas foram elaboradas em passo a passo claro, para qualquer pessoa conseguir preparar, mesmo sem experiência.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Preciso de equipamentos especiais?</button>
-          <div class="content">
-            <p>Não. Os produtos podem ser feitos com utensílios simples que você já tem em casa, como panelas, baldes e colheres.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Os ingredientes são fáceis de encontrar?</button>
-          <div class="content">
-            <p>Sim. Todos os ingredientes estão disponíveis em supermercados, casas de produtos químicos ou lojas online a preços acessíveis.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Qual o custo médio de produção?</button>
-          <div class="content">
-            <p>O custo é bem baixo! É possível produzir sabão líquido, amaciante ou desinfetante gastando de 5 a 10 vezes menos do que comprando no mercado.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Quanto rende cada receita?</button>
-          <div class="content">
-            <p>O rendimento varia de acordo com a receita. Algumas produzem 2 litros, outras até 10 litros de produto pronto.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Posso vender os produtos que eu fizer?</button>
-          <div class="content">
-            <p>Com certeza! O eBook traz dicas de precificação, embalagem e vendas no WhatsApp e Instagram para você lucrar com suas produções.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Esses produtos realmente limpam bem?</button>
-          <div class="content">
-            <p>Sim. Todas as receitas foram testadas para garantir qualidade, espuma, fragrância e poder de limpeza equivalentes ou superiores aos produtos industrializados.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Por quanto tempo posso armazenar?</button>
-          <div class="content">
-            <p>Em geral, os produtos caseiros têm validade média de 6 meses se armazenados corretamente em recipientes bem fechados e fora da luz solar direta.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>O eBook é digital ou impresso?</button>
-          <div class="content">
-            <p>O eBook é totalmente digital (PDF). Você recebe imediatamente após a compra e pode acessar do celular, computador ou imprimir se preferir.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button>Como recebo o eBook depois da compra?</button>
-          <div class="content">
-            <p>Assim que o pagamento for confirmado, você recebe automaticamente o eBook no e-mail informado na hora da compra.</p>
-          </div>
-        </div>
-      </div>
+  <section class="benefits">
+    <h2>Por que escolher o Ebook Limpeza & Lucro?</h2>
+    <div class="benefit-box">
+      <h3>💰 Economize</h3>
+      <p>Reduza drasticamente seus gastos com produtos de limpeza.</p>
+    </div>
+    <div class="benefit-box">
+      <h3>🌱 Sustentável</h3>
+      <p>Receitas ecológicas que cuidam da sua saúde e do planeta.</p>
+    </div>
+    <div class="benefit-box">
+      <h3>📘 Prático</h3>
+      <p>Passo a passo simples, com ingredientes fáceis de encontrar.</p>
+    </div>
+    <div class="benefit-box">
+      <h3>💼 Lucrativo</h3>
+      <p>Transforme as receitas em um negócio rentável.</p>
     </div>
   </section>
 
-  <!-- Call to action -->
-  <div class="cta">
-    <h2>Pronto para começar?</h2>
-    <p>Adquira agora seu eBook e transforme sua rotina de limpeza gastando muito menos.</p>
-    <a href="#">Comprar Agora</a>
+  <section class="testimonials">
+    <h2>Depoimentos de Clientes</h2>
+    <img src="whatsapp-feedback.png" alt="Depoimento cliente">
+  </section>
+
+  <section class="guarantee">
+    <img src="selo-garantia.png" alt="Selo de Garantia">
+    <p>Compra 100% Segura. Satisfação Garantida ou seu dinheiro de volta!</p>
+  </section>
+
+  <section class="faq">
+    <h2>Perguntas Frequentes</h2>
+
+    <div class="faq-item">
+      <h4>As receitas são fáceis de fazer?</h4>
+      <p>Sim! São todas testadas e explicadas passo a passo.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Preciso de equipamentos especiais?</h4>
+      <p>Não, você consegue produzir tudo com utensílios básicos de casa.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Os ingredientes são fáceis de encontrar?</h4>
+      <p>Sim, você encontra todos em supermercados e lojas comuns.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Qual o custo médio de produção?</h4>
+      <p>Muito baixo! Você gasta centavos para produtos que custam muito no mercado.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Posso vender os produtos que eu fizer?</h4>
+      <p>Com certeza! Muitos clientes transformaram isso em renda extra.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center; padding:40px;">
+    <a href="#comprar" class="cta-button">Garantir meu Ebook Agora</a>
   </div>
 
-  <script>
-    // Script simples para abrir/fechar FAQ
-    const items = document.querySelectorAll(".accordion .item");
-    items.forEach(item => {
-      item.querySelector("button").addEventListener("click", () => {
-        item.classList.toggle("active");
-      });
-    });
-  </script>
+  <footer>
+    <p>© 2025 Ebook Limpeza & Lucro - Todos os direitos reservados.</p>
+  </footer>
 
+  <script>
+    // Cronômetro regressivo
+    function startCountdown(duration, display) {
+      let timer = duration, minutes, seconds;
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = "Oferta expira em: " + minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+
+    window.onload = function () {
+      let fiveMinutes = 60 * 5,
+        display = document.querySelector('#countdown');
+      startCountdown(fiveMinutes, display);
+    };
+  </script>
 </body>
 </html>
