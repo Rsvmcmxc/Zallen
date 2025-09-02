@@ -7,241 +7,289 @@
   <link rel="icon" href="https://cdn.pixabay.com/photo/2017/06/30/11/28/liquid-soap-2453603_1280.jpg" type="image/png">
   <style>
     /* Reset e global */
-    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
-    body {background:#f8f8f8; color:#333; overflow-x:hidden;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    body{background:#f8f8f8;color:#333;overflow-x:hidden;line-height:1.45}
 
-    /* Hero Section */
-    .hero {
-      height:100vh;
-      background-image:url('https://cdn.pixabay.com/photo/2017/08/10/03/37/kitchen-2618407_1280.jpg');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      position:relative;
+    /* Hero */
+    .hero{
+      min-height:100vh;
+      background-image:url('https://images.unsplash.com/photo-1585386959984-a4155223168f?q=80&w=1400&auto=format&fit=crop');
+      background-size:cover;background-position:center;
+      display:flex;align-items:center;justify-content:center;position:relative;text-align:center;padding:80px 20px
     }
-    .hero-overlay {
-      position:absolute; top:0; left:0; width:100%; height:100%;
-      background:rgba(0,0,0,0.4);
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.35));}
+    .hero-content{position:relative;color:#fff;max-width:900px}
+    .hero h1{font-size:3rem;margin-bottom:14px;text-shadow:2px 2px 10px rgba(0,0,0,.6)}
+    .hero p{font-size:1.2rem;margin-bottom:18px;text-shadow:1px 1px 8px rgba(0,0,0,.5)}
+    .badge-big{
+      display:inline-block;margin:10px 0 18px;background:#00c853;color:#fff;
+      padding:10px 16px;border-radius:999px;font-weight:700;box-shadow:0 8px 25px rgba(0,200,83,.35)
     }
-    .hero-content {
-      position:relative;
-      color:#fff;
-      z-index:2;
-      max-width:90%;
+    .countdown{display:inline-block;font-size:1.1rem;color:#fff;background:#e53935;padding:10px 16px;border-radius:12px;font-weight:700;margin:10px 0 18px}
+    .btn{
+      background:#ff6f00;color:#fff;padding:16px 34px;font-size:1.15rem;border:0;border-radius:12px;
+      cursor:pointer;text-decoration:none;display:inline-block;transition:transform .25s,box-shadow .25s;animation:pulse 1.2s infinite
     }
-    .hero h1 {font-size:3rem; margin-bottom:20px; text-shadow:2px 2px 10px rgba(0,0,0,0.6);}
-    .hero p {font-size:1.3rem; margin-bottom:25px; text-shadow:1px 1px 8px rgba(0,0,0,0.5);}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(255,111,0,.35)}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+    .price{font-size:1.4rem;background:rgba(255,255,255,.9);padding:10px 18px;border-radius:12px;color:#333;display:inline-block;font-weight:700;margin-top:12px}
+    .price del{color:#888;margin-right:10px}
 
-    /* Botão pulsante */
-    .btn {
-      background:#ff6f00; color:#fff; padding:18px 40px; font-size:1.4rem;
-      border:none; border-radius:12px; cursor:pointer; text-decoration:none;
-      transition: transform 0.3s, box-shadow 0.3s; animation: pulse 1.2s infinite;
-      margin-bottom:15px; display:inline-block;
-    }
-    .btn:hover {transform:scale(1.1); box-shadow:0 0 20px rgba(255,111,0,0.7);}
-    @keyframes pulse {0% {transform:scale(1);}50% {transform:scale(1.1);}100% {transform:scale(1);}}
-
-    .price {
-      font-size:1.8rem; background:rgba(255,255,255,0.85); padding:12px 25px;
-      border-radius:12px; color:#333; display:inline-block; font-weight:bold; margin-bottom:15px;
-    }
-    .price del {color:#999; margin-right:15px;}
-
-    .guarantee {
-      position:absolute; top:25px; right:25px;
-      background:gold; color:#333; padding:12px 18px;
-      font-weight:bold; border-radius:50%; box-shadow:0 0 15px gold;
-      font-size:1rem; animation: glow 1.5s infinite alternate;
-    }
-    @keyframes glow {0% {box-shadow:0 0 15px gold;} 100% {box-shadow:0 0 30px gold;}}
-
-    .countdown {
-      font-size:1.4rem; color:#fff; background:red; padding:10px 18px;
-      border-radius:12px; font-weight:bold; text-shadow:1px 1px 5px rgba(0,0,0,0.5);
-      margin-bottom:25px; display:inline-block;
-    }
-
-    /* Produtos */
-    .products {padding:60px 20px; text-align:center; background:#fff;}
-    .products h2 {font-size:2.2rem; margin-bottom:40px;}
-    .product-grid {
-      display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-      gap:25px; justify-items:center;
-    }
-    .product-grid img {
-      width:180px; border-radius:15px; transition: transform 0.4s, box-shadow 0.4s; cursor:pointer;
-    }
-    .product-grid img:hover {transform:scale(1.08); box-shadow:0 0 20px rgba(0,0,0,0.2);}
+    /* Seções genéricas */
+    section{scroll-margin-top:80px}
+    .wrap{max-width:1100px;margin:0 auto;padding:60px 20px}
 
     /* Benefícios */
-    .benefits {
-      background:#f9f9f9; padding:60px 20px; text-align:center;
+    .benefits{background:#fff}
+    .benefits h2{font-size:2rem;margin-bottom:18px;text-align:center}
+    .benefits p.sub{max-width:700px;margin:0 auto 28px;text-align:center;color:#666}
+    .benefit-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px
     }
-    .benefits h2 {font-size:2rem; margin-bottom:25px;}
-    .benefits ul {list-style:none; max-width:600px; margin:0 auto; text-align:left; font-size:1.2rem;}
-    .benefits li {margin-bottom:12px;}
+    .card{
+      background:#f7f7f7;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)
+    }
+    .card b{display:block;margin-bottom:6px}
 
     /* Depoimentos */
-    .testimonials {padding:60px 20px; background:#fff; text-align:center;}
-    .testimonials h2 {font-size:2rem; margin-bottom:35px;}
-    .testimonial-grid {
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-      gap:25px; max-width:1000px; margin:0 auto;
+    .testimonials{background:#fff}
+    .testimonials h2{
+      text-align:center;
+      font-size:1.8rem;
+      margin-bottom:28px;
     }
-    .testimonial {
-      background:#f1f1f1; padding:20px; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.1);
+    .testi-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+      max-width:900px;
+      margin:0 auto;
     }
-    .testimonial img {
-      width:60px; height:60px; border-radius:50%; margin-bottom:15px;
+    .testi{
+      background:#f7f7f7;
+      border-radius:14px;
+      padding:18px;
+      font-size:1rem;
+      color:#444;
+      box-shadow:0 2px 10px rgba(0,0,0,.05);
     }
-    .testimonial p {font-size:1rem; margin-bottom:10px; font-style:italic;}
-    .testimonial span {font-weight:bold; color:#555;}
+    .testi p{margin-bottom:10px;font-style:italic}
+    .testi span{font-size:.9rem;color:#666}
+
+    /* O que vem no eBook / FAQ */
+    .faq{background:#f9f9f9}
+    .faq h2{font-size:2rem;margin-bottom:10px;text-align:center}
+    .faq .lead{text-align:center;color:#666;margin-bottom:24px}
+    .accordion{max-width:900px;margin:0 auto}
+    .item{border-radius:14px;background:#fff;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.05);overflow:hidden}
+    .item button{
+      width:100%;text-align:left;background:#fff;border:0;padding:18px 20px;font-size:1.05rem;font-weight:700;cursor:pointer
+    }
+    .item button:after{content:"+";float:right;font-weight:700}
+    .item.open button:after{content:"–"}
+    .content{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 20px}
+    .item.open .content{max-height:420px;padding:0 20px 18px}
+    .content ul{margin-left:18px}
+    .content li{margin:6px 0}
+
+    /* Galeria WhatsApp */
+    .whatsapp-reais{background:#fff}
+    .whatsapp-reais h2{text-align:center;font-size:2rem;margin-bottom:10px}
+    .whatsapp-reais p.sub{text-align:center;color:#666;margin:0 auto 24px;max-width:720px}
+    .galeria{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1000px;margin:0 auto
+    }
+    .galeria img{width:100%;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .25s}
+    .galeria img:hover{transform:scale(1.03)}
 
     /* CTA Final */
-    .cta-final {background:#ff6f00; color:#fff; text-align:center; padding:60px 20px;}
-    .cta-final h2 {font-size:2rem; margin-bottom:15px;}
-    .cta-final p {font-size:1.2rem; margin-bottom:25px;}
-    .cta-final .btn {background:#fff; color:#ff6f00; font-weight:bold;}
-
-    /* Footer */
-    footer {text-align:center; padding:25px; font-size:0.9rem; background:#f1f1f1;}
+    .cta-final{background:#ff6f00;color:#fff;text-align:center}
+    .cta-final h2{font-size:2rem;margin-bottom:10px}
+    .cta-final p{font-size:1.1rem;margin-bottom:18px}
+    .cta-final .btn{background:#fff;color:#ff6f00;font-weight:700}
+    footer{text-align:center;padding:24px;background:#f1f1f1;font-size:.95rem}
 
     /* Botão flutuante (mobile) */
-    .floating-btn {
-      position:fixed; bottom:20px; right:20px;
-      background:#ff6f00; color:#fff; padding:15px 25px;
-      border-radius:50px; text-decoration:none; font-weight:bold;
-      box-shadow:0 0 15px rgba(0,0,0,0.3);
-      display:none; z-index:999;
+    .floating-btn{
+      position:fixed;bottom:20px;right:20px;background:#ff6f00;color:#fff;padding:14px 22px;border-radius:999px;
+      text-decoration:none;font-weight:700;box-shadow:0 10px 22px rgba(0,0,0,.25);display:none;z-index:999
     }
-    @media(max-width:768px){
-      .hero h1 {font-size:2.2rem;} .hero p {font-size:1rem;}
-      .btn {padding:15px 30px; font-size:1.2rem;}
-      .price {font-size:1.4rem;} .countdown {font-size:1.2rem; padding:8px 15px;}
-      .floating-btn {display:block;}
+
+    @media (max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+      .btn{padding:14px 26px;font-size:1rem}
+      .floating-btn{display:inline-block}
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Ebook Limpeza & Lucro</h1>
-      <p>Transforme produtos simples em um negócio lucrativo!</p>
-      <div class="countdown" id="countdown">Oferta termina em 00:00:00</div>
-      <a href="#buy" class="btn">Adquira já</a>
+      <p>Transforme produtos simples em um negócio lucrativo a partir de casa.</p>
+
+      <!-- destaque pedido -->
+      <div class="badge-big">📘 Mais de <b>70 receitas completas</b> com instruções para fazer em casa e economizar/lucrar</div>
+
+      <div class="countdown" id="countdown">Oferta termina em 00:00:00</div><br>
+      <a href="#cta" class="btn">Adquira já</a>
       <div class="price">De <del>109,90</del> por 29,90</div>
     </div>
-    <div class="guarantee">7 dias</div>
   </section>
 
-  <!-- Produtos -->
-  <section class="products" id="buy">
-    <h2>Alguns Produtos do Ebook</h2>
-    <div class="product-grid">
-      <img src="https://cdn.pixabay.com/photo/2017/06/23/18/38/baking-soda-2430117_1280.jpg" alt="Bicarbonato">
-      <img src="https://cdn.pixabay.com/photo/2017/08/30/00/23/cleaning-2698664_1280.jpg" alt="Álcool">
-      <img src="https://cdn.pixabay.com/photo/2017/03/08/12/53/soap-2120986_1280.jpg" alt="Sabão Caseiro">
-      <img src="https://cdn.pixabay.com/photo/2017/06/30/11/28/liquid-soap-2453603_1280.jpg" alt="Sabonete Líquido">
+  <!-- BENEFÍCIOS -->
+  <section class="benefits" id="beneficios">
+    <div class="wrap">
+      <h2>Benefícios do eBook</h2>
+      <p class="sub">Conteúdo prático para começar hoje mesmo, mesmo que você seja iniciante.</p>
+      <div class="benefit-grid">
+        <div class="card"><b>✅ Passo a passo claro</b>Receitas explicadas do início ao fim, sem segredos.</div>
+        <div class="card"><b>✅ Baixo custo</b>Ingredientes acessíveis e fáceis de encontrar.</div>
+        <div class="card"><b>✅ Foco em lucro</b>Dicas de preço, embalagem e venda no WhatsApp/Instagram.</div>
+        <div class="card"><b>✅ Tempo otimizado</b>Rotas de preparo para fazer mais em menos tempo.</div>
+      </div>
     </div>
   </section>
 
-  <!-- Benefícios -->
-  <section class="benefits">
-    <h2>Por que adquirir o Ebook?</h2>
-    <ul>
-      <li>✅ Aprenda receitas fáceis e lucrativas</li>
-      <li>✅ Transforme sua casa em uma fonte de renda</li>
-      <li>✅ Invista pouco e lucre muito</li>
-      <li>✅ Materiais simples e acessíveis</li>
-    </ul>
-  </section>
-
-  <!-- Depoimentos -->
+  <!-- DEPOIMENTOS -->
   <section class="testimonials">
-    <h2>O que dizem nossos leitores</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
-        <p>"Consegui uma renda extra vendendo sabonetes caseiros. O ebook mudou minha vida!"</p>
-        <span>- Mariana S.</span>
-      </div>
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Cliente">
-        <p>"Aprendi receitas fáceis, comecei pequeno e hoje já tenho clientes fixos."</p>
-        <span>- João P.</span>
-      </div>
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente">
-        <p>"Vale cada centavo! Já recuperei o investimento na primeira semana."</p>
-        <span>- Camila R.</span>
+    <div class="wrap">
+      <h2>O que estão dizendo 📲</h2>
+      <div class="testi-grid">
+        <div class="testi">
+          <p>“As receitas são super fáceis e já economizei muito na limpeza de casa. Recomendo!”</p>
+          <span>— Ana, Recife</span>
+        </div>
+        <div class="testi">
+          <p>“Comecei a vender pelo WhatsApp e já fiz minhas primeiras vendas. Investimento que valeu a pena.”</p>
+          <span>— Carlos, São Paulo</span>
+        </div>
+        <div class="testi">
+          <p>“Achei que seria difícil, mas é tudo muito explicado no eBook. Até meu filho ajuda a preparar.”</p>
+          <span>— Juliana, Curitiba</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Final -->
-  <section class="cta-final">
-    <h2>Garanta já o seu Ebook Limpeza & Lucro</h2>
-    <p>Transforme conhecimento em lucro hoje mesmo!</p>
-    <a href="#buy" class="btn">Quero meu Ebook</a>
+  <!-- O QUE VEM NO EBOOK / FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <h2>O que vem no eBook?</h2>
+      <p class="lead">Tire suas dúvidas antes de comprar.</p>
+
+      <div class="accordion">
+        <div class="item">
+          <button type="button">Quais tipos de receitas?</button>
+          <div class="content">
+            <ul>
+              <li>Sabonete líquido, detergente, desinfetante, amaciante, multiuso, sabão em barra e mais.</li>
+              <li>Versões premium e econômicas para diferentes públicos.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button">As receitas têm medidas exatas?</button>
+          <div class="content">
+            <p>Sim. Todas as receitas incluem lista de materiais, quantidades, rendimento, tempo de preparo e observações importantes.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button">Vem com dicas de venda e lucro?</button>
+          <div class="content">
+            <ul>
+              <li>Precificação simples por custo e margem.</li>
+              <li>Como calcular rendimento por lote.</li>
+              <li>Modelos de anúncio e mensagem para WhatsApp.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button">Preciso de equipamentos caros?</button>
+          <div class="content">
+            <p>Não. Você consegue começar com utensílios domésticos e alguns recipientes. Indicamos alternativas baratas quando necessário.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button">Tenho suporte se tiver dúvidas?</button>
+          <div class="content">
+            <p>Sim. Após a compra você recebe um contato de suporte por e-mail/WhatsApp para tirar dúvidas rápidas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer>&copy; 2025 Limpeza & Lucro | Garantia de 7 dias</footer>
+  <!-- GALERIA DE CONVERSAS REAIS -->
+  <section class="whatsapp-reais" id="provas">
+    <div class="wrap">
+      <h2>Feedbacks reais no WhatsApp 📲</h2>
+      <p class="sub">Agradecimentos, indicações e resultados de quem já está aplicando as receitas.</p>
 
-  <!-- Botão fixo -->
-  <a href="#buy" class="floating-btn">📘 Comprar Agora</a>
+      <div class="galeria">
+        <img src="imagens/whatsapp1.jpg" alt="Conversa WhatsApp 1">
+        <img src="imagens/whatsapp2.jpg" alt="Conversa WhatsApp 2">
+        <img src="imagens/whatsapp3.jpg" alt="Conversa WhatsApp 3">
+        <img src="imagens/whatsapp4.jpg" alt="Conversa WhatsApp 4">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="cta">
+    <div class="wrap" style="padding:48px 20px;">
+      <h2>Pronto para começar?</h2>
+      <p>Receba agora o eBook com <b>mais de 70 receitas completas</b> e transforme conhecimento em lucro.</p>
+      <a href="#cta" class="btn">Quero meu eBook</a>
+      <div class="price" style="display:block;margin:14px auto 0">De <del>109,90</del> por 29,90</div>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Limpeza & Lucro — Todos os direitos reservados.</footer>
+
+  <!-- Botão flutuante -->
+  <a href="#cta" class="floating-btn">📘 Comprar Agora</a>
 
   <script>
     // Scroll suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href'); if(id.length>1){
+          e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth'});
+        }
+      })
     });
 
-    // Contador aleatório
-    function startRandomCountdown() {
-      const countdownEl = document.getElementById('countdown');
-
-      function randomFutureTime() {
-        const now = new Date();
-        const randomMinutes = Math.floor(Math.random() * (240 - 60 + 1)) + 60; // 1 a 4h
-        return new Date(now.getTime() + randomMinutes * 60000);
+    // Contador aleatório (1 a 4 horas) reinicia quando zera
+    (function startCountdown(){
+      const el=document.getElementById('countdown');
+      const newEnd=()=>new Date(Date.now()+ (60+Math.floor(Math.random()*181))*60000);
+      let end=newEnd();
+      function tick(){
+        const now=new Date(); if(now>=end) end=newEnd();
+        const diff=end-now;
+        const h=String(Math.floor(diff/1000/60/60)).padStart(2,'0');
+        const m=String(Math.floor((diff/1000/60)%60)).padStart(2,'0');
+        const s=String(Math.floor((diff/1000)%60)).padStart(2,'0');
+        el.textContent=`Oferta termina em ${h}:${m}:${s}`;
       }
+      tick(); setInterval(tick,1000);
+    })();
 
-      let endTime = randomFutureTime();
-
-      function updateCountdown() {
-        const now = new Date();
-        if (now >= endTime) {
-          endTime = randomFutureTime();
-        }
-
-        const diff = endTime - now;
-        const hours = Math.floor(diff / 1000 / 60 / 60);
-        const minutes = Math.floor((diff / 1000 / 60) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        countdownEl.textContent =
-          `Oferta termina em ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-      }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    }
-
-    startRandomCountdown();
+    // FAQ accordion
+    document.querySelectorAll('.accordion .item button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const item=btn.parentElement;
+        item.classList.toggle('open');
+      });
+    });
   </script>
 </body>
 </html>
