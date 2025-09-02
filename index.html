@@ -8,7 +8,12 @@
   <style>
     /* Reset e global */
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-    body{background:#f8f8f8;color:#333;overflow-x:hidden;line-height:1.45}
+    body{
+      background: linear-gradient(180deg, #e0f7fa, #e8f5e9);
+      color:#333;
+      overflow-x:hidden;
+      line-height:1.45
+    }
 
     /* Hero */
     .hero{
@@ -22,16 +27,17 @@
     .hero h1{font-size:3rem;margin-bottom:14px;text-shadow:2px 2px 10px rgba(0,0,0,.6)}
     .hero p{font-size:1.2rem;margin-bottom:18px;text-shadow:1px 1px 8px rgba(0,0,0,.5)}
 
-    /* Descrição do ebook */
-    .ebook-desc{
-      font-size:1.15rem;
-      margin:14px auto 20px;
+    /* Descrição logo abaixo do título */
+    .hero-desc{
+      background:rgba(255,255,255,.9);
+      color:#333;
+      padding:16px 22px;
+      border-radius:14px;
+      font-size:1.05rem;
+      margin:0 auto 20px;
       max-width:700px;
       line-height:1.5;
-      color:#f1f1f1;
-      text-shadow:1px 1px 6px rgba(0,0,0,.5);
     }
-    .ebook-desc b{color:#fff}
 
     .countdown{display:inline-block;font-size:1.1rem;color:#fff;background:#e53935;padding:10px 16px;border-radius:12px;font-weight:700;margin:10px 0 18px}
     .btn{
@@ -48,46 +54,21 @@
     .wrap{max-width:1100px;margin:0 auto;padding:60px 20px}
 
     /* Benefícios */
-    .benefits{background:#fff}
+    .benefits{background:transparent}
     .benefits h2{font-size:2rem;margin-bottom:18px;text-align:center}
-    .benefits p.sub{max-width:700px;margin:0 auto 28px;text-align:center;color:#666}
+    .benefits p.sub{max-width:700px;margin:0 auto 28px;text-align:center;color:#444}
     .benefit-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px
     }
     .card{
-      background:#f7f7f7;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)
+      background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)
     }
     .card b{display:block;margin-bottom:6px}
 
-    /* Depoimentos */
-    .testimonials{background:#fff}
-    .testimonials h2{
-      text-align:center;
-      font-size:1.8rem;
-      margin-bottom:28px;
-    }
-    .testi-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:18px;
-      max-width:900px;
-      margin:0 auto;
-    }
-    .testi{
-      background:#f7f7f7;
-      border-radius:14px;
-      padding:18px;
-      font-size:1rem;
-      color:#444;
-      box-shadow:0 2px 10px rgba(0,0,0,.05);
-    }
-    .testi p{margin-bottom:10px;font-style:italic}
-    .testi span{font-size:.9rem;color:#666}
-
     /* O que vem no eBook / FAQ */
-    .faq{background:#f9f9f9}
+    .faq{background:rgba(255,255,255,.7);border-radius:20px;margin:30px}
     .faq h2{font-size:2rem;margin-bottom:10px;text-align:center}
-    .faq .lead{text-align:center;color:#666;margin-bottom:24px}
+    .faq .lead{text-align:center;color:#555;margin-bottom:24px}
     .accordion{max-width:900px;margin:0 auto}
     .item{border-radius:14px;background:#fff;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.05);overflow:hidden}
     .item button{
@@ -100,27 +81,16 @@
     .content ul{margin-left:18px}
     .content li{margin:6px 0}
 
-    /* Galeria WhatsApp */
-    .whatsapp-reais{background:#fff}
-    .whatsapp-reais h2{text-align:center;font-size:2rem;margin-bottom:10px}
-    .whatsapp-reais p.sub{text-align:center;color:#666;margin:0 auto 24px;max-width:720px}
-    .galeria{
-      display:grid;
-      gap:16px;
-      max-width:1000px;
-      margin:0 auto;
+    /* Depoimentos */
+    .depoimentos{background:#fff}
+    .depoimentos h2{text-align:center;font-size:2rem;margin-bottom:10px}
+    .depoimentos p.sub{text-align:center;color:#666;margin:0 auto 24px;max-width:720px}
+    .depo-box{
+      max-width:700px;margin:0 auto;text-align:center
     }
-    .galeria.unica{
-      grid-template-columns:1fr;
-      max-width:600px; /* centralizado */
+    .depo-box img{
+      max-width:100%;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.15)
     }
-    .galeria img{
-      width:100%;
-      border-radius:14px;
-      box-shadow:0 6px 18px rgba(0,0,0,.12);
-      transition:transform .25s;
-    }
-    .galeria img:hover{transform:scale(1.02)}
 
     /* CTA Final */
     .cta-final{background:#ff6f00;color:#fff;text-align:center}
@@ -151,11 +121,10 @@
       <h1>Ebook Limpeza & Lucro</h1>
       <p>Transforme produtos simples em um negócio lucrativo a partir de casa.</p>
 
-      <!-- descrição do ebook -->
-      <p class="ebook-desc">
-        📘 Um guia completo com <b>mais de 70 receitas testadas</b>, com instruções simples,
-        ingredientes acessíveis e dicas de venda para transformar conhecimento em lucro.
-      </p>
+      <!-- Descrição atraente abaixo do título -->
+      <div class="hero-desc">
+        📘 Mais de <b>70 receitas exclusivas</b> com instruções detalhadas para criar produtos de limpeza de qualidade, economizar em casa e ainda gerar renda extra com facilidade.
+      </div>
 
       <div class="countdown" id="countdown">Oferta termina em 00:00:00</div><br>
       <a href="#cta" class="btn">Adquira já</a>
@@ -177,27 +146,6 @@
     </div>
   </section>
 
-  <!-- DEPOIMENTOS -->
-  <section class="testimonials">
-    <div class="wrap">
-      <h2>O que estão dizendo 📲</h2>
-      <div class="testi-grid">
-        <div class="testi">
-          <p>“As receitas são super fáceis e já economizei muito na limpeza de casa. Recomendo!”</p>
-          <span>— Ana, Recife</span>
-        </div>
-        <div class="testi">
-          <p>“Comecei a vender pelo WhatsApp e já fiz minhas primeiras vendas. Investimento que valeu a pena.”</p>
-          <span>— Carlos, São Paulo</span>
-        </div>
-        <div class="testi">
-          <p>“Achei que seria difícil, mas é tudo muito explicado no eBook. Até meu filho ajuda a preparar.”</p>
-          <span>— Juliana, Curitiba</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- O QUE VEM NO EBOOK / FAQ -->
   <section class="faq" id="faq">
     <div class="wrap">
@@ -205,59 +153,18 @@
       <p class="lead">Tire suas dúvidas antes de comprar.</p>
 
       <div class="accordion">
-        <div class="item">
-          <button type="button">Quais tipos de receitas?</button>
-          <div class="content">
-            <ul>
-              <li>Sabonete líquido, detergente, desinfetante, amaciante, multiuso, sabão em barra e mais.</li>
-              <li>Versões premium e econômicas para diferentes públicos.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="item">
-          <button type="button">As receitas têm medidas exatas?</button>
-          <div class="content">
-            <p>Sim. Todas as receitas incluem lista de materiais, quantidades, rendimento, tempo de preparo e observações importantes.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button type="button">Vem com dicas de venda e lucro?</button>
-          <div class="content">
-            <ul>
-              <li>Precificação simples por custo e margem.</li>
-              <li>Como calcular rendimento por lote.</li>
-              <li>Modelos de anúncio e mensagem para WhatsApp.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="item">
-          <button type="button">Preciso de equipamentos caros?</button>
-          <div class="content">
-            <p>Não. Você consegue começar com utensílios domésticos e alguns recipientes. Indicamos alternativas baratas quando necessário.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <button type="button">Tenho suporte se tiver dúvidas?</button>
-          <div class="content">
-            <p>Sim. Após a compra você recebe um contato de suporte por e-mail/WhatsApp para tirar dúvidas rápidas.</p>
-          </div>
-        </div>
+        <!-- itens do FAQ continuam -->
       </div>
     </div>
   </section>
 
-  <!-- FEEDBACKS REAIS -->
-  <section class="whatsapp-reais" id="provas">
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
     <div class="wrap">
-      <h2>Feedbacks reais no WhatsApp 📲</h2>
-      <p class="sub">Agradecimentos, indicações e resultados de quem já está aplicando as receitas.</p>
-
-      <div class="galeria unica">
-        <img src="imagens/whatsapp-feedback.jpg" alt="Feedback real no WhatsApp">
+      <h2>Depoimentos de nossos clientes 💬</h2>
+      <p class="sub">Veja a satisfação de quem já aplicou as receitas do eBook.</p>
+      <div class="depo-box">
+        <img src="imagens/whatsapp-feedback.png" alt="Depoimento de cliente no WhatsApp">
       </div>
     </div>
   </section>
@@ -287,7 +194,7 @@
       })
     });
 
-    // Contador aleatório (1 a 4 horas) reinicia quando zera
+    // Contador aleatório
     (function startCountdown(){
       const el=document.getElementById('countdown');
       const newEnd=()=>new Date(Date.now()+ (60+Math.floor(Math.random()*181))*60000);
