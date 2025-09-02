@@ -3,132 +3,200 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ebook Limpeza & Lucro</title>
-  <meta name="description" content="Economize muito e ainda lucre com mais de 70 receitas de limpeza caseira. Desconto exclusivo de R$79,90 por apenas R$29,90.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f9fafb;
-      color: #111;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #222;
     }
     header {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: white;
+      background: linear-gradient(135deg, #4db6ac, #81d4fa);
       text-align: center;
-      padding: 2rem 1rem;
-      position: relative;
-    }
-    header img.capa {
-      width: 140px;
-      margin: 0 auto 1rem;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      padding: 40px 20px;
     }
     header h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #fff;
     }
     header p {
-      font-size: 1.1rem;
-    }
-    .preco {
       font-size: 1.2rem;
-      margin: 1rem 0;
-      font-weight: bold;
+      color: #f0f0f0;
     }
-    .preco span {
-      text-decoration: line-through;
-      color: #fee2e2;
-      margin-right: 0.5rem;
-    }
-    .cta {
-      background: #ef4444;
-      color: white;
-      padding: 1rem 2rem;
+    .cta-btn {
+      background: #ff5722;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
       border: none;
-      border-radius: 999px;
-      font-size: 1.2rem;
       cursor: pointer;
-      animation: pulse 1.8s infinite;
-      box-shadow: 0 4px 12px rgba(239,68,68,0.4);
+      font-size: 1.2rem;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
+      50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .hero img {
+      max-width: 280px;
+      border-radius: 10px;
+    }
     section {
-      padding: 2rem 1rem;
-      max-width: 900px;
+      padding: 40px 20px;
+      max-width: 1000px;
       margin: 0 auto;
     }
-    .beneficios, .conteudo, .desconto, .prints, .depoimento {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00796b;
+    }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .benefit {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .prints {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
     .prints img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .depoimento img {
-      width: 100%;
+    .testimonial {
+      text-align: center;
+    }
+    .testimonial img {
       max-width: 400px;
-      display: block;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .price-box {
+      text-align: center;
+      background: #e0f7fa;
+      padding: 30px;
+      border-radius: 15px;
+      margin: 40px auto;
+      max-width: 500px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 1.2rem;
+    }
+    .new-price {
+      font-size: 2rem;
+      color: #d32f2f;
+      font-weight: bold;
+    }
+    .faq {
+      max-width: 700px;
       margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .faq-item {
+      margin-bottom: 15px;
+    }
+    .faq-item h3 {
+      cursor: pointer;
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 0;
+    }
+    .faq-item p {
+      display: none;
+      padding: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f0f0f0;
+      color: #555;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="imagens/capa-ebook.jpg" alt="Capa do Ebook" class="capa">
-    <h1>Economize <strong>muito</strong> e ainda <strong>lucre</strong> com 70+ receitas de limpeza caseira</h1>
-    <p>Aprenda fórmulas testadas, fáceis e seguras para sua casa — e transforme em renda extra vendendo produtos artesanais.</p>
-    <div class="preco">
-      <span>R$79,90</span> por R$29,90 🔥
+    <h1>Transforme Limpeza em Lucro!</h1>
+    <p>De R$ 79,90 por apenas R$ 29,90 - Desconto Exclusivo</p>
+    <button class="cta-btn">Quero meu Ebook agora!</button>
+    <div class="hero">
+      <img src="imagens/capa-ebook.jpg" alt="Capa do Ebook">
     </div>
-    <button class="cta">Quero meu Ebook com Desconto</button>
-  </header>  <section class="beneficios">
-    <h2>Por que este ebook vende (e economiza) tanto?</h2>
-    <ul>
-      <li>💰 <strong>Economia real:</strong> Produza por centavos o que o mercado vende por muito.</li>
-      <li>✅ <strong>Receitas seguras:</strong> Fórmulas testadas com ingredientes acessíveis.</li>
-      <li>📖 <strong>Passo a passo:</strong> Preparo, rendimento e armazenamento explicados de forma simples.</li>
-      <li>🚀 <strong>Pronto pra vender:</strong> Sugestões de combos lucrativos e precificação.</li>
-    </ul>
-  </section>  <section class="conteudo">
-    <h2>O que você recebe</h2>
-    <ul>
-      <li>70+ receitas (detergentes, amaciantes, desinfetantes e muito mais)</li>
-      <li>Tabela de custo por receita e preço sugerido de venda</li>
-      <li>Lista de insumos e substituições inteligentes</li>
-      <li>Boas práticas de segurança e armazenamento</li>
-      <li>Bônus: 10 rótulos editáveis (link de download)</li>
-    </ul>
-    <p><strong>Garantia incondicional de 7 dias:</strong> Se não amar o conteúdo, devolvemos seu dinheiro. Sem perguntas.</p>
-  </section>  <section class="desconto">
-    <h2>Desconto Exclusivo</h2>
-    <p>De R$79,90 por apenas R$29,90 — por tempo limitado.</p>
-    <button class="cta">Garantir meu acesso por R$29,90</button>
-  </section>  <section class="prints">
-    <h2>Um pouco do conteúdo do nosso ebook</h2>
-    <img src="imagens/print1.png" alt="Prévia do ebook">
-    <img src="imagens/print2.png" alt="Prévia do ebook">
-    <img src="imagens/print3.png" alt="Prévia do ebook">
-    <img src="imagens/print4.png" alt="Prévia do ebook">
-  </section>  <section class="depoimento">
-    <h2>Resultados reais</h2>
-    <img src="imagens/whatsapp-feedback.png" alt="Feedback real de cliente">
-  </section>
-</body>
+  </header>  <section>
+    <h2>O que você vai encontrar</h2>
+    <div class="benefits">
+      <div class="benefit"><i class="fa-solid fa-spray-can"></i><p>Receitas de limpeza fáceis e lucrativas</p></div>
+      <div class="benefit"><i class="fa-solid fa-leaf"></i><p>Fórmulas sustentáveis e econômicas</p></div>
+      <div class="benefit"><i class="fa-solid fa-wallet"></i><p>Aumente sua renda com baixo investimento</p></div>
+    </div>
+  </section>  <section>
+    <h2>Um pouco do conteúdo do nosso Ebook</h2>
+    <div class="prints">
+      <img src="imagens/print1.jpg" alt="Print 1">
+      <img src="imagens/print2.jpg" alt="Print 2">
+      <img src="imagens/print3.jpg" alt="Print 3">
+      <img src="imagens/print4.jpg" alt="Print 4">
+    </div>
+  </section>  <section class="testimonial">
+    <h2>Resultados Reais</h2>
+    <img src="imagens/whatsapp-feedback.png" alt="Feedback real do WhatsApp">
+  </section>  <section class="price-box">
+    <p class="old-price">De R$ 79,90</p>
+    <p class="new-price">Por apenas R$ 29,90</p>
+    <button class="cta-btn">Quero meu Ebook com desconto!</button>
+    <p>Garantia de 7 dias ou seu dinheiro de volta!</p>
+  </section>  <section class="faq">
+    <h2>Perguntas Frequentes</h2>
+    <div class="faq-item">
+      <h3>Recebo na hora?</h3>
+      <p>Sim! Após a compra você recebe o acesso imediato por e-mail.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Preciso de experiência?</h3>
+      <p>Não! O conteúdo foi feito para iniciantes e profissionais.</p>
+    </div>
+    <div class="faq-item">
+      <h3>É seguro comprar?</h3>
+      <p>Sim! Pagamento 100% seguro e com garantia.</p>
+    </div>
+  </section>  <footer>
+    <p>&copy; 2025 Limpeza & Lucro - Todos os direitos reservados.</p>
+  </footer>  <script>
+    const faqItems = document.querySelectorAll('.faq-item h3');
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const content = item.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script></body>
 </html>
