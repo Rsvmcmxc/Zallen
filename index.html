@@ -19,13 +19,14 @@
       padding: 40px 20px;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 10px;
       color: #fff;
     }
-    header p {
-      font-size: 1.2rem;
+    header p.sub {
+      font-size: 1.1rem;
       color: #f0f0f0;
+      margin-bottom: 20px;
     }
     .cta-btn {
       background: linear-gradient(135deg, #ff9800, #ff5722);
@@ -59,7 +60,7 @@
       margin-top: 30px;
     }
     .hero img {
-      max-width: 220px;
+      max-width: 180px;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
@@ -111,12 +112,21 @@
       display: inline-block;
       margin-bottom: 15px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      animation: blink 1s infinite alternate;
+    }
+    @keyframes blink {
+      from { border: 2px solid #ff5722; }
+      to { border: 2px solid transparent; }
     }
     .selo-garantia {
-      max-width: 90px;
+      max-width: 70px;
       vertical-align: middle;
       margin-left: 10px;
       filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+    }
+    .garantia-text {
+      color: #2e7d32;
+      font-weight: bold;
     }
     .faq {
       max-width: 700px;
@@ -150,6 +160,27 @@
       max-height: 300px;
       padding: 12px;
     }
+    .prova-social {
+      text-align: center;
+      margin: 40px auto;
+      font-size: 1.1rem;
+      color: #444;
+    }
+    .prova-social span {
+      font-weight: bold;
+      color: #d32f2f;
+    }
+    .chamada-final {
+      text-align: center;
+      background: #ffe0b2;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 40px auto;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #e64a19;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -178,14 +209,17 @@
         box-shadow: 0 -3px 8px rgba(0,0,0,0.2);
         z-index: 999;
       }
+      .hero {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Transforme Limpeza em Lucro!</h1>
-    <p>De R$ 79,90 por apenas R$ 29,90 - Desconto Exclusivo</p>
-    <button class="cta-btn">Quero meu Ebook agora!</button>
+    <h1>Aprenda a transformar limpeza em renda extra todos os dias!</h1>
+    <p class="sub">Ebook prático, simples e lucrativo — mesmo que você nunca tenha vendido nada antes.</p>
+    <button class="cta-btn">📥 Quero meu Ebook agora!</button>
     <div class="hero">
       <img src="imagens/capa-ebook.jpg" alt="Capa do Ebook">
     </div>
@@ -198,8 +232,8 @@
     </p>
     <p class="urgencia">⚠️ Oferta por tempo limitado ⏰</p>
     <div class="contador" id="contador"></div>
-    <button class="cta-btn">Quero meu Ebook com desconto!</button>
-    <p>Garantia de 7 dias ou seu dinheiro de volta!</p>
+    <button class="cta-btn">📕 Quero meu Ebook com desconto!</button>
+    <p class="garantia-text">✅ Garantia de 7 dias ou seu dinheiro de volta!</p>
   </section>
 
   <section class="faq">
@@ -209,12 +243,20 @@
     <div class="faq-item"><h3>É seguro comprar?</h3><p>Sim! Pagamento 100% seguro e com garantia.</p></div>
     <div class="faq-item"><h3>Posso acessar pelo celular?</h3><p>Sim, o ebook é compatível com celular, tablet e computador.</p></div>
     <div class="faq-item"><h3>O que acontece se eu não gostar?</h3><p>Você tem 7 dias para pedir reembolso sem burocracia.</p></div>
+    <div class="faq-item"><h3>Preciso investir muito para começar?</h3><p>Não, as receitas usam ingredientes acessíveis e de baixo custo.</p></div>
     <div class="faq-item"><h3>Posso revender os produtos ensinados?</h3><p>Sim! O ebook mostra como produzir e vender para aumentar sua renda.</p></div>
+    <div class="faq-item"><h3>Em quanto tempo começo a lucrar?</h3><p>Isso depende de você, mas muitos alunos relatam ganhos já nos primeiros dias.</p></div>
     <div class="faq-item"><h3>O ebook tem suporte?</h3><p>Sim, oferecemos suporte por e-mail para tirar dúvidas.</p></div>
     <div class="faq-item"><h3>O desconto é por tempo limitado?</h3><p>Sim, essa oferta pode sair do ar a qualquer momento.</p></div>
-    <div class="faq-item"><h3>Preciso investir muito para começar?</h3><p>Não, as receitas usam ingredientes acessíveis e de baixo custo.</p></div>
-    <div class="faq-item"><h3>É para qualquer idade?</h3><p>Sim, qualquer pessoa pode aprender e aplicar.</p></div>
   </section>
+
+  <div class="prova-social">
+    <p><span>+1.200 pessoas</span> já garantiram o acesso a este ebook e estão lucrando com suas próprias receitas de limpeza!</p>
+  </div>
+
+  <div class="chamada-final">
+    Última chance: leve hoje por apenas R$ 29,90 ou o preço volta para R$ 79,90!
+  </div>
 
   <footer>
     <p>&copy; 2025 Limpeza & Lucro - Todos os direitos reservados.</p>
