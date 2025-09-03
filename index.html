@@ -7,211 +7,53 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #222;
-    }
-    header {
-      background: linear-gradient(135deg, #4db6ac, #81d4fa);
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    header p.sub {
-      font-size: 1.1rem;
-      color: #f0f0f0;
-      margin-bottom: 20px;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; background: #ffffff; color: #222; }
+    header { background: linear-gradient(135deg, #4db6ac, #81d4fa); text-align: center; padding: 40px 20px; }
+    header h1 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
+    header p.sub { font-size: 1.1rem; color: #f0f0f0; margin-bottom: 20px; }
     .cta-btn {
       background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: #fff;
-      padding: 15px 35px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      font-size: 1.3rem;
-      margin-top: 20px;
-      font-weight: bold;
+      color: #fff; padding: 15px 35px; border-radius: 50px; border: none; cursor: pointer;
+      font-size: 1.3rem; margin-top: 20px; font-weight: bold;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
-      animation: pulse 1.5s infinite;
+      transition: all 0.3s ease; animation: pulse 1.5s infinite;
     }
-    .cta-btn:hover {
-      transform: scale(1.08);
-      background: linear-gradient(135deg, #ff5722, #e64a19);
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
-    .hero img {
-      max-width: 180px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #00796b;
-    }
-    .price-box {
-      text-align: center;
-      background: linear-gradient(135deg, #fff9c4, #fff59d);
-      padding: 30px;
-      border-radius: 15px;
-      margin: 40px auto;
-      max-width: 500px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      position: relative;
-    }
-    .old-price {
-      text-decoration: line-through;
-      color: #888;
-      font-size: 1.2rem;
-    }
-    .new-price {
-      font-size: 2.2rem;
-      color: #d32f2f;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .urgencia {
-      font-size: 1rem;
-      color: #d32f2f;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-    .contador {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #ff5722;
-      background: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-bottom: 15px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-      animation: blink 1s infinite alternate;
-    }
-    @keyframes blink {
-      from { border: 2px solid #ff5722; }
-      to { border: 2px solid transparent; }
-    }
-    .selo-garantia {
-      max-width: 70px;
-      vertical-align: middle;
-      margin-left: 10px;
-      filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
-    }
-    .garantia-text {
-      color: #2e7d32;
-      font-weight: bold;
-    }
-    .faq {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .faq-item h3 {
-      cursor: pointer;
-      background: #4db6ac;
-      color: #fff;
-      padding: 12px;
-      margin: 0;
-      transition: background 0.3s ease;
-    }
-    .faq-item h3:hover {
-      background: #00796b;
-    }
-    .faq-item p {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      background: #f9f9f9;
-      padding: 0 12px;
-    }
-    .faq-item.active p {
-      max-height: 300px;
-      padding: 12px;
-    }
-    .prova-social {
-      text-align: center;
-      margin: 40px auto;
-      font-size: 1.1rem;
-      color: #444;
-    }
-    .prova-social span {
-      font-weight: bold;
-      color: #d32f2f;
-    }
-    .chamada-final {
-      text-align: center;
-      background: #ffe0b2;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 40px auto;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #e64a19;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #f0f0f0;
-      color: #555;
-      font-size: 0.9rem;
-    }
-    /* CTA fixo no mobile */
-    .cta-fixed {
-      display: none;
-    }
+    .cta-btn:hover { transform: scale(1.08); background: linear-gradient(135deg, #ff5722, #e64a19); }
+    @keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);} }
+    .hero { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-top: 30px; }
+    .hero img { max-width: 180px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+    section h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: #00796b; }
+    .price-box { text-align: center; background: linear-gradient(135deg, #fff9c4, #fff59d);
+      padding: 30px; border-radius: 15px; margin: 40px auto; max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .old-price { text-decoration: line-through; color: #888; font-size: 1.2rem; }
+    .new-price { font-size: 2.2rem; color: #d32f2f; font-weight: bold; margin-bottom: 10px; }
+    .urgencia { font-size: 1rem; color: #d32f2f; font-weight: bold; margin-bottom: 15px; }
+    .contador { font-size: 1.1rem; font-weight: bold; color: #ff5722; background: #fff; padding: 8px 16px;
+      border-radius: 8px; display: inline-block; margin-bottom: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+    .selo-garantia { max-width: 70px; vertical-align: middle; margin-left: 10px; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3)); }
+    .garantia-text { color: #2e7d32; font-weight: bold; margin-top: 10px; }
+    .faq { max-width: 700px; margin: 0 auto; }
+    .faq-item { margin-bottom: 8px; border: 1px solid #ddd; border-radius: 6px; }
+    .faq-item h3 { cursor: pointer; background: #4db6ac; color: #fff; padding: 10px; margin: 0; font-size: 1rem; }
+    .faq-item p { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fafafa; padding: 0 10px; font-size: 0.95rem; }
+    .faq-item.active p { max-height: 200px; padding: 10px; }
+    .prova-social { text-align: center; margin: 40px auto; font-size: 1.1rem; color: #444; }
+    .prova-social span { font-weight: bold; color: #d32f2f; }
+    .testimonials { text-align: center; margin: 30px auto; }
+    .testimonials img { max-width: 320px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .chamada-final { text-align: center; background: #ffe0b2; padding: 20px; border-radius: 10px;
+      margin: 40px auto; font-size: 1.2rem; font-weight: bold; color: #e64a19;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+    footer { text-align: center; padding: 20px; background: #f0f0f0; color: #555; font-size: 0.9rem; }
+    .cta-fixed { display: none; }
     @media (max-width: 768px) {
-      .cta-fixed {
-        display: block;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #ff9800, #ff5722);
-        color: #fff;
-        text-align: center;
-        padding: 15px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 -3px 8px rgba(0,0,0,0.2);
-        z-index: 999;
-      }
-      .hero {
-        flex-direction: column;
-      }
+      .cta-fixed { display: block; position: fixed; bottom: 0; left: 0; width: 100%;
+        background: linear-gradient(135deg, #ff9800, #ff5722); color: #fff; text-align: center;
+        padding: 15px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
+        box-shadow: 0 -3px 8px rgba(0,0,0,0.2); z-index: 999; }
+      .hero { flex-direction: column; }
     }
   </style>
 </head>
@@ -219,7 +61,7 @@
   <header>
     <h1>Aprenda a transformar limpeza em renda extra todos os dias!</h1>
     <p class="sub">Ebook prático, simples e lucrativo — mesmo que você nunca tenha vendido nada antes.</p>
-    <button class="cta-btn">📥 Quero meu Ebook agora!</button>
+    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank"><button class="cta-btn">📥 Quero meu Ebook agora!</button></a>
     <div class="hero">
       <img src="imagens/capa-ebook.jpg" alt="Capa do Ebook">
     </div>
@@ -232,8 +74,13 @@
     </p>
     <p class="urgencia">⚠️ Oferta por tempo limitado ⏰</p>
     <div class="contador" id="contador"></div>
-    <button class="cta-btn">📕 Quero meu Ebook com desconto!</button>
+    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank"><button class="cta-btn">📕 Quero meu Ebook com desconto!</button></a>
     <p class="garantia-text">✅ Garantia de 7 dias ou seu dinheiro de volta!</p>
+  </section>
+
+  <section class="testimonials">
+    <h2>Depoimentos de Clientes</h2>
+    <img src="imagens/whatsapp-feedback.png" alt="Depoimentos dos clientes">
   </section>
 
   <section class="faq">
@@ -256,6 +103,8 @@
 
   <div class="chamada-final">
     Última chance: leve hoje por apenas R$ 29,90 ou o preço volta para R$ 79,90!
+    <br>
+    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank"><button class="cta-btn">🔥 Quero aproveitar agora!</button></a>
   </div>
 
   <footer>
@@ -263,7 +112,9 @@
   </footer>
 
   <!-- CTA fixo mobile -->
-  <div class="cta-fixed">📕 Quero meu Ebook com desconto!</div>
+  <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
+    <div class="cta-fixed">📕 Quero meu Ebook com desconto!</div>
+  </a>
 
   <script>
     // FAQ acordeão
@@ -272,11 +123,6 @@
       item.querySelector('h3').addEventListener('click', () => {
         item.classList.toggle('active');
       });
-    });
-
-    // CTA fixo mobile (rola até o box de preço)
-    document.querySelector('.cta-fixed').addEventListener('click', () => {
-      document.querySelector('.price-box').scrollIntoView({ behavior: 'smooth' });
     });
 
     // Contador regressivo (24h)
