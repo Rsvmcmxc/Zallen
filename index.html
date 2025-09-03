@@ -11,16 +11,50 @@
     header { background: linear-gradient(135deg, #4db6ac, #81d4fa); text-align: center; padding: 40px 20px; }
     header h1 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
     header p.sub { font-size: 1.1rem; color: #f0f0f0; margin-bottom: 20px; }
-    .cta-btn {
+    
+    /* Botões CTA principais */
+    .cta-btn, .cta-mini, .cta-fixed {
       background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: #fff; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer;
-      font-size: 1.2rem; margin-top: 20px; font-weight: bold; width: 100%;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.2s ease, background 0.3s ease;
+      animation: pulse 1.8s infinite;
+    }
+    .cta-btn {
+      padding: 16px 20px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      width: 100%;
     }
     .cta-btn i { margin-right: 8px; }
-    .cta-btn:hover { transform: scale(1.05); background: linear-gradient(135deg, #ff5722, #e64a19); }
-    @keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.03);}100%{transform:scale(1);} }
+    .cta-btn:hover { transform: scale(1.07); background: linear-gradient(135deg, #ff5722, #e64a19); }
+
+    .cta-mini {
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    .cta-mini:hover { transform: scale(1.07); background: linear-gradient(135deg, #ff5722, #e64a19); }
+
+    .cta-fixed {
+      display: none;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.1rem;
+      border-radius: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
     .hero { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-top: 30px; }
     .hero img { max-width: 180px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
     section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
@@ -36,13 +70,7 @@
       max-width: 480px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-    .old-price {
-      text-decoration: line-through;
-      color: #999;
-      font-size: 1rem;
-      margin-bottom: 5px;
-    }
-    .old-price span { font-size: 1.1rem; }
+    .old-price { text-decoration: line-through; color: #999; font-size: 1rem; margin-bottom: 5px; }
     .new-price { margin: 10px 0; }
     .price-highlight {
       font-size: 2.4rem;
@@ -50,12 +78,7 @@
       color: #e53935;
       display: block;
     }
-    .urgencia {
-      font-size: 1rem;
-      color: #e64a19;
-      margin: 12px 0;
-      font-weight: 600;
-    }
+    .urgencia { font-size: 1rem; color: #e64a19; margin: 12px 0; font-weight: 600; }
     .contador {
       font-size: 1rem;
       font-weight: bold;
@@ -67,19 +90,8 @@
       display: inline-block;
       margin-bottom: 20px;
     }
-    .garantia-box {
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      font-size: 0.95rem;
-      color: #444;
-    }
-    .garantia-box img {
-      max-width: 60px;
-      filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
-    }
+    .garantia-box { margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 0.95rem; color: #444; }
+    .garantia-box img { max-width: 60px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2)); }
 
     /* FAQ */
     .faq { max-width: 700px; margin: 0 auto; }
@@ -99,25 +111,15 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
     footer { text-align: center; padding: 20px; background: #f0f0f0; color: #555; font-size: 0.9rem; }
 
-    /* CTA fixo mobile */
-    .cta-fixed { display: none; }
     @media (max-width: 768px) {
-      .cta-fixed { display: block; position: fixed; bottom: 0; left: 0; width: 100%;
-        background: linear-gradient(135deg, #ff9800, #ff5722); color: #fff; text-align: center;
-        padding: 15px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
-        box-shadow: 0 -3px 8px rgba(0,0,0,0.2); z-index: 999; }
+      .cta-fixed { display: block; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; }
       .hero { flex-direction: column; }
     }
 
     /* Seção de prévias do ebook */
     .previas { text-align: center; margin: 40px auto; max-width: 900px; }
     .previas h2 { font-size: 1.9rem; margin-bottom: 10px; color: #00796b; }
-    .previas .frase-destaque {
-      font-size: 1.1rem;
-      color: #444;
-      margin-bottom: 25px;
-      line-height: 1.5;
-    }
+    .previas .frase-destaque { font-size: 1.1rem; color: #444; margin-bottom: 25px; line-height: 1.5; }
     .grid-previas {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -131,22 +133,7 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease;
     }
-    .grid-previas img:hover {
-      transform: scale(1.03);
-    }
-    .cta-mini {
-      background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, background 0.3s ease;
-    }
-    .cta-mini:hover { transform: scale(1.05); background: linear-gradient(135deg, #ff5722, #e64a19); }
+    .grid-previas img:hover { transform: scale(1.03); }
   </style>
 </head>
 <body>
@@ -162,9 +149,7 @@
   <!-- Box de Preço -->
   <section class="price-box">
     <p class="old-price">De <span>R$ 79,90</span></p>
-    <p class="new-price">
-      <span class="price-highlight">Por apenas R$ 29,90</span>
-    </p>
+    <p class="new-price"><span class="price-highlight">Por apenas R$ 29,90</span></p>
     <p class="urgencia">⚡ Oferta exclusiva para novos clientes ⚡</p>
     <div class="contador" id="contador"></div>
     <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
@@ -176,11 +161,11 @@
     </div>
   </section>
 
-  <!-- Seção extra de benefícios e prévias -->
+  <!-- Seção de prévias -->
   <section class="previas">
-    <h2>📘 Mais de 70 receitas exclusivas!</h2>
+    <h2>📘 Receitas completas para você lucrar!</h2>
     <p class="frase-destaque">
-      Mais de <strong>70 receitas completas</strong> com instruções passo a passo para você lucrar todos os dias de forma simples e prática.
+      Receitas completas com instruções passo a passo para você começar a lucrar de forma simples e prática.
     </p>
     <div class="grid-previas">
       <img src="imagens/print1.jpg" alt="Prévia do Ebook 1">
@@ -213,7 +198,7 @@
   </section>
 
   <div class="prova-social">
-    <p><span>+1.200 pessoas</span> já garantiram o acesso e estão lucrando com suas próprias receitas de limpeza!</p>
+    <p><span>+1.700 pessoas</span> já garantiram o acesso e estão lucrando com suas próprias receitas de limpeza!</p>
   </div>
 
   <div class="chamada-final">
