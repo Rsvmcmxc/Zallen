@@ -108,6 +108,45 @@
         box-shadow: 0 -3px 8px rgba(0,0,0,0.2); z-index: 999; }
       .hero { flex-direction: column; }
     }
+
+    /* Seção de prévias do ebook */
+    .previas { text-align: center; margin: 40px auto; max-width: 900px; }
+    .previas h2 { font-size: 1.9rem; margin-bottom: 10px; color: #00796b; }
+    .previas .frase-destaque {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+    .grid-previas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      justify-items: center;
+      margin-bottom: 20px;
+    }
+    .grid-previas img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .grid-previas img:hover {
+      transform: scale(1.03);
+    }
+    .cta-mini {
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+    .cta-mini:hover { transform: scale(1.05); background: linear-gradient(135deg, #ff5722, #e64a19); }
   </style>
 </head>
 <body>
@@ -137,6 +176,23 @@
     </div>
   </section>
 
+  <!-- Seção extra de benefícios e prévias -->
+  <section class="previas">
+    <h2>📘 Mais de 70 receitas exclusivas!</h2>
+    <p class="frase-destaque">
+      Mais de <strong>70 receitas completas</strong> com instruções passo a passo para você lucrar todos os dias de forma simples e prática.
+    </p>
+    <div class="grid-previas">
+      <img src="imagens/print1.jpg" alt="Prévia do Ebook 1">
+      <img src="imagens/print2.jpg" alt="Prévia do Ebook 2">
+      <img src="imagens/print3.jpg" alt="Prévia do Ebook 3">
+      <img src="imagens/print4.jpg" alt="Prévia do Ebook 4">
+    </div>
+    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
+      <button class="cta-mini">🔒 Quero acessar todas as receitas</button>
+    </a>
+  </section>
+
   <section class="testimonials">
     <h2>Depoimentos de Clientes</h2>
     <img src="imagens/whatsapp-feedback.png" alt="Depoimentos dos clientes">
@@ -157,7 +213,7 @@
   </section>
 
   <div class="prova-social">
-    <p><span>+1.700 pessoas</span> já garantiram o acesso e estão lucrando com suas próprias receitas de limpeza!</p>
+    <p><span>+1.200 pessoas</span> já garantiram o acesso e estão lucrando com suas próprias receitas de limpeza!</p>
   </div>
 
   <div class="chamada-final">
