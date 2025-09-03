@@ -12,44 +12,21 @@
     header h1 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
     header p.sub { font-size: 1.1rem; color: #f0f0f0; margin-bottom: 20px; }
 
-    /* Botões CTA com gradiente animado */
-    .cta-btn, .cta-mini, .cta-fixed {
-      background: linear-gradient(270deg, #ff9800, #ff5722, #e53935);
+    /* CTA com gradiente animado */
+    .cta-btn, .cta-mini {
+      background: linear-gradient(270deg, #ff9800, #ff5722, #e91e63);
       background-size: 600% 600%;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
+      color: #fff; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer;
+      font-size: 1.2rem; font-weight: bold; width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      animation: gradientShift 6s ease infinite, pulse 2s infinite;
-    }
-    .cta-btn {
-      padding: 16px 20px;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      margin-top: 20px;
-      width: 100%;
+      animation: gradientMove 6s ease infinite, pulse 2s infinite;
+      transition: transform 0.2s ease;
     }
     .cta-btn i { margin-right: 8px; }
-    .cta-mini {
-      padding: 12px 18px;
-      border-radius: 30px;
-      font-size: 1rem;
-      margin-top: 10px;
-    }
-    .cta-fixed {
-      display: none;
-      text-align: center;
-      padding: 15px;
-      font-size: 1.1rem;
-      border-radius: 0;
-    }
+    .cta-btn:hover, .cta-mini:hover { transform: scale(1.05); }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    @keyframes gradientShift {
+    @keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);} }
+    @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -61,14 +38,59 @@
     section h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: #00796b; }
 
     /* Box de preço */
-    .price-box { text-align: center; background: #fff; padding: 30px 25px; border-radius: 16px; margin: 40px auto; max-width: 480px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .price-box {
+      text-align: center;
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 16px;
+      margin: 40px auto;
+      max-width: 480px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
     .old-price { text-decoration: line-through; color: #999; font-size: 1rem; margin-bottom: 5px; }
+    .old-price span { font-size: 1.1rem; }
     .new-price { margin: 10px 0; }
     .price-highlight { font-size: 2.4rem; font-weight: bold; color: #e53935; display: block; }
     .urgencia { font-size: 1rem; color: #e64a19; margin: 12px 0; font-weight: 600; }
-    .contador { font-size: 1rem; font-weight: bold; color: #d84315; background: #fff5f0; padding: 8px 14px; border-radius: 6px; border: 1px solid #ffcbb2; display: inline-block; margin-bottom: 20px; }
-    .garantia-box { margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 0.95rem; color: #444; }
+    .contador {
+      font-size: 1rem; font-weight: bold; color: #d84315; background: #fff5f0;
+      padding: 8px 14px; border-radius: 6px; border: 1px solid #ffcbb2; display: inline-block;
+      margin-bottom: 20px;
+    }
+    .garantia-box {
+      margin-top: 20px; display: flex; align-items: center; justify-content: center;
+      gap: 12px; font-size: 0.95rem; color: #444;
+    }
     .garantia-box img { max-width: 60px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2)); }
+
+    /* Prévia e benefícios */
+    .previas { text-align: center; margin: 40px auto; max-width: 900px; }
+    .previas h2 { font-size: 1.9rem; margin-bottom: 10px; color: #00796b; }
+    .previas .frase-destaque { font-size: 1.1rem; color: #444; margin-bottom: 25px; line-height: 1.5; }
+    .grid-previas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px; justify-items: center; margin-bottom: 25px;
+    }
+    .grid-previas img {
+      max-width: 100%; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .grid-previas img:hover { transform: scale(1.03); }
+
+    /* Benefícios */
+    .beneficios { text-align: center; max-width: 700px; margin: 0 auto 20px auto; padding: 0; }
+    .beneficios li {
+      margin: 12px 0; list-style: none; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; color: #333; line-height: 1.4;
+    }
+    .icon-anim { margin-right: 8px; animation: pulse 1.8s infinite; font-size: 1.3rem; }
+    .verde { color: #25d366; }   /* WhatsApp */
+    .azul { color: #1e88e5; }    /* Grupo */
+    .amarelo { color: #fbc02d; } /* Raio */
+    .roxo { color: #8e24aa; }    /* Lâmpada */
+    .vermelho { color: #e53935; }/* Escudo */
 
     /* FAQ */
     .faq { max-width: 700px; margin: 0 auto; }
@@ -83,26 +105,25 @@
     .testimonials { text-align: center; margin: 30px auto; }
     .testimonials img { max-width: 320px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
-    .chamada-final { text-align: center; background: #ffe0b2; padding: 20px; border-radius: 10px; margin: 40px auto; font-size: 1.2rem; font-weight: bold; color: #e64a19; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+    .chamada-final { text-align: center; background: #ffe0b2; padding: 20px; border-radius: 10px;
+      margin: 40px auto; font-size: 1.2rem; font-weight: bold; color: #e64a19;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
     footer { text-align: center; padding: 20px; background: #f0f0f0; color: #555; font-size: 0.9rem; }
 
+    /* CTA fixo mobile */
+    .cta-fixed { display: none; }
     @media (max-width: 768px) {
-      .cta-fixed { display: block; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; }
+      .cta-fixed {
+        display: block; position: fixed; bottom: 0; left: 0; width: 100%;
+        background: linear-gradient(270deg, #ff9800, #ff5722, #e91e63);
+        background-size: 600% 600%;
+        color: #fff; text-align: center;
+        padding: 15px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
+        box-shadow: 0 -3px 8px rgba(0,0,0,0.2); z-index: 999;
+        animation: gradientMove 6s ease infinite, pulse 2s infinite;
+      }
       .hero { flex-direction: column; }
     }
-
-    /* Seção de prévias */
-    .previas { text-align: center; margin: 40px auto; max-width: 900px; }
-    .previas h2 { font-size: 1.9rem; margin-bottom: 10px; color: #00796b; }
-    .previas .frase-destaque { font-size: 1.1rem; color: #444; margin-bottom: 25px; line-height: 1.5; }
-    .grid-previas { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; justify-items: center; margin-bottom: 25px; }
-    .grid-previas img { max-width: 100%; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform 0.2s ease; }
-    .grid-previas img:hover { transform: scale(1.03); }
-
-    /* Lista de benefícios extras */
-    .beneficios { text-align: left; max-width: 700px; margin: 0 auto 20px auto; font-size: 1rem; color: #333; }
-    .beneficios li { margin: 10px 0; list-style: none; font-size: 1rem; display: flex; align-items: center; color: #333; }
-    .icon-anim { margin-right: 8px; color: #ff5722; animation: pulse 1.8s infinite; }
   </style>
 </head>
 <body>
@@ -130,12 +151,10 @@
     </div>
   </section>
 
-  <!-- Seção de prévias + benefícios -->
+  <!-- Prévia e benefícios -->
   <section class="previas">
     <h2>📘 + de 70 receitas exclusivas para você lucrar!</h2>
-    <p class="frase-destaque">
-      Receitas completas com instruções passo a passo, para você transformar produtos simples em uma fonte de renda diária.
-    </p>
+    <p class="frase-destaque">Receitas completas com instruções passo a passo, para você transformar produtos simples em uma fonte de renda diária.</p>
     <div class="grid-previas">
       <img src="imagens/print1.jpg" alt="Prévia do Ebook 1">
       <img src="imagens/print2.jpg" alt="Prévia do Ebook 2">
@@ -143,11 +162,11 @@
       <img src="imagens/print4.jpg" alt="Prévia do Ebook 4">
     </div>
     <ul class="beneficios">
-      <li><i class="fab fa-whatsapp icon-anim"></i> Suporte e mentoria gratuita no WhatsApp para novos clientes</li>
-      <li><i class="fas fa-users icon-anim"></i> Grupo exclusivo com dicas, contatos e oportunidades</li>
-      <li><i class="fas fa-bolt icon-anim"></i> Acesso imediato ao ebook após a compra</li>
-      <li><i class="fas fa-lightbulb icon-anim"></i> Dicas de marketing e vendas para aumentar seus lucros</li>
-      <li><i class="fas fa-shield-alt icon-anim"></i> Garantia de 7 dias: ou seu dinheiro de volta!</li>
+      <li><i class="fab fa-whatsapp icon-anim verde"></i> Suporte e mentoria gratuita no WhatsApp para novos clientes</li>
+      <li><i class="fas fa-users icon-anim azul"></i> Grupo exclusivo com dicas, contatos e oportunidades</li>
+      <li><i class="fas fa-bolt icon-anim amarelo"></i> Acesso imediato ao ebook após a compra</li>
+      <li><i class="fas fa-lightbulb icon-anim roxo"></i> Dicas de marketing e vendas para aumentar seus lucros</li>
+      <li><i class="fas fa-shield-alt icon-anim vermelho"></i> Garantia de 7 dias: ou seu dinheiro de volta!</li>
     </ul>
     <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
       <button class="cta-mini">🚀 Quero começar a lucrar agora!</button>
