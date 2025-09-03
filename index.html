@@ -28,15 +28,22 @@
       color: #f0f0f0;
     }
     .cta-btn {
-      background: #ff5722;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
       color: #fff;
-      padding: 15px 30px;
+      padding: 15px 35px;
       border-radius: 50px;
       border: none;
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-top: 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
       animation: pulse 1.5s infinite;
+    }
+    .cta-btn:hover {
+      transform: scale(1.08);
+      background: linear-gradient(135deg, #ff5722, #e64a19);
     }
     @keyframes pulse {
       0% { transform: scale(1); }
@@ -52,8 +59,9 @@
       margin-top: 30px;
     }
     .hero img {
-      max-width: 220px; /* capa menor e mais harmônica */
+      max-width: 220px;
       border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     section {
       padding: 40px 20px;
@@ -66,46 +74,14 @@
       margin-bottom: 20px;
       color: #00796b;
     }
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .benefit {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .prints {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-    .prints img {
-      max-width: 220px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .testimonial {
-      text-align: center;
-    }
-    .testimonial img {
-      max-width: 400px;
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
     .price-box {
       text-align: center;
-      background: #e0f7fa;
+      background: linear-gradient(135deg, #fff9c4, #fff59d);
       padding: 30px;
       border-radius: 15px;
       margin: 40px auto;
       max-width: 500px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       position: relative;
     }
     .old-price {
@@ -114,13 +90,33 @@
       font-size: 1.2rem;
     }
     .new-price {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: #d32f2f;
       font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .urgencia {
+      font-size: 1rem;
+      color: #d32f2f;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .contador {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #ff5722;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
     .selo-garantia {
-      margin-top: 15px;
-      max-width: 120px;
+      max-width: 90px;
+      vertical-align: middle;
+      margin-left: 10px;
+      filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
     }
     .faq {
       max-width: 700px;
@@ -128,17 +124,31 @@
     }
     .faq-item {
       margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
     }
     .faq-item h3 {
       cursor: pointer;
-      background: #f1f1f1;
-      padding: 10px;
-      border-radius: 5px;
+      background: #4db6ac;
+      color: #fff;
+      padding: 12px;
       margin: 0;
+      transition: background 0.3s ease;
+    }
+    .faq-item h3:hover {
+      background: #00796b;
     }
     .faq-item p {
-      display: none;
-      padding: 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      background: #f9f9f9;
+      padding: 0 12px;
+    }
+    .faq-item.active p {
+      max-height: 300px;
+      padding: 12px;
     }
     footer {
       text-align: center;
@@ -146,6 +156,28 @@
       background: #f0f0f0;
       color: #555;
       font-size: 0.9rem;
+    }
+    /* CTA fixo no mobile */
+    .cta-fixed {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .cta-fixed {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #ff9800, #ff5722);
+        color: #fff;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 -3px 8px rgba(0,0,0,0.2);
+        z-index: 999;
+      }
     }
   </style>
 </head>
@@ -159,36 +191,15 @@
     </div>
   </header>
 
-  <section>
-    <h2>O que você vai encontrar</h2>
-    <div class="benefits">
-      <div class="benefit"><i class="fa-solid fa-spray-can"></i><p>Receitas de limpeza fáceis e lucrativas</p></div>
-      <div class="benefit"><i class="fa-solid fa-leaf"></i><p>Fórmulas sustentáveis e econômicas</p></div>
-      <div class="benefit"><i class="fa-solid fa-wallet"></i><p>Aumente sua renda com baixo investimento</p></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Um pouco do conteúdo do nosso Ebook</h2>
-    <div class="prints">
-      <img src="imagens/print1.jpg" alt="Print 1">
-      <img src="imagens/print2.jpg" alt="Print 2">
-      <img src="imagens/print3.jpg" alt="Print 3">
-      <img src="imagens/print4.jpg" alt="Print 4">
-    </div>
-  </section>
-
-  <section class="testimonial">
-    <h2>Resultados Reais</h2>
-    <img src="imagens/whatsapp-feedback.png" alt="Feedback real do WhatsApp">
-  </section>
-
   <section class="price-box">
     <p class="old-price">De R$ 79,90</p>
-    <p class="new-price">Por apenas R$ 29,90</p>
+    <p class="new-price">Por apenas R$ 29,90 
+      <img src="imagens/selo-garantia.png" alt="Selo de Garantia" class="selo-garantia">
+    </p>
+    <p class="urgencia">⚠️ Oferta por tempo limitado ⏰</p>
+    <div class="contador" id="contador"></div>
     <button class="cta-btn">Quero meu Ebook com desconto!</button>
     <p>Garantia de 7 dias ou seu dinheiro de volta!</p>
-    <img src="imagens/selo-garantia.png" alt="Selo de Garantia" class="selo-garantia">
   </section>
 
   <section class="faq">
@@ -209,14 +220,50 @@
     <p>&copy; 2025 Limpeza & Lucro - Todos os direitos reservados.</p>
   </footer>
 
+  <!-- CTA fixo mobile -->
+  <div class="cta-fixed">📕 Quero meu Ebook com desconto!</div>
+
   <script>
-    const faqItems = document.querySelectorAll('.faq-item h3');
+    // FAQ acordeão
+    const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const content = item.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      item.querySelector('h3').addEventListener('click', () => {
+        item.classList.toggle('active');
       });
     });
+
+    // CTA fixo mobile (rola até o box de preço)
+    document.querySelector('.cta-fixed').addEventListener('click', () => {
+      document.querySelector('.price-box').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Contador regressivo (24h)
+    function iniciarContador() {
+      const contador = document.getElementById("contador");
+      let deadline = new Date();
+      deadline.setHours(23, 59, 59, 999);
+
+      function atualizarContador() {
+        const agora = new Date().getTime();
+        const distancia = deadline - agora;
+
+        let horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        let segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+        if (horas < 10) horas = "0" + horas;
+        if (minutos < 10) minutos = "0" + minutos;
+        if (segundos < 10) segundos = "0" + segundos;
+
+        contador.innerHTML = "Promoção termina em: " + horas + ":" + minutos + ":" + segundos;
+
+        if (distancia < 0) {
+          iniciarContador(); // reseta automaticamente
+        }
+      }
+      setInterval(atualizarContador, 1000);
+    }
+    iniciarContador();
   </script>
 </body>
 </html>
