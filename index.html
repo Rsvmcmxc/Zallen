@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ebook Limpeza & Lucro</title>
+  <title>Fórmula da Renda com Produtos de Limpeza</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
   <style>
@@ -13,11 +13,12 @@
     header p.sub { font-size: 1.1rem; color: #f0f0f0; margin-bottom: 20px; }
     .cta-btn {
       background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: #fff; padding: 14px 28px; border-radius: 40px; border: none; cursor: pointer;
-      font-size: 1.2rem; margin-top: 20px; font-weight: bold;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-      transition: all 0.3s ease; animation: pulse 1.5s infinite;
+      color: #fff; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer;
+      font-size: 1.2rem; margin-top: 20px; font-weight: bold; width: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, background 0.3s ease;
     }
+    .cta-btn i { margin-right: 8px; }
     .cta-btn:hover { transform: scale(1.05); background: linear-gradient(135deg, #ff5722, #e64a19); }
     @keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.03);}100%{transform:scale(1);} }
     .hero { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-top: 30px; }
@@ -25,60 +26,59 @@
     section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
     section h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: #00796b; }
 
-    /* Novo estilo do box de preço */
+    /* Box de preço otimizado */
     .price-box {
       text-align: center;
-      background: #fffdf7; /* tom suave */
-      padding: 25px;
-      border-radius: 15px;
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 16px;
       margin: 40px auto;
-      max-width: 500px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 480px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
     .old-price {
       text-decoration: line-through;
       color: #999;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 5px;
     }
-    .new-price {
-      font-size: 2rem;
-      color: #e53935;
+    .old-price span { font-size: 1.1rem; }
+    .new-price { margin: 10px 0; }
+    .price-highlight {
+      font-size: 2.4rem;
       font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .new-price span {
-      font-size: 2.2rem;
-    }
-    .selo-garantia {
-      max-width: 55px;
-      margin-left: 5px;
-      filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
+      color: #e53935;
+      display: block;
     }
     .urgencia {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #e64a19;
-      margin-bottom: 12px;
+      margin: 12px 0;
+      font-weight: 600;
     }
     .contador {
       font-size: 1rem;
       font-weight: bold;
       color: #d84315;
-      background: #fff;
-      padding: 6px 14px;
+      background: #fff5f0;
+      padding: 8px 14px;
       border-radius: 6px;
-      border: 1px solid #ffd180;
+      border: 1px solid #ffcbb2;
       display: inline-block;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
-    .garantia-text {
-      color: #444;
+    .garantia-box {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
       font-size: 0.95rem;
-      margin-top: 12px;
+      color: #444;
+    }
+    .garantia-box img {
+      max-width: 60px;
+      filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
     }
 
     /* FAQ */
@@ -112,24 +112,29 @@
 </head>
 <body>
   <header>
-    <h1>Aprenda a transformar limpeza em renda extra todos os dias!</h1>
-    <p class="sub">Ebook prático, simples e lucrativo — mesmo que você nunca tenha vendido nada antes.</p>
+    <h1>Fórmula da Renda com Produtos de Limpeza</h1>
+    <p class="sub">Aprenda a criar e vender produtos de limpeza de forma simples, prática e lucrativa!</p>
     <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank"><button class="cta-btn">📥 Quero meu Ebook agora!</button></a>
     <div class="hero">
       <img src="imagens/capa-ebook.jpg" alt="Capa do Ebook">
     </div>
   </header>
 
+  <!-- Box de Preço -->
   <section class="price-box">
-    <p class="old-price">De R$ 79,90</p>
+    <p class="old-price">De <span>R$ 79,90</span></p>
     <p class="new-price">
-      Por apenas <span>R$ 29,90</span>
-      <img src="imagens/selo-garantia.png" alt="Selo de Garantia" class="selo-garantia">
+      <span class="price-highlight">Por apenas R$ 29,90</span>
     </p>
-    <p class="urgencia">⚡ Oferta por tempo limitado</p>
+    <p class="urgencia">⚡ Oferta exclusiva para novos clientes ⚡</p>
     <div class="contador" id="contador"></div>
-    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank"><button class="cta-btn">Quero meu Ebook com desconto</button></a>
-    <p class="garantia-text">7 dias de garantia: ou você fica satisfeito, ou recebe seu dinheiro de volta.</p>
+    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
+      <button class="cta-btn"><i class="fas fa-lock"></i> Quero meu Ebook com desconto agora!</button>
+    </a>
+    <div class="garantia-box">
+      <img src="imagens/selo-garantia.png" alt="Garantia 7 dias">
+      <p>Compra 100% segura<br><strong>7 dias de garantia</strong></p>
+    </div>
   </section>
 
   <section class="testimonials">
@@ -152,17 +157,20 @@
   </section>
 
   <div class="prova-social">
-    <p><span>+1.200 pessoas</span> já garantiram o acesso a este ebook e estão lucrando com suas próprias receitas de limpeza!</p>
+    <p><span>+1.700 pessoas</span> já garantiram o acesso e estão lucrando com suas próprias receitas de limpeza!</p>
   </div>
 
   <div class="chamada-final">
-    Última chance: leve hoje por apenas R$ 29,90 ou o preço volta para R$ 79,90!
-    <br>
-    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank"><button class="cta-btn">🔥 Quero aproveitar agora!</button></a>
+    🚀 Transforme sua paixão por limpeza em uma fonte de renda diária!  
+    <br>Garanta agora o acesso ao <strong>método mais simples e lucrativo</strong> por apenas <span style="color:#e53935;">R$ 29,90</span>.  
+    <br><br>
+    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
+      <button class="cta-btn">🔥 Quero começar a lucrar hoje!</button>
+    </a>
   </div>
 
   <footer>
-    <p>&copy; 2025 Limpeza & Lucro - Todos os direitos reservados.</p>
+    <p>&copy; 2025 Fórmula da Renda com Produtos de Limpeza - Todos os direitos reservados.</p>
   </footer>
 
   <!-- CTA fixo mobile -->
