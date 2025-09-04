@@ -69,27 +69,31 @@
     .feature{display:flex;gap:10px;align-items:flex-start;background:#0f1220;border:1px solid #1f2438;padding:14px;border-radius:14px}
     .feature i{min-width:22px}
 
-    /* Guarantee with CTA */
+    /* CTA + Selo Garantia */
     .cta-guarantee {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-top: 12px;
-      flex-wrap: wrap;
       justify-content: center;
+      gap: 16px;
+      margin-top: 18px;
+      flex-wrap: wrap;
     }
     .selo-garantia {
-      height: 42px;
+      height: 58px;
       width: auto;
+      transition: transform .2s ease;
+    }
+    .selo-garantia:hover {
+      transform: scale(1.05);
     }
     @media (max-width: 720px) {
       .cta-guarantee {
         flex-direction: row;
         justify-content: center;
-        gap: 8px;
+        gap: 10px;
       }
       .selo-garantia {
-        height: 36px;
+        height: 48px;
       }
     }
 
@@ -217,7 +221,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Prova social -->
   <section class="section">
     <div class="container">
@@ -280,7 +284,9 @@
   <div class="stickybar">
     <strong>200 Prompts Prontos</strong>
     <div class="cta-guarantee">
-      <a id="ctaSticky" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Acessar</a>
+      <a id="ctaSticky" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener">
+        <i class="fa-solid fa-download"></i> Acessar
+      </a>
       <img src="imagens/selo-garantia.png" alt="Garantia 7 dias" class="selo-garantia">
     </div>
   </div>
