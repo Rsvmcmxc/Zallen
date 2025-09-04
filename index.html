@@ -1,283 +1,302 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fórmula da Renda com Produtos de Limpeza</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ebook: 200 Prompts Prontos para IA – Funil de Vendas</title>
+  <meta name="description" content="Desbloqueie 200 prompts prontos para acelerar conteúdo, anúncios, vendas e automações. Acesso imediato e garantia de 7 dias." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="200 Prompts Prontos para IA" />
+  <meta property="og:description" content="Conteúdo, anúncios e vendas no piloto semi-automático: copie e cole os 200 prompts prontos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="imagens/capa-ebook-200prompts.jpg" />
+  <meta property="og:url" content="https://seudominio.com/" />
+  <link rel="icon" href="imagens/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #ffffff; color: #222; }
-    header { background: linear-gradient(135deg, #4db6ac, #81d4fa); text-align: center; padding: 40px 20px; }
-    header h1 { font-size: 2.4rem; margin-bottom: 10px; color: #fff; font-weight: bold; }
-    header p.sub { font-size: 1.2rem; color: #f0f0f0; margin-bottom: 20px; line-height: 1.4; }
+    :root{
+      --bg:#0b0d10;--card:#111418;--muted:#9aa3af;--txt:#e5e7eb;--brand1:#7c3aed;--brand2:#06b6d4;--cta1:#ff6a00;--cta2:#ff3366;--success:#22c55e;--warning:#f59e0b;--danger:#ef4444
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b0d10,#0b0d10 60%,#0f172a);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}/* Header */
+header{
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.35), transparent),
+             radial-gradient(900px 600px at 100% 0, rgba(6,182,212,.25), transparent),
+             linear-gradient(180deg,#0b0d10,rgba(11,13,16,.8));
+  padding: 32px 18px 10px
+}
+.container{max-width:1100px;margin:0 auto}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+@media (max-width: 880px){.hero{grid-template-columns:1fr;gap:18px}}
 
-    /* CTA com gradiente animado */
-    .cta-btn, .cta-mini {
-      background: linear-gradient(270deg, #ff9800, #ff5722, #e91e63);
-      background-size: 600% 600%;
-      color: #fff; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer;
-      font-size: 1.2rem; font-weight: bold; width: 100%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      animation: gradientMove 6s ease infinite, pulse 2s infinite;
-      transition: transform 0.2s ease;
-    }
-    .cta-btn i { margin-right: 8px; }
-    .cta-btn:hover, .cta-mini:hover { transform: scale(1.05); }
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.35);padding:6px 10px;border-radius:999px;font-weight:600;color:#d8b4fe;font-size:.85rem}
+h1{font-size: clamp(1.8rem, 3.2vw + 1rem, 3rem);line-height:1.1;margin:12px 0 10px}
+.sub{color:var(--muted);font-size:1.05rem;line-height:1.6;margin:0 0 18px}
 
-    @keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);} }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+.badge-list{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px}
+.badge{background:#0f1220;border:1px solid #262a40;padding:8px 12px;border-radius:999px;font-size:.9rem;display:inline-flex;align-items:center;gap:8px}
 
-    .hero { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-top: 30px; }
-    .hero img { max-width: 180px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-    section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
-    section h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: #00796b; }
+.cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.cta{appearance:none;border:0;border-radius:999px;padding:16px 20px;font-weight:800;font-size:1.05rem;color:white;cursor:pointer;box-shadow:0 8px 30px rgba(255,102,51,.25);background:linear-gradient(90deg,var(--cta1),var(--cta2));
+  animation:pulse 2s infinite;transition: transform .12s ease, box-shadow .12s ease;display:inline-flex;align-items:center;gap:10px}
+.cta:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(255,102,51,.35)}
+.cta.secondary{background:linear-gradient(90deg,#2dd4bf,#22d3ee);box-shadow:0 8px 30px rgba(34,211,238,.18)}
+.cta i{font-size:1.1rem}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
 
-    /* Box de preço */
-    .price-box {
-      text-align: center;
-      background: #fff;
-      padding: 30px 25px;
-      border-radius: 16px;
-      margin: 40px auto;
-      max-width: 480px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-    .old-price { text-decoration: line-through; color: #999; font-size: 1rem; margin-bottom: 5px; }
-    .old-price span { font-size: 1.1rem; }
-    .new-price { margin: 10px 0; }
-    .price-highlight { font-size: 2.4rem; font-weight: bold; color: #e53935; display: block; }
-    .urgencia { font-size: 1rem; color: #e64a19; margin: 12px 0; font-weight: 600; }
-    .contador {
-      font-size: 1rem; font-weight: bold; color: #d84315; background: #fff5f0;
-      padding: 8px 14px; border-radius: 6px; border: 1px solid #ffcbb2; display: inline-block;
-      margin-bottom: 20px;
-    }
-    .garantia-box {
-      margin-top: 20px; display: flex; align-items: center; justify-content: center;
-      gap: 12px; font-size: 0.95rem; color: #444;
-    }
-    .garantia-box img { max-width: 60px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2)); }
+.cover{position:relative;background:linear-gradient(180deg,#0f1220,#0b0d10);border:1px solid #1f2438;border-radius:18px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.sticker{position:absolute;top:12px;right:12px;background:#0b0d10;border:1px solid #262a40;border-radius:12px;padding:8px 10px;font-size:.85rem}
 
-    /* Prévia e benefícios */
-    .previas { text-align: center; margin: 40px auto; max-width: 900px; }
-    .previas h2 { font-size: 1.9rem; margin-bottom: 10px; color: #00796b; }
-    .previas .frase-destaque { font-size: 1.1rem; color: #444; margin-bottom: 25px; line-height: 1.5; }
-    .grid-previas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 15px; justify-items: center; margin-bottom: 25px;
-    }
-    .grid-previas img {
-      max-width: 100%; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .grid-previas img:hover { transform: scale(1.03); }
+/* Price section */
+.section{padding:48px 18px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+@media (max-width: 960px){.split{grid-template-columns:1fr}}
 
-    /* Benefícios */
-    .beneficios { text-align: center; max-width: 700px; margin: 0 auto 20px auto; padding: 0; }
-    .beneficios li {
-      margin: 12px 0; list-style: none; font-size: 1rem;
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; color: #333; line-height: 1.4;
-    }
-    .icon-anim { margin-right: 8px; animation: pulse 1.8s infinite; font-size: 1.3rem; }
-    .verde { color: #25d366; }   /* WhatsApp */
-    .azul { color: #1e88e5; }    /* Grupo */
-    .amarelo { color: #fbc02d; } /* Raio */
-    .roxo { color: #8e24aa; }    /* Lâmpada */
-    .vermelho { color: #e53935; }/* Escudo */
+.card{background:var(--card);border:1px solid #1b2135;border-radius:16px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.price .old{color:#9aa3af;text-decoration:line-through}
+.price .now{font-size:2.2rem;font-weight:900;color:#fde68a}
+.urgency{display:flex;gap:10px;align-items:center;background:rgba(245,158,11,.12);border:1px dashed rgba(245,158,11,.6);padding:10px 12px;border-radius:12px;margin:10px 0}
+.countdown{font-weight:800;color:#fbbf24}
 
-    /* CTA fixo mobile */
-    .cta-fixed { display: none; }
-    @media (max-width: 768px) {
-      .cta-fixed {
-        display: block; position: fixed; bottom: 0; left: 0; width: 100%;
-        background: linear-gradient(270deg, #ff9800, #ff5722, #e91e63);
-        background-size: 600% 600%;
-        color: #fff; text-align: center;
-        padding: 15px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
-        box-shadow: 0 -3px 8px rgba(0,0,0,0.2); z-index: 999;
-        animation: gradientMove 6s ease infinite, pulse 2s infinite;
-      }
-      .hero { flex-direction: column; }
-    }
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:10px}
+.feature{display:flex;gap:10px;align-items:flex-start;background:#0f1220;border:1px solid #1f2438;padding:14px;border-radius:14px}
+.feature i{min-width:22px}
+
+/* Inside the book */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#111827;border:1px solid #1f2937;color:#d1d5db;padding:6px 10px;border-radius:999px;font-size:.9rem;margin:4px}
+
+/* Testimonials */
+.testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.quote{background:#0f1220;border:1px solid #1f2438;border-radius:14px;padding:16px}
+.quote small{color:#9aa3af}
+
+/* FAQ */
+details{background:#0f1220;border:1px solid #1f2438;border-radius:12px;padding:14px}
+summary{cursor:pointer;font-weight:700}
+details+details{margin-top:10px}
+
+/* Sticky mobile bar */
+.stickybar{position:fixed;inset:auto 0 0 0;background:rgba(17,20,24,.9);backdrop-filter: blur(6px);display:flex;align-items:center;justify-content:center;gap:12px;padding:12px;border-top:1px solid #1f2438;z-index:50}
+.stickybar .cta{font-size:1rem;padding:12px 16px}
+@media (min-width: 720px){.stickybar{display:none}}
+
+/* Footer */
+footer{padding:30px 18px;color:#9aa3af;border-top:1px solid #1f2438;background:#0b0d10}
+.tiny{font-size:.8rem;color:#6b7280}
+
   </style>
 </head>
 <body>
   <header>
-    <h1>Ganhe até R$ 5.000 por mês com produtos de limpeza caseiros</h1>
-    <p class="sub">Aprenda mais de <strong>70 receitas exclusivas</strong> e descubra como transformar produtos simples em uma fonte de renda real.</p>
-    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
-      <button class="cta-btn">📥 Quero meu Ebook agora! <span class="seta">⬇</span></button>
-<p style="color:#fff;font-size:0.9rem;margin-top:8px;">⚡ Leitura em minutos, acesso imediato!</p>
-    </a>
-    <div class="hero">
-      <img src="imagens/capa-ebook.jpg" alt="Capa do Ebook">
-      <p style="max-width:400px;color:#fff;font-size:1rem;line-height:1.5;">
-        Eu comecei vendendo meus próprios produtos de limpeza caseiros e em poucos meses, consegui aumentar minha renda em mais de 300%. Já participei de programas de empreendedorismo, treinei mais de 1200 alunos e hoje compartilho minhas estratégias testadas e aprovadas para você aplicar também. Agora quero te mostrar o caminho para você também conquistar a sua independência financeira!
-      </p>
-    </div>
-  </header>
-
-  <!-- Box de Preço -->
-  <section class="price-box">
-    <p class="old-price">De <span>R$ 79,90</span></p>
-    <p class="new-price"><span class="price-highlight">Por apenas R$ 29,90</span></p>
-<p style="font-size:0.95rem;color:#444;">💡 Menos que 1 pizza e você pode faturar até R$ 5.000/mês</p>
-    <p class="urgencia">⚡ Oferta exclusiva para novos clientes – preço volta para R$ 79,90 em breve ⚡</p>
-    <div class="contador" id="contador"></div>
-    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
-      <button class="cta-btn"><i class="fas fa-lock"></i> Quero meu Ebook com desconto agora!</button>
-    </a>
-    <p style="margin-top:8px;font-size:0.9rem;color:#444;">🔒 Compra 100% segura – 7 dias de garantia</p>
-    <div class="garantia-box">
-      <img src="imagens/selo-garantia.png" alt="Garantia 7 dias">
-      <p>Compra protegida<br><strong>7 dias de garantia</strong></p>
-    </div>
-  </section>
-
-  <!-- Prévia e benefícios -->
-  <section class="previas">
-    <h2>📘 + de 70 receitas exclusivas para você lucrar!</h2>
-    <p class="frase-destaque">Cansado de depender apenas do salário? Gastando cada vez mais no mercado? Descubra como receitas simples podem virar sua fonte de renda diária.</p>
-    <div class="grid-previas">
-      <img src="imagens/print1.jpg" alt="Prévia do Ebook 1">
-      <img src="imagens/print2.jpg" alt="Prévia do Ebook 2">
-      <img src="imagens/print3.jpg" alt="Prévia do Ebook 3">
-      <img src="imagens/print4.jpg" alt="Prévia do Ebook 4">
-    </div>
-    <ul class="beneficios">
-      <li><i class="fab fa-whatsapp icon-anim verde"></i> Suporte direto no WhatsApp para tirar dúvidas e lucrar mais rápido</li>
-      <li><i class="fas fa-users icon-anim azul"></i> Grupo exclusivo para trocar contatos e fechar parcerias de venda</li>
-      <li><i class="fas fa-bolt icon-anim amarelo"></i> Acesso imediato ao ebook após a compra</li>
-      <li><i class="fas fa-lightbulb icon-anim roxo"></i> Estratégias de marketing e vendas para multiplicar seus lucros</li>
-      <li><i class="fas fa-shield-alt icon-anim vermelho"></i> Garantia de 7 dias: ou seu dinheiro de volta!</li>
-    </ul>
-    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
-      <button class="cta-mini">🚀 Quero começar a lucrar agora!</button>
-    </a>
-  </section>
-  <!-- Depoimentos -->
-  <section>
-    <h2>💬 O que dizem nossos alunos</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
-      <div style="background:#f9f9f9;padding:20px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-        <p>"Comecei com poucas receitas e hoje já tenho clientes fixos. Esse ebook mudou minha vida!"</p>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:10px;"><img src="imagens/depo1.jpg" alt="Maria Souza" style="width:40px;height:40px;border-radius:50%;"><strong>Maria Souza - São Paulo/SP</strong></div>
+    <div class="container hero">
+      <div>
+        <span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> 200 Prompts Prontos • Acesso imediato</span>
+        <h1>Transforme ideias em resultados com <span style="background:linear-gradient(90deg,var(--brand2),var(--brand1));-webkit-background-clip:text;background-clip:text;color:transparent">200 Prompts Práticos</span> para IA</h1>
+        <p class="sub">Copie e cole prompts testados para <strong>anúncios, conteúdo, vendas, atendimento, SEO, design e automações</strong>. Economize horas por semana e publique com consistência.</p>
+        <div class="badge-list">
+          <span class="badge"><i class="fa-regular fa-file-lines"></i> PDF + DOC editável</span>
+          <span class="badge"><i class="fa-solid fa-bolt"></i> Prontos para copiar e usar</span>
+          <span class="badge"><i class="fa-solid fa-lock"></i> Acesso seguro</span>
+          <span class="badge"><i class="fa-solid fa-rotate"></i> 7 dias de garantia</span>
+        </div>
+        <div class="cta-row">
+          <a id="ctaTop" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Garantir meu acesso</a>
+          <a class="cta secondary" href="#conteudo"><i class="fa-solid fa-eye"></i> Ver o que tem dentro</a>
+        </div>
       </div>
-      <div style="background:#f9f9f9;padding:20px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-        <p>"Investimento pequeno que trouxe retorno em menos de 1 semana. Super recomendo."</p>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:10px;"><img src="imagens/depo2.jpg" alt="João Pereira" style="width:40px;height:40px;border-radius:50%;"><strong>João Pereira - Belo Horizonte/MG</strong></div>
-      </div>
-      <div style="background:#f9f9f9;padding:20px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-        <p>"As receitas são fáceis e o suporte no WhatsApp realmente ajuda quando surgem dúvidas."</p>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:10px;"><img src="imagens/depo3.jpg" alt="Ana Lima" style="width:40px;height:40px;border-radius:50%;"><strong>Ana Lima - Curitiba/PR</strong></div>
+      <div class="cover">
+        <picture>
+          <img src="imagens/mockup-ebook-200prompts.png" alt="Mockup do Ebook 200 Prompts Prontos" />
+        </picture>
+        <div class="sticker"><i class="fa-solid fa-star-of-life" style="color:#fde68a"></i> Atualizado 2025</div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:20px;">
-      <span style="display:inline-block;background:#00796b;color:#fff;padding:8px 16px;border-radius:20px;font-size:0.95rem;">
-        ✅ +1200 alunos satisfeitos já transformaram sua renda!
-      </span>
-<p style="margin-top:12px;font-size:0.9rem;color:#444;">📊 Mais de 3.500 downloads do ebook até agora</p>
-<p id="contadorAlunos" style="font-size:0.9rem;color:#e53935;font-weight:bold;"></p>
-<script>
-function atualizarContador() {
-  const contador = document.getElementById("contadorAlunos");
-  const numero = Math.floor(Math.random() * 3) + 1;
-  contador.textContent = numero + " pessoas compraram nas últimas horas";
-}
-setInterval(atualizarContador, 5000);
-window.onload = atualizarContador;
-</script>
+  </header>  <!-- Oferta / Preço -->  <section class="section">
+    <div class="container split">
+      <div class="card price">
+        <h2 style="margin:0 0 6px">Oferta Relâmpago</h2>
+        <p class="old">De <strong>R$ 79,90</strong></p>
+        <p class="now">Por <strong>R$ 29,90</strong></p>
+        <div class="urgency"><i class="fa-regular fa-clock"></i> Expira em <span id="countdown" class="countdown">15:00</span></div>
+        <a id="ctaMiddle" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-cart-shopping"></i> Comprar agora</a>
+        <p class="tiny" style="margin-top:10px">Compra 100% segura • Acesso imediato • 7 dias de garantia</p>
+        <div class="features">
+          <div class="feature"><i class="fa-solid fa-sparkles"></i><div><strong>Praticidade imediata</strong><br/>Prompts prontos, com variações e instruções de uso.</div></div>
+          <div class="feature"><i class="fa-solid fa-list-check"></i><div><strong>Estrutura validada</strong><br/>Templates de copy, anúncios, roteiros e atendimento.</div></div>
+          <div class="feature"><i class="fa-solid fa-layer-group"></i><div><strong>Organizado por nichos</strong><br/>Categorias para negócios locais, serviços, infoprodutos e e‑commerce.</div></div>
+        </div>
+      </div>
+      <div class="card" id="conteudo">
+        <h2 style="margin:0 0 8px">O que você vai receber</h2>
+        <div class="grid">
+          <div>
+            <h3>Vendas & Atendimento</h3>
+            <ul>
+              <li>Follow‑up de WhatsApp que converte em 3 passos</li>
+              <li>Roteiros de objeções (preço, tempo, confiança)</li>
+              <li>Mensagem de recuperação de carrinho</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Anúncios & Copy</h3>
+            <ul>
+              <li>Prompts AIDA/PAS para Headlines e Primários</li>
+              <li>Ângulos para criativos (dor, desejo, prova)</li>
+              <li>Esboço de vídeo UGC de 30–45s</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Conteúdo & Social</h3>
+            <ul>
+              <li>Calendário de 30 dias por nicho</li>
+              <li>Roteiros Reels/Shorts em 7 cenas</li>
+              <li>Carrossel IG: gancho → prova → CTA</li>
+            </ul>
+          </div>
+          <div>
+            <h3>SEO & Blog</h3>
+            <ul>
+              <li>Briefs otimizados (H2/H3, FAQs)</li>
+              <li>Snippet em destaque (featured)</li>
+              <li>Metatags e OpenGraph automatizados</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Design & Ideias</h3>
+            <ul>
+              <li>Prompts para thumbnails de alta taxa de clique</li>
+              <li>Estruturas de landing de alta retenção</li>
+              <li>Brief criativo para designers</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Automação & No‑Code</h3>
+            <ul>
+              <li>Fluxos Zapier/Make para captação</li>
+              <li>Prompts para bots de atendimento</li>
+              <li>Planilha de leads com pontuação</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <span class="pill"><i class="fa-solid fa-book"></i> 200 prompts prontos</span>
+          <span class="pill"><i class="fa-regular fa-pen-to-square"></i> + planilha de organização</span>
+          <span class="pill"><i class="fa-solid fa-laptop-code"></i> Compatível com qualquer IA</span>
+        </div>
+      </div>
     </div>
-    <!-- Prova social com print do WhatsApp -->
-    <div style="text-align:center;margin-top:25px;">
-      <img src="imagens/whatsapp-feedback.png" alt="Feedback de alunos no WhatsApp"
-           style="max-width:300px;width:90%;height:auto;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <p style="font-size:0.9rem;color:#555;margin-top:8px;">Depoimentos reais de alunos que já estão faturando 📈</p>
+  </section>  <!-- Pré-visualizações / Imagens -->  <section class="section">
+    <div class="container">
+      <h2 style="margin-top:0">Dê uma espiada</h2>
+      <p class="sub">Algumas páginas internas do ebook (a versão final é mais completa):</p>
+      <div class="grid">
+        <img src="imagens/preview-1.jpg" alt="Prévia 1 do ebook"/>
+        <img src="imagens/preview-2.jpg" alt="Prévia 2 do ebook"/>
+        <img src="imagens/preview-3.jpg" alt="Prévia 3 do ebook"/>
+        <img src="imagens/preview-4.jpg" alt="Prévia 4 do ebook"/>
+      </div>
+      <div style="margin-top:18px">
+        <a id="ctaPreview" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-bolt"></i> Quero começar agora</a>
+      </div>
     </div>
-  </section>
-
-
-  <!-- FAQ -->
-  <section>
-    <h2>❓ Perguntas Frequentes</h2>
-    <div style="max-width:700px;margin:0 auto;">
-      <p><strong>📌 Como recebo o ebook?</strong><br>
-        Assim que a compra for confirmada, você receberá um link no seu e-mail para download imediato.</p>
-      <p><strong>📌 Preciso ter experiência para começar?</strong><br>
-        Não! As receitas são simples, práticas e explicadas passo a passo.</p>
-      <p><strong>📌 Terei suporte caso tenha dúvidas?</strong><br>
-        Sim, você terá suporte direto no WhatsApp e acesso a um grupo exclusivo de alunos.</p>
-      <p><strong>📌 E se eu não gostar?</strong><br>
-        Você tem 7 dias de garantia incondicional para pedir seu reembolso.</p>
+  </section>  <!-- Prova social -->  <section class="section">
+    <div class="container">
+      <h2 style="margin:0 0 12px">Quem já comprou, aprova</h2>
+      <div class="testi">
+        <div class="quote">
+          <p>“Economizei horas criando campanhas e posts. Os prompts já vêm com variações e CTAs.”</p>
+          <small>— Juliana S., Social Media</small>
+        </div>
+        <div class="quote">
+          <p>“Usei os roteiros de objeção e fechei 2 contratos na semana.”</p>
+          <small>— Marcos A., Tráfego Pago</small>
+        </div>
+        <div class="quote">
+          <p>“Atendimento no WhatsApp ficou muito mais rápido e padronizado.”</p>
+          <small>— Brenda L., Negócio Local</small>
+        </div>
+      </div>
+      <p class="tiny" style="margin-top:8px">Depoimentos meramente ilustrativos. Resultados variam conforme dedicação e contexto.</p>
     </div>
-  </section>
+  </section>  <!-- FAQ -->  <section class="section">
+    <div class="container" style="max-width:900px">
+      <h2>Perguntas Frequentes</h2>
+      <details>
+        <summary>Como recebo o ebook?</summary>
+        <p>Após a compra, o acesso é liberado automaticamente por e‑mail. Baixe o PDF e, se preferir, a versão editável.</p>
+      </details>
+      <details>
+        <summary>Funciona com qual IA?</summary>
+        <p>Os prompts foram pensados para uso com qualquer assistente de IA (ex.: ChatGPT). Incluímos instruções de adaptação.</p>
+      </details>
+      <details>
+        <summary>Tem garantia?</summary>
+        <p>Sim. Você tem 7 dias para testar. Se não for para você, basta solicitar o reembolso pela plataforma de pagamento.</p>
+      </details>
+      <details>
+        <summary>Posso usar nos meus clientes?</summary>
+        <p>Sim. O material é para uso comercial no seu fluxo de trabalho. A revenda do ebook em si não é permitida.</p>
+      </details>
+    </div>
+  </section>  <!-- Chamada final -->  <section class="section">
+    <div class="container" style="text-align:center">
+      <h2 style="margin-top:0">Pronto para publicar mais rápido, todos os dias?</h2>
+      <p class="sub">Comece hoje com os 200 prompts prontos e pare de encarar a tela em branco.</p>
+      <a id="ctaBottom" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-right-to-bracket"></i> Garantir acesso imediato</a>
+      <div style="margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+        <span class="pill"><i class="fa-solid fa-shield-halved"></i> Garantia 7 dias</span>
+        <span class="pill"><i class="fa-regular fa-circle-check"></i> Compra segura</span>
+        <span class="pill"><i class="fa-solid fa-bolt"></i> Download instantâneo</span>
+      </div>
+    </div>
+  </section>  <!-- Sticky CTA (mobile) -->  <div class="stickybar">
+    <strong>200 Prompts Prontos</strong>
+    <a id="ctaSticky" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Acessar</a>
+  </div>  <footer>
+    <div class="container">
+      <p class="tiny">© 2025 – Seu Nome/Marca. Todos os direitos reservados.</p>
+      <p class="tiny">Este site não é afiliado ao Facebook™ ou Meta Platforms, Inc. Os resultados dependem de diversos fatores e não há garantias de ganhos. Utilize anúncios em conformidade com as políticas da plataforma.</p>
+    </div>
+  </footer>  <!-- Scripts -->  <script>
+    // ======= Contador (reinicia por sessão) =======
+    (function(){
+      const el = document.getElementById('countdown');
+      const DURATION = 15 * 60; // 15 min
+      const KEY = 'timerStart';
+      const now = Math.floor(Date.now()/1000);
+      let start = parseInt(sessionStorage.getItem(KEY) || '0', 10);
+      if(!start){ start = now; sessionStorage.setItem(KEY, String(start)); }
+      function tick(){
+        const passed = nowSec();
+        const remain = Math.max(0, DURATION - (passed - start));
+        const m = Math.floor(remain/60).toString().padStart(2,'0');
+        const s = (remain%60).toString().padStart(2,'0');
+        el.textContent = m+':'+s;
+        if(remain<=0){ start = nowSec(); sessionStorage.setItem(KEY, String(start)); }
+      }
+      function nowSec(){ return Math.floor(Date.now()/1000); }
+      setInterval(tick, 1000); tick();
+    })();
 
-  <!-- Chamada Final -->
-  <section style="text-align:center;">
-    <h2>🚀 Está pronto para transformar sua renda?</h2>
-    <p style="font-size:1.1rem;max-width:600px;margin:0 auto 20px;">
-      Não perca a chance de começar hoje mesmo! Aproveite a oferta antes que volte para <strong>R$ 79,90</strong>.
-    </p>
-    <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
-      <button class="cta-btn"><i class="fas fa-shopping-cart"></i> Garantir meu acesso agora!</button>
-    </a>
-    <p style="margin-top:8px;font-size:0.9rem;color:#444;">✔ Compra 100% segura | 🔒 Garantia de 7 dias</p>
-  </section>
+    // ======= Meta Pixel básico (troque pelo seu ID) =======
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    try{ fbq('init','SUA_PIXEL_ID'); fbq('track','PageView'); }catch(e){}
 
-  <!-- Footer -->
-  <footer style="background:#f1f1f1;text-align:center;padding:20px;font-size:0.85rem;color:#555;">
-    <p>&copy; 2025 Fórmula da Renda com Produtos de Limpeza. Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- CTA fixo no mobile -->
-  <a href="https://pay.kiwify.com.br/UaH7QvK" target="_blank">
-    <div class="cta-fixed">🔥 Garantir Ebook por R$29,90 agora!</div>
-  </a>
-
-  <!-- Script do contador -->
-  <script>
-    function startCountdown(duration, display) {
-      var timer = duration, minutes, seconds;
-      setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.textContent = "⏰ Oferta expira em: " + minutes + ":" + seconds;
-        if (--timer < 0) {
-          timer = duration;
-        }
-      }, 1000);
-    }
-    window.onload = function () {
-      var fiveMinutes = 60 * 15,
-          display = document.querySelector('#contador');
-      startCountdown(fiveMinutes, display);
-    };
-  </script>
-<!-- Meta Pixel Code -->  
-<script>    
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1206870041198665');
-fbq('track', 'PageView');
-</script>  
-<noscript><img height="1" width="1" style="display:none"    
-src="https://www.facebook.com/tr?id=1206870041198665&ev=PageView&noscript=1"/></noscript>  
-<!-- End Meta Pixel Code -->  
+    // Eventos de clique
+    const ctas = ['ctaTop','ctaMiddle','ctaPreview','ctaBottom','ctaSticky'];
+    ctas.forEach(id => {
+      const a = document.getElementById(id);
+      if(a){ a.addEventListener('click', () => { try{ fbq('track','InitiateCheckout'); }catch(e){} }); }
+    });
+  </script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=SUA_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 
 </body>
 </html>
