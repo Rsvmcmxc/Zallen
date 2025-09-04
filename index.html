@@ -69,22 +69,32 @@
     .feature{display:flex;gap:10px;align-items:flex-start;background:#0f1220;border:1px solid #1f2438;padding:14px;border-radius:14px}
     .feature i{min-width:22px}
 
-    /* Inside the book */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:#111827;border:1px solid #1f2937;color:#d1d5db;padding:6px 10px;border-radius:999px;font-size:.9rem;margin:4px}
-
-    /* Testimonials */
-    .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .quote{background:#0f1220;border:1px solid #1f2438;border-radius:14px;padding:16px}
-    .quote small{color:#9aa3af}
-
-    /* FAQ */
-    details{background:#0f1220;border:1px solid #1f2438;border-radius:12px;padding:14px}
-    summary{cursor:pointer;font-weight:700}
-    details+details{margin-top:10px}
+    /* Guarantee with CTA */
+    .cta-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .selo-garantia {
+      height: 42px;
+      width: auto;
+    }
+    @media (max-width: 720px) {
+      .cta-guarantee {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+      }
+      .selo-garantia {
+        height: 36px;
+      }
+    }
 
     /* Sticky mobile bar */
-    .stickybar{position:fixed;inset:auto 0 0 0;background:rgba(17,20,24,.9);backdrop-filter: blur(6px);display:flex;align-items:center;justify-content:center;gap:12px;padding:12px;border-top:1px solid #1f2438;z-index:50}
+    .stickybar{position:fixed;inset:auto 0 0 0;background:rgba(17,20,24,.9);backdrop-filter: blur(6px);display:flex;align-items:center;justify-content:center;gap:12px;padding:12px;border-top:1px solid #1f2438;z-index:50;flex-wrap:wrap}
     .stickybar .cta{font-size:1rem;padding:12px 16px}
     @media (min-width: 720px){.stickybar{display:none}}
 
@@ -128,7 +138,10 @@
         <p class="old">De <strong>R$ 79,90</strong></p>
         <p class="now">Por <strong>R$ 29,90</strong></p>
         <div class="urgency"><i class="fa-regular fa-clock"></i> Expira em <span id="countdown" class="countdown">15:00</span></div>
-        <a id="ctaMiddle" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-cart-shopping"></i> Comprar agora</a>
+        <div class="cta-guarantee">
+          <a id="ctaMiddle" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-cart-shopping"></i> Comprar agora</a>
+          <img src="imagens/selo-garantia.png" alt="Garantia 7 dias" class="selo-garantia">
+        </div>
         <p class="tiny" style="margin-top:10px">Compra 100% segura • Acesso imediato • 7 dias de garantia</p>
         <div class="features">
           <div class="feature"><i class="fa-solid fa-sparkles"></i><div><strong>Praticidade imediata</strong><br/>Prompts prontos, com variações e instruções de uso.</div></div>
@@ -204,7 +217,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Prova social -->
   <section class="section">
     <div class="container">
@@ -266,7 +279,10 @@
   <!-- Sticky CTA (mobile) -->
   <div class="stickybar">
     <strong>200 Prompts Prontos</strong>
-    <a id="ctaSticky" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Acessar</a>
+    <div class="cta-guarantee">
+      <a id="ctaSticky" class="cta" href="https://pay.seuplataforma.com/SEU_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Acessar</a>
+      <img src="imagens/selo-garantia.png" alt="Garantia 7 dias" class="selo-garantia">
+    </div>
   </div>
 
   <footer>
