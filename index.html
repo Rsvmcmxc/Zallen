@@ -30,26 +30,22 @@
     border-bottom:1px solid #eee;
   }
   .status-aberto {
-    display:inline-flex;
-    align-items: center;
-    gap: 6px;
-    background:#f0f9f0;
-    color:var(--green);
-    font-size:13px;
-    font-weight:700;
-    padding:6px 12px;
-    border:1px solid #e0f2e0;
-    border-radius:20px;
+    display:inline-block;
+    background:var(--green);
+    color:#fff;
+    font-size:14px; /* Aumentado para ser mais legível */
+    font-weight:600; /* Um pouco menos bold para minimalismo */
+    padding:8px 16px; /* Mais padding para um visual moderno */
+    border-radius:8px; /* Bordas menos arredondadas */
     margin-bottom:12px;
-    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.15);
+    letter-spacing: 0.5px; /* Espaçamento entre letras para um toque profissional */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra sutil */
+    transition: all 0.3s ease; /* Transição suave para hover */
   }
-  
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse-dot 2s infinite;
+  .status-aberto:hover {
+    transform: translateY(-2px); /* Efeito sutil ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   }
   .logo {
     width:90px;height:90px;
@@ -248,20 +244,7 @@
     100% { transform: scale(1); }
   }
 
-  @keyframes pulse-dot {
-    0% { 
-      transform: scale(1); 
-      opacity: 1; 
-    }
-    50% { 
-      transform: scale(1.2); 
-      opacity: 0.8; 
-    }
-    100% { 
-      transform: scale(1); 
-      opacity: 1; 
-    }
-  }
+
 
   /* MODAL */
   .modal {
@@ -388,10 +371,7 @@
 <body>
 
 <header>
-  <div class="status-aberto">
-    <div class="status-dot"></div>
-    ABERTO
-  </div>
+  <div class="status-aberto">ABERTO</div>
   <div class="logo"><img src="restaurante.png" alt="Alcatra na Brasa"></div>
   <h1>Alcatra na Brasa - Delivery</h1>
   <div class="info-bar">
@@ -441,7 +421,7 @@
     <h2>✅ Pedido Confirmado!</h2>
     <p>Obrigado <span id="resNome"></span> 🎉</p>
     <div class="detalhes" id="resumoPedido"></div>
-    <button class="pagamento">💳 Ir para Pagamento</button>
+    <button class="pagamento" onclick="window.location.href=\'https://go.tribopay.com.br/esmhk50l5h\'">💳 Ir para Pagamento</button>
   </div>
 </div>
 
@@ -522,7 +502,7 @@
       📱 <strong>WhatsApp:</strong> ${whats}<br>
       💵 <strong>Total:</strong> R$29,90
     `;
-    window.location.href = 'https://go.tribopay.com.br/esmhk50l5h';
+    document.getElementById('modal').style.display = "flex";
   });
 
   // Fechar modal clicando fora
