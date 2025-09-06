@@ -70,6 +70,22 @@
     white-space: nowrap;
   }
   .info-bar strong {color:var(--star);}
+  
+  /* Correção do alinhamento da estrela */
+  .rating-container {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .star-icon {
+    font-size: 14px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+  .rating-text {
+    font-size: 14px;
+    line-height: 1;
+  }
 
   /* SEÇÃO OFERTA */
   .section {
@@ -351,7 +367,11 @@
   <div class="logo"><img src="restaurante.png" alt="Alcatra na Brasa"></div>
   <h1>Alcatra na Brasa - Delivery</h1>
   <div class="info-bar">
-    <span>⭐ <strong>4.9</strong> (980 avaliações)</span>
+    <span class="rating-container">
+      <span class="star-icon">⭐</span>
+      <strong class="rating-text">4.9</strong>
+      <span class="rating-text">(980 avaliações)</span>
+    </span>
     <span>📍 1,9km de você</span>
     <span>🚴 30-50 min</span>
     <span>📦 Entrega grátis</span>
