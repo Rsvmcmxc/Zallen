@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pizzaria do Gordo – Delivery</title>
+<title>Gordo Pizzaria – Delivery</title>
 
 <!-- Meta Pixel Code -->
 <script>
@@ -16,7 +16,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1091349129834422');
-fbq('track', 'PageView'); // page view ao carregar
+fbq('track', 'PageView'); // PageView ao carregar
 </script>
 <noscript>
   <img height="1" width="1" style="display:none"
@@ -45,7 +45,7 @@ fbq('track', 'PageView'); // page view ao carregar
 <header>
   <div class="overlay">
     <div class="logo"><img src="logo-pizzaria.png" alt="Logo Pizzaria do Gordo"></div>
-    <h1>🍕 Pizzaria do Gordo</h1>
+    <h1>🍕 Gordo Pizzaria</h1>
     <p>⚡ Oferta só no delivery: Pizza Família + 4 sabores + borda recheada = R$39,90 🍕</p>
     <div class="status-bar">
       <span>⭐ 4,9 (792 avaliações)</span>
@@ -107,10 +107,10 @@ fbq('track', 'PageView'); // page view ao carregar
 <!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-content">
-    <h2>✅ Pedido Recebido!</h2>
-    <p>Obrigado, <span id="clienteNome"></span>! Sua pizza já está reservada 🍕🔥</p>
+    <h2>✅ Pedido confirmado!</h2>
+    <p><strong id="clienteNome"></strong>, sua pizza está reservada 🍕🔥</p>
     <div class="detalhes" id="resumoPedido"></div>
-    <p>👉 Agora é só confirmar o pagamento para nossa equipe iniciar o preparo imediato.</p>
+    <p>💳 Confirme o pagamento agora e receba <b>prioridade no preparo + brinde exclusivo hoje!</b></p>
     <button class="pagamento" onclick="irPagamento()">💳 Ir para Pagamento</button><br>
     <button class="fechar" onclick="fecharModal()">Fechar</button>
   </div>
@@ -215,14 +215,14 @@ finalizar.addEventListener('click',()=>{
   `;
   modal.style.display = "flex";
 
-  // Evento pixel ao clicar em finalizar
+  // Pixel: início do checkout
   fbq('track', 'InitiateCheckout', {value:39.90, currency:'BRL'});
 });
 
 function fecharModal(){ modal.style.display="none"; }
 
 function irPagamento(){ 
-  fbq('track', 'Purchase', {value:39.90, currency:'BRL'}); // evento purchase
+  fbq('track', 'Purchase', {value:39.90, currency:'BRL'}); // Pixel: compra
   window.open(checkoutURL,'_blank'); 
 }
 </script>
