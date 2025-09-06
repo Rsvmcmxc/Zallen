@@ -3,303 +3,491 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gordo Pizzaria – Delivery</title>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1091349129834422');
-fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1091349129834422&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
-
+<title>Alcatra na Brasa – Delivery</title>
 <style>
   :root {
     --red:#d62828;--green:#2a9d8f;--yellow:#fcbf49;--orange:#f77f00;--bg:#fffdf9;
+    --gray:#666;--star:#ffb703;
   }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
   body {
     margin:0;
     font-family:"Inter",sans-serif;
     background:var(--bg);
     color:#222;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    padding-bottom: 100px; /* Espaço para o botão fixo */
   }
 
   /* HEADER */
   header {
-    background: linear-gradient(180deg, #d62828 0%, #f77f00 100%);
-    width:100%; display:flex; align-items:center; justify-content:center;
-    position:relative; text-align:center; color:#fff;
-    height:340px; padding:20px; flex-direction:column;
+    text-align:center;
+    padding:20px 15px;
+    background:#fff;
+    border-bottom:1px solid #eee;
   }
-  header::before {content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);}
-  header .overlay {position:relative;z-index:1;max-width:600px;width:100%;}
-
-  .logo {width:120px;height:120px;border-radius:50%;overflow:hidden;border:4px solid #fff;margin:0 auto 14px;box-shadow:0 4px 15px rgba(0,0,0,0.3);}
+  .status-aberto {
+    display:inline-block;
+    background:var(--green);
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .logo {
+    width:90px;height:90px;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid #fff;
+    margin:0 auto 12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+  }
   .logo img {width:100%;height:100%;object-fit:cover;}
-  header h1 {font-size:26px;font-weight:900;margin:8px 0 0;text-shadow:2px 2px 6px rgba(0,0,0,0.7);}
-  header p {font-size:15px;margin-top:8px;font-weight:600;}
+  header h1 {
+    font-size:22px;
+    font-weight:800;
+    margin:8px 0;
+    line-height: 1.2;
+  }
+  .info-bar {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    font-size:14px;
+    margin-top:8px;
+    color:var(--gray);
+  }
+  .info-bar span {
+    display:flex;
+    align-items:center;
+    gap:5px;
+    white-space: nowrap;
+  }
+  .info-bar strong {color:var(--star);}
 
-  .status-bar {display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;font-size:14px;margin-top:12px;font-weight:600;}
-  .dot {width:10px;height:10px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;}
-  @keyframes pulse {0%{transform:scale(0.9);opacity:0.7;}50%{transform:scale(1.2);opacity:1;}100%{transform:scale(0.9);opacity:0.7;}}
+  /* SEÇÃO OFERTA */
+  .section {
+    padding:20px 15px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .card {
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+    text-align:center;
+  }
+  .tag {
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    padding:6px 10px;
+    border-radius:8px;
+    margin-bottom:10px;
+  }
+  .card h2 {
+    font-size:20px;
+    font-weight:800;
+    margin:8px 0;
+    line-height: 1.3;
+  }
+  .bonus {
+    color:var(--green);
+    font-size:16px;
+    font-weight:700;
+    margin:10px 0;
+  }
+  .preco {
+    font-size:24px;
+    font-weight:900;
+    color:var(--green);
+    margin: 10px 0;
+  }
+  .antigo {
+    text-decoration:line-through;
+    color:#999;
+    font-size:16px;
+    margin-right:8px;
+  }
+  .card img {
+    width:100%;
+    max-width: 300px;
+    border-radius:12px;
+    margin:15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
 
-  /* CARD */
-  .card {margin:20px auto 120px;max-width:500px;background:#fff;border-radius:20px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.1);text-align:left;}
-  .pill {background:var(--orange);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:8px;}
-  .product-title {font-size:20px;font-weight:800;margin:8px 0;}
-  .desc {font-size:15px;color:#444;margin:6px 0;}
-  .bonus {font-size:15px;font-weight:700;color:var(--green);margin-bottom:10px;}
-  .countdown {font-size:15px;font-weight:800;color:#fff;background:var(--red);padding:6px 12px;border-radius:6px;margin:12px auto;display:inline-block;}
+  /* ACOMPANHAMENTOS */
+  .acomp {
+    margin:25px 0;
+    text-align:left;
+  }
+  .acomp h3 {
+    font-size:17px;
+    font-weight:800;
+    margin-bottom:15px;
+    color: #333;
+  }
+  .acomp-item {
+    border:2px solid #eee;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition: all 0.3s ease;
+    background: #fff;
+  }
+  .acomp-item:hover {
+    border-color: #ccc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .acomp-item.selected {
+    border-color:var(--red);
+    background: #fff5f5;
+    box-shadow: 0 2px 10px rgba(214, 40, 40, 0.2);
+  }
 
-  /* SABORES */
-  .sabores {margin:20px 0;}
-  .sabores h3 {font-size:16px;font-weight:800;margin-bottom:12px;}
-  .sabor-item {border:2px solid #eee;border-radius:10px;padding:12px;margin-bottom:10px;cursor:pointer;transition:0.2s;font-size:14px;font-weight:600;}
-  .sabor-item.selected {border-color:var(--red);background:#fff;}
+  /* FORM */
+  .form {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
+  }
+  .form input {
+    padding:15px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    transition: border-color 0.3s ease;
+    background: #fff;
+  }
+  .form input:focus {
+    border-color:var(--red);
+    outline:none;
+    box-shadow: 0 0 0 3px rgba(214, 40, 40, 0.1);
+  }
+  .form input.filled {
+    border-color: var(--green);
+  }
 
-  .bordas {display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
-  .borda-option {font-size:14px;display:flex;align-items:center;cursor:pointer;}
-  .borda-option input {margin-right:6px;}
-  .aviso {color:var(--red);font-size:13px;margin-top:8px;display:none;}
-
-  /* CARRINHO */
-  .cart {margin:20px 0;padding:10px;background:#f7f7f7;border-radius:12px;display:none;flex-direction:column;gap:6px;}
-  .cart-item {font-size:14px;font-weight:600;}
-
-  /* FORM ENDEREÇO */
-  .endereco {margin:20px 0;display:none;flex-direction:column;gap:10px;}
-  .endereco input {padding:12px;border:2px solid #ddd;border-radius:8px;font-size:14px;}
-  .endereco input:focus {border-color:var(--red);outline:none;}
-
-  /* BOTÃO */
-  .btn {background:linear-gradient(90deg,var(--yellow),#ff9e4d);border:none;width:100%;padding:16px;border-radius:999px;font-weight:900;font-size:16px;color:#222;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.15);animation:pulse 1.8s infinite;display:none;text-align:center;}
+  /* BOTÃO FIXO */
+  .btn {
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:linear-gradient(90deg,var(--yellow),#ff9e4d);
+    border:none;
+    width:calc(100% - 30px);
+    max-width: 470px;
+    padding:18px;
+    border-radius:999px;
+    font-weight:900;
+    font-size:17px;
+    color:#222;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    display:none;
+    text-align:center;
+    animation:pulse 2s infinite;
+    z-index: 100;
+  }
+  .btn:hover {
+    transform: translateX(-50%) scale(1.02);
+  }
+  @keyframes pulse {
+    0%{transform:translateX(-50%) scale(0.98);}
+    50%{transform:translateX(-50%) scale(1.01);}
+    100%{transform:translateX(-50%) scale(0.98);}
+  }
 
   /* MODAL */
   .modal {
-    display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;
-    background:rgba(0,0,0,0.6);justify-content:center;align-items:center;
+    display:none;
+    position:fixed;
+    z-index:1000;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    padding: 20px;
   }
   .modal-content {
-    background:#fff;padding:25px;border-radius:16px;text-align:center;max-width:400px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.2);animation:zoomIn .3s ease;
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    max-width:400px;
+    width: 100%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    animation: modalSlide 0.3s ease;
   }
-  .modal-content h2 {color:var(--green);margin-bottom:12px;}
-  .modal-content p {margin:8px 0;font-size:15px;}
-  .modal-content .detalhes {background:#f7f7f7;padding:10px;border-radius:10px;margin:10px 0;text-align:left;font-size:14px;}
-  .modal-content button {margin-top:15px;}
-  .fechar {background:var(--red);color:#fff;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;}
-  .pagamento {background:linear-gradient(90deg,var(--yellow),#ff9e4d);border:none;padding:12px 20px;font-size:16px;font-weight:700;border-radius:8px;cursor:pointer;margin-top:15px;}
-  @keyframes zoomIn {from{transform:scale(0.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+  @keyframes modalSlide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal-content h2 {
+    color:var(--green);
+    margin-bottom:15px;
+    font-size: 20px;
+  }
+  .modal-content p {
+    margin:8px 0;
+    font-size:16px;
+  }
+  .detalhes {
+    background:#f7f7f7;
+    padding:15px;
+    border-radius:12px;
+    margin:15px 0;
+    text-align:left;
+    font-size:14px;
+    line-height: 1.5;
+  }
+  .pagamento {
+    background:linear-gradient(90deg,var(--yellow),#ff9e4d);
+    border:none;
+    padding:15px 25px;
+    font-size:16px;
+    border-radius:999px;
+    font-weight:900;
+    color:#222;
+    cursor:pointer;
+    width:100%;
+    margin-top:15px;
+    transition: transform 0.2s ease;
+  }
+  .pagamento:hover {
+    transform: scale(1.02);
+  }
 
-  @media(max-width:600px){
-    header h1 {font-size:22px;}
-    header p {font-size:14px;}
-    .logo {width:100px;height:100px;}
-    .product-title {font-size:18px;}
+  /* RESPONSIVIDADE MOBILE */
+  @media (max-width: 480px) {
+    header {
+      padding: 15px 10px;
+    }
+    header h1 {
+      font-size: 18px;
+    }
+    .info-bar {
+      gap: 10px;
+      font-size: 12px;
+    }
+    .info-bar span {
+      flex-direction: column;
+      gap: 2px;
+      text-align: center;
+    }
+    .section {
+      padding: 15px 10px;
+    }
+    .card {
+      padding: 15px;
+    }
+    .card h2 {
+      font-size: 18px;
+    }
+    .preco {
+      font-size: 20px;
+    }
+    .acomp-item {
+      padding: 12px;
+      font-size: 14px;
+    }
+    .form input {
+      padding: 12px;
+      font-size: 16px; /* Evita zoom no iOS */
+    }
+    .btn {
+      width: calc(100% - 20px);
+      padding: 15px;
+      font-size: 16px;
+      bottom: 15px;
+    }
+    .modal {
+      padding: 15px;
+    }
+    .modal-content {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .info-bar {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card h2 {
+      font-size: 16px;
+    }
+    .bonus {
+      font-size: 14px;
+    }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="overlay">
-    <div class="logo"><img src="logo-pizzaria.png" alt="Logo Pizzaria do Gordo"></div>
-    <h1>🍕 Gordo Pizzaria</h1>
-    <p>⚡ Oferta só no delivery: Pizza Família + 4 sabores + borda recheada = R$39,90 🍕</p>
-    <div class="status-bar">
-      <span>⭐ 4,9 (792 avaliações)</span>
-      <span>📍 1,7 km</span>
-      <span class="dot"></span><span>Aberto agora</span>
-    </div>
+  <div class="status-aberto">🟢 ABERTO</div>
+  <div class="logo"><img src="restaurante.png" alt="Alcatra na Brasa"></div>
+  <h1>Alcatra na Brasa - Delivery</h1>
+  <div class="info-bar">
+    <span>⭐ <strong>4.9</strong> (980 avaliações)</span>
+    <span>📍 1,9km de você</span>
+    <span>🚴 30-50 min</span>
+    <span>📦 Entrega grátis</span>
   </div>
 </header>
 
-<div class="card">
-  <div class="pill">OFERTA ESPECIAL</div>
-  <div class="product-title">Pizza Família + Refri 2L</div>
-  <p class="desc">Monte até <b>4 sabores</b> + escolha sua borda favorita.</p>
-  <p class="bonus">🥤 Refrigerante 2L grátis + 🚚 Entrega grátis!</p>
-  <div class="countdown" id="countdown">Promoção expira em: 00:15:00</div>
-
-  <!-- SABORES -->
-  <div class="sabores">
-    <h3>Escolha até 4 sabores:</h3>
-    <div class="sabor-item" data-value="Margherita">Margherita 🍅</div>
-    <div class="sabor-item" data-value="Pepperoni">Pepperoni 🍕</div>
-    <div class="sabor-item" data-value="Quatro Queijos">Quatro Queijos 🧀</div>
-    <div class="sabor-item" data-value="Frango c/ Catupiry">Frango c/ Catupiry 🐔</div>
-    <div class="sabor-item" data-value="Portuguesa">Portuguesa 🇵🇹</div>
-    <div class="sabor-item" data-value="Calabresa">Calabresa 🌶</div>
-    <div class="sabor-item" data-value="Baiana">Baiana 🔥</div>
-    <div class="sabor-item" data-value="Veggie">Veggie 🥦</div>
-    <div class="sabor-item" data-value="Toscana">Toscana 🐷</div>
-    <div class="sabor-item" data-value="Lombo c/ Catupiry">Lombo c/ Catupiry 🥩</div>
+<div class="section">
+  <div class="card">
+    <div class="tag">🔥 IMPERDÍVEL</div>
+    <h2>Marmita G + Refrigerante 2L</h2>
+    <div class="bonus">Refrigerante 2L + Entrega Grátis</div>
+    <div class="preco"><span class="antigo">R$ 49,90</span> por R$ 29,90</div>
+    <img src="marmita.jpg" alt="Marmita na Brasa">
   </div>
 
-  <!-- BORDAS -->
-  <div class="bordas">
-    <span>Escolha sua borda:</span>
-    <label class="borda-option"><input type="radio" name="borda" value="Tradicional" checked> Tradicional</label>
-    <label class="borda-option"><input type="radio" name="borda" value="Catupiry"> Catupiry 🧀</label>
-    <label class="borda-option"><input type="radio" name="borda" value="Cheddar"> Cheddar 🟡</label>
-    <label class="borda-option"><input type="radio" name="borda" value="Chocolate"> Chocolate 🍫</label>
+  <!-- Acompanhamentos -->
+  <div class="acomp">
+    <h3>Escolha 1 Acompanhamento:</h3>
+    <div class="acomp-item">🥔 Batata Assada</div>
+    <div class="acomp-item">🍟 Polenta Frita</div>
+    <div class="acomp-item">🍚 Arroz Branco</div>
+    <div class="acomp-item">🥓 Farofa Crocante</div>
   </div>
 
-  <div class="aviso" id="aviso">⚠ Máximo de 4 sabores!</div>
-
-  <!-- CARRINHO -->
-  <div class="cart" id="cart"></div>
-
-  <!-- ENDEREÇO -->
-  <div class="endereco" id="endereco">
-    <input type="text" id="nome" placeholder="Seu nome completo">
-    <input type="tel" id="telefone" placeholder="WhatsApp para contato">
-    <input type="text" id="rua" placeholder="Rua e número">
-    <input type="text" id="bairro" placeholder="Bairro">
-    <input type="text" id="complemento" placeholder="Complemento (opcional)">
+  <!-- Formulário -->
+  <div class="form">
+    <input type="text" placeholder="Seu Nome" id="nome" required>
+    <input type="tel" placeholder="WhatsApp (11) 99999-9999" id="whatsapp" required>
+    <input type="text" placeholder="Endereço de Entrega" id="endereco" required>
   </div>
-
-  <!-- BOTÃO -->
-  <button class="btn" id="finalizar">🍕 PAGAR AGORA – R$39,90</button>
 </div>
 
-<!-- MODAL -->
+<!-- Botão Fixado -->
+<button class="btn" id="btnFinalizar">🍽️ Finalizar Pedido – R$29,90</button>
+
+<!-- Modal Confirmação -->
 <div class="modal" id="modal">
   <div class="modal-content">
-    <h2 style="color:#d62828; font-size:22px;">🍕 Gordo Pizzaria</h2>
-    <p style="font-size:18px; font-weight:700; color:#2a9d8f;">
-      ✅ Pedido confirmado!
-    </p>
-    <p style="font-size:15px; margin-top:6px;">
-      Sua pizza já está garantida e nossa equipe vai preparar com todo carinho e sabor irresistível 🔥.  
-      Prepare-se para receber <b>a melhor experiência de pizza da cidade</b> direto na sua casa. 🚀
-    </p>
+    <h2>✅ Pedido Confirmado!</h2>
+    <p>Obrigado <span id="resNome"></span> 🎉</p>
     <div class="detalhes" id="resumoPedido"></div>
-    <p style="margin-top:12px; font-size:15px;">
-      👉 Agora finalize o pagamento e em poucos minutos seu pedido estará a caminho.  
-    </p>
-    <button class="pagamento" onclick="irPagamento()">💳 Ir para Pagamento</button><br>
-    <button class="fechar" onclick="fecharModal()">Fechar</button>
+    <button class="pagamento">💳 Ir para Pagamento</button>
   </div>
 </div>
 
 <script>
-const checkoutURL = "https://go.tribopay.com.br/ou2nmp9gu1";
+  // Elementos do formulário
+  const nomeInput = document.getElementById('nome');
+  const whatsInput = document.getElementById('whatsapp');
+  const enderecoInput = document.getElementById('endereco');
+  const btn = document.getElementById('btnFinalizar');
+  const itens = document.querySelectorAll('.acomp-item');
+  
+  let acompanhamentoSelecionado = false;
 
-// Contador
-let time = 15*60;
-const el = document.getElementById('countdown');
-setInterval(()=>{
-  let min = String(Math.floor(time/60)).padStart(2,'0');
-  let sec = String(time%60).padStart(2,'0');
-  el.innerText = `Promoção expira em: 00:${min}:${sec}`;
-  if(time>0) time--;
-},1000);
+  // Seleção de acompanhamento
+  itens.forEach(item => {
+    item.addEventListener('click', () => {
+      itens.forEach(x => x.classList.remove('selected'));
+      item.classList.add('selected');
+      acompanhamentoSelecionado = true;
+      verificarFormulario();
+    });
+  });
 
-// Seleção sabores e carrinho
-const items = document.querySelectorAll('.sabor-item');
-const aviso = document.getElementById('aviso');
-const finalizar = document.getElementById('finalizar');
-const cart = document.getElementById('cart');
-const endereco = document.getElementById('endereco');
-const modal = document.getElementById('modal');
-
-function atualizarCarrinho(){
-  const selecionados = Array.from(document.querySelectorAll('.sabor-item.selected')).map(i=>i.dataset.value);
-  const borda = document.querySelector('input[name="borda"]:checked').value;
-  if(selecionados.length>0){
-    cart.style.display='flex';
-    endereco.style.display='flex';
-    cart.innerHTML=`
-      <div class='cart-item'>🍕 Sabores escolhidos: ${selecionados.join(', ')}</div>
-      <div class='cart-item'>🌟 Borda: ${borda}</div>
-      <div class='cart-item'>💰 Total: R$39,90</div>`;
-  } else {
-    cart.style.display='none';
-    endereco.style.display='none';
+  // Função para verificar se todos os campos estão preenchidos
+  function verificarFormulario() {
+    const nome = nomeInput.value.trim();
+    const whats = whatsInput.value.trim();
+    const endereco = enderecoInput.value.trim();
+    
+    // Adicionar classe visual para campos preenchidos
+    nomeInput.classList.toggle('filled', nome.length > 0);
+    whatsInput.classList.toggle('filled', whats.length > 0);
+    enderecoInput.classList.toggle('filled', endereco.length > 0);
+    
+    // Mostrar botão apenas se todos os campos estiverem preenchidos E acompanhamento selecionado
+    if (nome && whats && endereco && acompanhamentoSelecionado) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
   }
-}
 
-items.forEach(item=>{
-  item.addEventListener('click',()=>{
-    const selecionados = document.querySelectorAll('.sabor-item.selected').length;
-    if(item.classList.contains('selected')){item.classList.remove('selected');}
-    else {
-      if(selecionados<4) item.classList.add('selected');
-      else {
-        aviso.style.display='block';
-        setTimeout(()=>{aviso.style.display='none';},2000);
+  // Listeners para os campos do formulário
+  nomeInput.addEventListener('input', verificarFormulario);
+  whatsInput.addEventListener('input', verificarFormulario);
+  enderecoInput.addEventListener('input', verificarFormulario);
+
+  // Formatação do WhatsApp
+  whatsInput.addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length <= 11) {
+      value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+      if (value.length < 14) {
+        value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
       }
     }
-    atualizarCarrinho();
-    verificarSelecao();
+    e.target.value = value;
   });
-});
 
-document.querySelectorAll('.bordas input').forEach(rb=>{
-  rb.addEventListener('change',()=>{atualizarCarrinho(); verificarSelecao();});
-});
+  // Modal
+  btn.addEventListener('click', () => {
+    const nome = nomeInput.value.trim();
+    const whats = whatsInput.value.trim();
+    const endereco = enderecoInput.value.trim();
+    const acomp = document.querySelector('.acomp-item.selected')?.innerText || "Não escolhido";
 
-function verificarSelecao(){
-  const saboresSel = document.querySelectorAll('.sabor-item.selected').length;
-  const borda = document.querySelector('input[name="borda"]:checked');
-  const nome = document.getElementById('nome').value.trim();
-  const tel = document.getElementById('telefone').value.trim();
-  const rua = document.getElementById('rua').value.trim();
-  const bairro = document.getElementById('bairro').value.trim();
+    // Validação extra (não deveria ser necessária, mas por segurança)
+    if (!nome || !whats || !endereco || !acompanhamentoSelecionado) {
+      alert("Por favor, preencha todos os campos e escolha um acompanhamento!");
+      return;
+    }
 
-  if(saboresSel>0 && borda && nome && tel && rua && bairro){
-    finalizar.style.display='block';
-  } else {
-    finalizar.style.display='none';
-  }
-}
+    document.getElementById('resNome').innerText = nome;
+    document.getElementById('resumoPedido').innerHTML = `
+      🍽️ <strong>Marmita G + Refrigerante 2L</strong><br>
+      ➕ <strong>Acompanhamento:</strong> ${acomp}<br>
+      🚚 <strong>Endereço:</strong> ${endereco}<br>
+      📱 <strong>WhatsApp:</strong> ${whats}<br>
+      💵 <strong>Total:</strong> R$29,90
+    `;
+    document.getElementById('modal').style.display = "flex";
+  });
 
-// Atualiza quando digitar no endereço
-document.querySelectorAll('.endereco input').forEach(input=>{
-  input.addEventListener('input',verificarSelecao);
-});
+  // Fechar modal clicando fora
+  document.getElementById('modal').addEventListener('click', (e) => {
+    if (e.target.id === "modal") {
+      e.currentTarget.style.display = "none";
+    }
+  });
 
-// Modal
-finalizar.addEventListener('click',()=>{
-  const selecionados = Array.from(document.querySelectorAll('.sabor-item.selected')).map(i=>i.dataset.value);
-  const borda = document.querySelector('input[name="borda"]:checked').value;
-  const nome = document.getElementById('nome').value.trim();
-  const tel = document.getElementById('telefone').value.trim();
-  const rua = document.getElementById('rua').value.trim();
-  const bairro = document.getElementById('bairro').value.trim();
-  const comp = document.getElementById('complemento').value.trim();
-
-  document.getElementById('clienteNome')?.textContent = nome.split(" ")[0];
-  document.getElementById('resumoPedido').innerHTML = `
-    <p><strong>Sabores:</strong> ${selecionados.join(', ')}</p>
-    <p><strong>Borda:</strong> ${borda}</p>
-    <p><strong>Endereço:</strong> ${rua}, ${bairro} ${comp ? "- "+comp : ""}</p>
-    <p><strong>Contato:</strong> ${tel}</p>
-    <p><strong>Total:</strong> R$39,90</p>
-  `;
-  modal.style.display = "flex";
-});
-
-function fecharModal(){ modal.style.display="none"; }
-function irPagamento(){ 
-  fbq('track', 'InitiateCheckout'); // 🔥 Pixel conversão checkout
-  window.open(checkoutURL,'_blank'); 
-}
+  // Verificação inicial
+  verificarFormulario();
 </script>
+
 </body>
 </html>
+
