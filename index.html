@@ -31,13 +31,15 @@
   }
   .status-aberto {
     display:inline-block;
-    background:var(--green);
-    color:#fff;
-    font-size:13px;
+    background:transparent;
+    color:var(--green);
+    font-size:14px;
     font-weight:700;
-    padding:6px 12px;
-    border-radius:999px;
+    padding:4px 8px;
+    border:1px solid var(--green);
+    border-radius:6px;
     margin-bottom:12px;
+    animation: pulse-status 2s infinite; /* Adiciona animação de pulso */
   }
   .logo {
     width:90px;height:90px;
@@ -57,6 +59,7 @@
   .info-bar {
     display:flex;
     justify-content:center;
+    align-items: center; /* Adicionado para alinhar verticalmente */
     flex-wrap:wrap;
     gap:15px;
     font-size:14px;
@@ -68,6 +71,7 @@
     align-items:center;
     gap:5px;
     white-space: nowrap;
+    min-height: 24px; /* Garante altura mínima consistente */
   }
   .info-bar strong {color:var(--star);}
   
@@ -78,13 +82,9 @@
     gap: 3px;
   }
   .star-icon {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
     vertical-align: middle;
-  }
-  .rating-text {
-    font-size: 14px;
-    line-height: 1;
   }
 
   /* SEÇÃO OFERTA */
@@ -232,6 +232,12 @@
     100%{transform:translateX(-50%) scale(0.98);}
   }
 
+  @keyframes pulse-status {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
   /* MODAL */
   .modal {
     display:none;
@@ -304,13 +310,11 @@
       font-size: 18px;
     }
     .info-bar {
-      gap: 10px;
+      gap: 8px;
       font-size: 12px;
     }
     .info-bar span {
-      flex-direction: column;
-      gap: 2px;
-      text-align: center;
+      gap: 3px;
     }
     .section {
       padding: 15px 10px;
@@ -363,14 +367,14 @@
 <body>
 
 <header>
-  <div class="status-aberto">🟢 ABERTO</div>
+  <div class="status-aberto">ABERTO</div>
   <div class="logo"><img src="restaurante.png" alt="Alcatra na Brasa"></div>
   <h1>Alcatra na Brasa - Delivery</h1>
   <div class="info-bar">
     <span class="rating-container">
       <span class="star-icon">⭐</span>
-      <strong class="rating-text">4.9</strong>
-      <span class="rating-text">(980 avaliações)</span>
+      <strong>4.9</strong>
+      <span>(980 avaliações)</span>
     </span>
     <span>📍 1,9km de você</span>
     <span>🚴 30-50 min</span>
@@ -381,7 +385,7 @@
 <div class="section">
   <div class="card">
     <div class="tag">🔥 IMPERDÍVEL</div>
-    <h2>Marmita G + Refrigerante 2L</h2>
+    <h2>Marmita G Alcatra na Brasa + Refri 2LT</h2>
     <div class="bonus">Refrigerante 2L + Entrega Grátis</div>
     <div class="preco"><span class="antigo">R$ 49,90</span> por R$ 29,90</div>
     <img src="marmita.jpg" alt="Marmita na Brasa">
