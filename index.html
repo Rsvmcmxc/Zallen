@@ -30,22 +30,26 @@
     border-bottom:1px solid #eee;
   }
   .status-aberto {
-    display:inline-block;
-    background:var(--green);
-    color:#fff;
-    font-size:14px; /* Aumentado para ser mais legível */
-    font-weight:600; /* Um pouco menos bold para minimalismo */
-    padding:8px 16px; /* Mais padding para um visual moderno */
-    border-radius:8px; /* Bordas menos arredondadas */
+    display:inline-flex;
+    align-items: center;
+    gap: 6px;
+    background:#f0f9f0;
+    color:var(--green);
+    font-size:13px;
+    font-weight:700;
+    padding:6px 12px;
+    border:1px solid #e0f2e0;
+    border-radius:20px;
     margin-bottom:12px;
-    letter-spacing: 0.5px; /* Espaçamento entre letras para um toque profissional */
-    text-transform: uppercase; /* Deixa o texto em maiúsculas */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra sutil */
-    transition: all 0.3s ease; /* Transição suave para hover */
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.15);
   }
-  .status-aberto:hover {
-    transform: translateY(-2px); /* Efeito sutil ao passar o mouse */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
   }
   .logo {
     width:90px;height:90px;
@@ -213,24 +217,30 @@
     bottom:20px;
     left:50%;
     transform:translateX(-50%);
-    background:linear-gradient(90deg,var(--yellow),#ff9e4d);
+    background:linear-gradient(135deg, #FF6B35, #F7931E);
     border:none;
     width:calc(100% - 30px);
     max-width: 470px;
     padding:18px;
-    border-radius:999px;
+    border-radius:16px;
     font-weight:900;
     font-size:17px;
-    color:#222;
+    color:#fff;
     cursor:pointer;
-    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    box-shadow:0 8px 25px rgba(255, 107, 53, 0.4);
     display:none;
     text-align:center;
     animation:pulse 2s infinite;
     z-index: 100;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
   }
   .btn:hover {
-    transform: translateX(-50%) scale(1.02);
+    transform: translateX(-50%) translateY(-3px) scale(1.02);
+    box-shadow:0 12px 30px rgba(255, 107, 53, 0.5);
+  }
+  .btn:active {
+    transform: translateX(-50%) translateY(0) scale(0.98);
   }
   @keyframes pulse {
     0%{transform:translateX(-50%) scale(0.98);}
@@ -244,7 +254,20 @@
     100% { transform: scale(1); }
   }
 
-
+  @keyframes pulse-dot {
+    0% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+    50% { 
+      transform: scale(1.2); 
+      opacity: 0.8; 
+    }
+    100% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
 
   /* MODAL */
   .modal {
@@ -262,12 +285,12 @@
   }
   .modal-content {
     background:#fff;
-    padding:25px;
+    padding:30px;
     border-radius:20px;
     text-align:center;
-    max-width:400px;
+    max-width:420px;
     width: 100%;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
     animation: modalSlide 0.3s ease;
   }
   @keyframes modalSlide {
@@ -277,36 +300,65 @@
   .modal-content h2 {
     color:var(--green);
     margin-bottom:15px;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 800;
   }
   .modal-content p {
     margin:8px 0;
     font-size:16px;
   }
   .detalhes {
-    background:#f7f7f7;
-    padding:15px;
+    background:#f8f9fa;
+    padding:20px;
     border-radius:12px;
-    margin:15px 0;
+    margin:20px 0;
     text-align:left;
     font-size:14px;
-    line-height: 1.5;
+    line-height: 1.6;
+    border-left: 4px solid var(--green);
   }
   .pagamento {
-    background:linear-gradient(90deg,var(--yellow),#ff9e4d);
-    border:none;
-    padding:15px 25px;
-    font-size:16px;
-    border-radius:999px;
-    font-weight:900;
-    color:#222;
-    cursor:pointer;
-    width:100%;
-    margin-top:15px;
-    transition: transform 0.2s ease;
+    background: linear-gradient(135deg, #FF6B35, #F7931E);
+    border: none;
+    padding: 20px 30px;
+    font-size: 18px;
+    border-radius: 16px;
+    font-weight: 900;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pagamento::before {
+    content: '🛒';
+    margin-right: 12px;
+    font-size: 20px;
   }
   .pagamento:hover {
-    transform: scale(1.02);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+  }
+  .pagamento:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  }
+  .pagamento::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  .pagamento:hover::after {
+    left: 100%;
   }
 
   /* RESPONSIVIDADE MOBILE */
@@ -354,7 +406,11 @@
       padding: 15px;
     }
     .modal-content {
-      padding: 20px;
+      padding: 25px;
+    }
+    .pagamento {
+      padding: 18px 25px;
+      font-size: 16px;
     }
   }
 
@@ -371,7 +427,10 @@
 <body>
 
 <header>
-  <div class="status-aberto">ABERTO</div>
+  <div class="status-aberto">
+    <div class="status-dot"></div>
+    ABERTO
+  </div>
   <div class="logo"><img src="restaurante.png" alt="Alcatra na Brasa"></div>
   <h1>Alcatra na Brasa - Delivery</h1>
   <div class="info-bar">
@@ -421,7 +480,7 @@
     <h2>✅ Pedido Confirmado!</h2>
     <p>Obrigado <span id="resNome"></span> 🎉</p>
     <div class="detalhes" id="resumoPedido"></div>
-    <button class="pagamento" onclick="window.location.href=\'https://go.tribopay.com.br/esmhk50l5h\'">💳 Ir para Pagamento</button>
+    <button class="pagamento" onclick="window.open('https://go.tribopay.com.br/esmhk50l5h', '_blank')">💳 Pagar Agora</button>
   </div>
 </div>
 
