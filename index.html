@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,124 +9,266 @@
     --red:#d62828;--green:#2a9d8f;--yellow:#fcbf49;--orange:#f77f00;--bg:#fffdf9;
   }
   body {
-    margin:0;font-family:"Inter",sans-serif;background:var(--bg);color:#222;
-    display:flex;flex-direction:column;align-items:center;
-  }/* HEADER */ header { background: url('https://i.imgur.com/EbZP7XU.jpg') center/cover no-repeat; height: 260px;width:100%;display:flex;align-items:center;justify-content:center; position:relative;text-align:center;color:#fff;flex-direction:column; } header::before { content:"";position:absolute;top:0;left:0;width:100%;height:100%; background:rgba(0,0,0,0.55); } header .overlay {position:relative;z-index:1;max-width:600px;padding:0 20px;} header h1 {font-size:28px;font-weight:900;margin:0 0 10px;text-shadow:2px 2px 6px rgba(0,0,0,0.7);} header p {font-size:16px;font-weight:600;margin:6px 0;} .rating {margin-top:6px;font-size:14px;} .stars {color:#fcbf49;font-size:14px;} .status {margin-top:10px;display:inline-flex;align-items:center;gap:6px; background:#fff;color:#111;padding:6px 12px;border-radius:999px;font-weight:700; font-size:14px;} .dot { width:10px;height:10px;border-radius:50%;background:var(--green); animation:pulseDot 1.2s infinite; } @keyframes pulseDot { 0% {transform:scale(1);opacity:1;} 50% {transform:scale(1.5);opacity:0.6;} 100% {transform:scale(1);opacity:1;} }
+    margin:0;
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:#222;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
 
-/* CARD PRODUTO */ .card { margin:-40px auto 20px;max-width:500px;background:#fff; border-radius:20px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.1); text-align:center; } .pill {background:var(--orange);color:#fff;font-size:12px;font-weight:700; padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:8px;} .product-title {font-size:20px;font-weight:800;margin:8px 0;} .bonus {font-size:15px;font-weight:700;color:var(--green);margin-bottom:10px;} .countdown { font-size:15px;font-weight:800;color:#fff;background:var(--red); padding:6px 12px;border-radius:6px;margin:12px auto;display:inline-block; }
+  /* HEADER */
+  header {
+    background: linear-gradient(180deg, #d62828 0%, #f77f00 100%);
+    width:100%; display:flex; align-items:center; justify-content:center;
+    position:relative; text-align:center; color:#fff;
+    height:340px; padding:20px; flex-direction:column;
+  }
+  header::before {content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);}
+  header .overlay {position:relative;z-index:1;max-width:600px;width:100%;}
 
-/* SABORES */ .sabores {margin:20px 0;text-align:left;} .sabores h3 {font-size:16px;font-weight:800;margin-bottom:12px;} .sabor-list {list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;} .sabor-item {padding:10px 14px;border:2px solid #eee;border-radius:12px;cursor:pointer; font-size:14px;font-weight:600;background:#fafafa;transition:0.2s;} .sabor-item.selected {border-color:var(--red);background:#fff;} .aviso {color:var(--red);font-size:13px;margin-top:8px;display:none;}
+  .logo {width:120px;height:120px;border-radius:50%;overflow:hidden;border:4px solid #fff;margin:0 auto 14px;box-shadow:0 4px 15px rgba(0,0,0,0.3);}
+  .logo img {width:100%;height:100%;object-fit:cover;}
+  header h1 {font-size:26px;font-weight:900;margin:8px 0 0;text-shadow:2px 2px 6px rgba(0,0,0,0.7);}
+  header p {font-size:15px;margin-top:8px;font-weight:600;}
 
-/* BORDAS */ .bordas {margin:20px 0;text-align:left;} .bordas h3 {font-size:16px;font-weight:800;margin-bottom:12px;} .borda-option {margin:6px 0;font-size:14px;display:flex;align-items:center;cursor:pointer;} .borda-option input {margin-right:10px;}
+  .status-bar {display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;font-size:14px;margin-top:12px;font-weight:600;}
+  .dot {width:10px;height:10px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;}
+  @keyframes pulse {0%{transform:scale(0.9);opacity:0.7;}50%{transform:scale(1.2);opacity:1;}100%{transform:scale(0.9);opacity:0.7;}}
 
-/* PREÇO */ .final-price { margin:20px 0;font-size:24px;font-weight:900;color:var(--red);display:none; }
+  /* CARD */
+  .card {margin:20px auto 120px;max-width:500px;background:#fff;border-radius:20px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.1);text-align:left;}
+  .pill {background:var(--orange);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:8px;}
+  .product-title {font-size:20px;font-weight:800;margin:8px 0;}
+  .desc {font-size:15px;color:#444;margin:6px 0;}
+  .bonus {font-size:15px;font-weight:700;color:var(--green);margin-bottom:10px;}
+  .countdown {font-size:15px;font-weight:800;color:#fff;background:var(--red);padding:6px 12px;border-radius:6px;margin:12px auto;display:inline-block;}
 
-/* BOTÕES */ .btn { background:linear-gradient(90deg,var(--yellow),#ff9e4d); border:none;width:100%;padding:16px;border-radius:999px; font-weight:900;font-size:16px;color:#222;cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.15);animation:pulse 1.8s infinite; display:none; } @keyframes pulse { 0% {box-shadow:0 0 0 0 rgba(246,140,40,0.6);} 70% {box-shadow:0 0 0 12px rgba(246,140,40,0);} 100% {box-shadow:0 0 0 0 rgba(246,140,40,0);} }
+  /* SABORES */
+  .sabores {margin:20px 0;}
+  .sabores h3 {font-size:16px;font-weight:800;margin-bottom:12px;}
+  .sabor-item {border:2px solid #eee;border-radius:10px;padding:12px;margin-bottom:10px;cursor:pointer;transition:0.2s;font-size:14px;font-weight:600;}
+  .sabor-item.selected {border-color:var(--red);background:#fff;}
 
-.btn-fixed { position:fixed;bottom:12px;left:50%;transform:translateX(-50%); max-width:480px;width:90%;padding:14px;border-radius:999px; background:linear-gradient(90deg,var(--yellow),#ff9e4d); color:#222;font-weight:900;font-size:16px;text-align:center; box-shadow:0 6px 14px rgba(0,0,0,0.2); cursor:pointer;z-index:100;animation:pulse 1.8s infinite;display:none; } </style>
+  .bordas {display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+  .borda-option {font-size:14px;display:flex;align-items:center;cursor:pointer;}
+  .borda-option input {margin-right:6px;}
+  .aviso {color:var(--red);font-size:13px;margin-top:8px;display:none;}
 
+  /* CARRINHO */
+  .cart {margin:20px 0;padding:10px;background:#f7f7f7;border-radius:12px;display:none;flex-direction:column;gap:6px;}
+  .cart-item {font-size:14px;font-weight:600;}
+
+  /* FORM ENDEREÇO */
+  .endereco {margin:20px 0;display:none;flex-direction:column;gap:10px;}
+  .endereco input {padding:12px;border:2px solid #ddd;border-radius:8px;font-size:14px;}
+  .endereco input:focus {border-color:var(--red);outline:none;}
+
+  /* BOTÃO */
+  .btn {background:linear-gradient(90deg,var(--yellow),#ff9e4d);border:none;width:100%;padding:16px;border-radius:999px;font-weight:900;font-size:16px;color:#222;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.15);animation:pulse 1.8s infinite;display:none;text-align:center;}
+
+  /* MODAL */
+  .modal {
+    display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.6);justify-content:center;align-items:center;
+  }
+  .modal-content {
+    background:#fff;padding:25px;border-radius:16px;text-align:center;max-width:400px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);animation:zoomIn .3s ease;
+  }
+  .modal-content h2 {color:var(--green);margin-bottom:12px;}
+  .modal-content p {margin:8px 0;font-size:15px;}
+  .modal-content .detalhes {background:#f7f7f7;padding:10px;border-radius:10px;margin:10px 0;text-align:left;font-size:14px;}
+  .modal-content button {margin-top:15px;}
+  .fechar {background:var(--red);color:#fff;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;}
+  .pagamento {background:linear-gradient(90deg,var(--yellow),#ff9e4d);border:none;padding:12px 20px;font-size:16px;font-weight:700;border-radius:8px;cursor:pointer;margin-top:15px;}
+  @keyframes zoomIn {from{transform:scale(0.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+  @media(max-width:600px){
+    header h1 {font-size:22px;}
+    header p {font-size:14px;}
+    .logo {width:100px;height:100px;}
+    .product-title {font-size:18px;}
+  }
+</style>
 </head>
-<body><header>
+<body>
+
+<header>
   <div class="overlay">
+    <div class="logo"><img src="logo-pizzaria.png" alt="Logo Pizzaria do Gordo"></div>
     <h1>🍕 Pizzaria do Gordo</h1>
-    <p>⚡ Oferta só no delivery: Pizza Família + 4 sabores + borda recheada = R$39,90! 🍕</p>
-    <p class="bonus">🥤 Refrigerante 2L grátis + 🚚 Entrega grátis!</p>
-    <div class="rating">⭐ 4,9 (792 avaliações) • 📍 1,7 km</div>
-    <div class="status"><div class="dot"></div> Aberto agora</div>
+    <p>⚡ Oferta só no delivery: Pizza Família + 4 sabores + borda recheada = R$39,90 🍕</p>
+    <div class="status-bar">
+      <span>⭐ 4,9 (792 avaliações)</span>
+      <span>📍 1,7 km</span>
+      <span class="dot"></span><span>Aberto agora</span>
+    </div>
   </div>
-</header><div class="card">
+</header>
+
+<div class="card">
   <div class="pill">OFERTA ESPECIAL</div>
-  <div class="product-title">Monte até 4 sabores + escolha sua borda</div>  <div class="countdown" id="countdown">Promoção expira em: 00:15:00</div>  <!-- OPÇÕES DE SABORES -->  <div class="sabores">
+  <div class="product-title">Pizza Família + Refri 2L</div>
+  <p class="desc">Monte até <b>4 sabores</b> + escolha sua borda favorita.</p>
+  <p class="bonus">🥤 Refrigerante 2L grátis + 🚚 Entrega grátis!</p>
+  <div class="countdown" id="countdown">Promoção expira em: 00:15:00</div>
+
+  <!-- SABORES -->
+  <div class="sabores">
     <h3>Escolha até 4 sabores:</h3>
-    <ul class="sabor-list" id="saboresList">
-      <li class="sabor-item" data-value="Margherita">Margherita 🍅</li>
-      <li class="sabor-item" data-value="Pepperoni">Pepperoni 🍕</li>
-      <li class="sabor-item" data-value="Quatro Queijos">Quatro Queijos 🧀</li>
-      <li class="sabor-item" data-value="Frango c/ Catupiry">Frango c/ Catupiry 🐔</li>
-      <li class="sabor-item" data-value="Portuguesa">Portuguesa 🇵🇹</li>
-      <li class="sabor-item" data-value="Calabresa">Calabresa 🌶</li>
-      <li class="sabor-item" data-value="Baiana">Baiana 🔥</li>
-      <li class="sabor-item" data-value="Veggie">Veggie 🥦</li>
-      <li class="sabor-item" data-value="Toscana">Toscana 🐷</li>
-      <li class="sabor-item" data-value="Lombo com Catupiry">Lombo c/ Catupiry 🥩</li>
-    </ul>
-    <p id="aviso" class="aviso">⚠ Máximo de 4 sabores!</p>
-  </div>  <!-- OPÇÕES DE BORDA -->  <div class="bordas">
-    <h3>Escolha sua borda:</h3>
+    <div class="sabor-item" data-value="Margherita">Margherita 🍅</div>
+    <div class="sabor-item" data-value="Pepperoni">Pepperoni 🍕</div>
+    <div class="sabor-item" data-value="Quatro Queijos">Quatro Queijos 🧀</div>
+    <div class="sabor-item" data-value="Frango c/ Catupiry">Frango c/ Catupiry 🐔</div>
+    <div class="sabor-item" data-value="Portuguesa">Portuguesa 🇵🇹</div>
+    <div class="sabor-item" data-value="Calabresa">Calabresa 🌶</div>
+    <div class="sabor-item" data-value="Baiana">Baiana 🔥</div>
+    <div class="sabor-item" data-value="Veggie">Veggie 🥦</div>
+    <div class="sabor-item" data-value="Toscana">Toscana 🐷</div>
+    <div class="sabor-item" data-value="Lombo c/ Catupiry">Lombo c/ Catupiry 🥩</div>
+  </div>
+
+  <!-- BORDAS -->
+  <div class="bordas">
+    <span>Escolha sua borda:</span>
     <label class="borda-option"><input type="radio" name="borda" value="Tradicional" checked> Tradicional</label>
     <label class="borda-option"><input type="radio" name="borda" value="Catupiry"> Catupiry 🧀</label>
     <label class="borda-option"><input type="radio" name="borda" value="Cheddar"> Cheddar 🟡</label>
     <label class="borda-option"><input type="radio" name="borda" value="Chocolate"> Chocolate 🍫</label>
-  </div>  <!-- PREÇO FINAL -->  <div class="final-price" id="finalPrice">🔥 De R$ 79,99 por R$ 39,99</div>  <!-- BOTÃO (CARD) --><button class="btn" id="finalizar">🍕 FINALIZAR PEDIDO</button>
+  </div>
 
-</div><!-- BOTÃO FIXO --><div class="btn-fixed" id="btnFixed">Comprar Agora – R$39,99</div><script>
-  // Contador regressivo
-  let time = 15*60;
-  const el = document.getElementById('countdown');
-  setInterval(()=>{
-    let min = String(Math.floor(time/60)).padStart(2,'0');
-    let sec = String(time%60).padStart(2,'0');
-    el.innerText = "Promoção expira em: 00:"+min+":"+sec;
-    if(time>0) time--;
-  },1000);
+  <div class="aviso" id="aviso">⚠ Máximo de 4 sabores!</div>
 
-  // Seleção de sabores (máx 4)
-  const items = document.querySelectorAll('.sabor-item');
-  const aviso = document.getElementById('aviso');
-  const finalPrice = document.getElementById('finalPrice');
-  const finalizar = document.getElementById('finalizar');
-  const btnFixed = document.getElementById('btnFixed');
+  <!-- CARRINHO -->
+  <div class="cart" id="cart"></div>
 
-  items.forEach(item=>{
-    item.addEventListener('click',()=>{
-      let selecionados = document.querySelectorAll('.sabor-item.selected').length;
-      if(item.classList.contains('selected')){
-        item.classList.remove('selected');
-      } else {
-        if(selecionados < 4){
-          item.classList.add('selected');
-        } else {
-          aviso.style.display = 'block';
-          setTimeout(()=>{aviso.style.display='none';},2000);
-        }
-      }
-      verificarSelecao();
-    });
-  });
+  <!-- ENDEREÇO -->
+  <div class="endereco" id="endereco">
+    <input type="text" id="nome" placeholder="Seu nome completo">
+    <input type="tel" id="telefone" placeholder="WhatsApp para contato">
+    <input type="text" id="rua" placeholder="Rua e número">
+    <input type="text" id="bairro" placeholder="Bairro">
+    <input type="text" id="complemento" placeholder="Complemento (opcional)">
+  </div>
 
-  // Verificar seleção p/ mostrar preço + botões
-  function verificarSelecao(){
-    let sabores = document.querySelectorAll('.sabor-item.selected').length;
-    let borda = document.querySelector('input[name="borda"]:checked');
-    if(sabores > 0 && borda){
-      finalPrice.style.display = 'block';
-      finalizar.style.display = 'block';
-      btnFixed.style.display = 'block';
-    } else {
-      finalPrice.style.display = 'none';
-      finalizar.style.display = 'none';
-      btnFixed.style.display = 'none';
-    }
+  <!-- BOTÃO -->
+  <button class="btn" id="finalizar">🍕 PAGAR AGORA – R$39,90</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>✅ Pedido Recebido!</h2>
+    <p>Obrigado, <span id="clienteNome"></span>! Sua pizza já está reservada 🍕🔥</p>
+    <div class="detalhes" id="resumoPedido"></div>
+    <p>👉 Agora é só confirmar o pagamento para nossa equipe iniciar o preparo imediato.</p>
+    <button class="pagamento" onclick="irPagamento()">💳 Ir para Pagamento</button><br>
+    <button class="fechar" onclick="fecharModal()">Fechar</button>
+  </div>
+</div>
+
+<script>
+const checkoutURL = "https://go.tribopay.com.br/ou2nmp9gu1";
+
+// Contador
+let time = 15*60;
+const el = document.getElementById('countdown');
+setInterval(()=>{
+  let min = String(Math.floor(time/60)).padStart(2,'0');
+  let sec = String(time%60).padStart(2,'0');
+  el.innerText = `Promoção expira em: 00:${min}:${sec}`;
+  if(time>0) time--;
+},1000);
+
+// Seleção sabores e carrinho
+const items = document.querySelectorAll('.sabor-item');
+const aviso = document.getElementById('aviso');
+const finalizar = document.getElementById('finalizar');
+const cart = document.getElementById('cart');
+const endereco = document.getElementById('endereco');
+const modal = document.getElementById('modal');
+
+function atualizarCarrinho(){
+  const selecionados = Array.from(document.querySelectorAll('.sabor-item.selected')).map(i=>i.dataset.value);
+  const borda = document.querySelector('input[name="borda"]:checked').value;
+  if(selecionados.length>0){
+    cart.style.display='flex';
+    endereco.style.display='flex';
+    cart.innerHTML=`
+      <div class='cart-item'>🍕 Sabores escolhidos: ${selecionados.join(', ')}</div>
+      <div class='cart-item'>🌟 Borda: ${borda}</div>
+      <div class='cart-item'>💰 Total: R$39,90</div>`;
+  } else {
+    cart.style.display='none';
+    endereco.style.display='none';
   }
-  document.querySelectorAll('.bordas input').forEach(rb=>{
-    rb.addEventListener('change',verificarSelecao);
-  });
+}
 
-  // Configuração do link de checkout
-  const checkoutURL = "https://seu-gateway-de-pagamento.com/checkout";
-
-  // WhatsApp (botão do card)
-  finalizar.addEventListener('click',()=>{
-    let sabores = Array.from(document.querySelectorAll('.sabor-item.selected')).map(c=>c.dataset.value);
-    let borda = document.querySelector('input[name="borda"]:checked').value;
-    let msg = `🍕 Pedido Pizzaria do Gordo:\n\nSabores: ${sabores.join(", ")}\nBorda: ${borda}\nOferta: Pizza Família + Refri 2L por R$ 39,99 🚀`;
-    let url = "https://wa.me/5500000000000?text=" + encodeURIComponent(msg);
-    window.open(url,'_blank');
+items.forEach(item=>{
+  item.addEventListener('click',()=>{
+    const selecionados = document.querySelectorAll('.sabor-item.selected').length;
+    if(item.classList.contains('selected')){item.classList.remove('selected');}
+    else {
+      if(selecionados<4) item.classList.add('selected');
+      else {
+        aviso.style.display='block';
+        setTimeout(()=>{aviso.style.display='none';},2000);
+      }
+    }
+    atualizarCarrinho();
+    verificarSelecao();
   });
+});
 
-  // Checkout (botão fixo)
-  btnFixed.addEventListener('click',()=>{
-    window.open(checkoutURL,'_blank');
-  });
-</script></body>
+document.querySelectorAll('.bordas input').forEach(rb=>{
+  rb.addEventListener('change',()=>{atualizarCarrinho(); verificarSelecao();});
+});
+
+function verificarSelecao(){
+  const saboresSel = document.querySelectorAll('.sabor-item.selected').length;
+  const borda = document.querySelector('input[name="borda"]:checked');
+  const nome = document.getElementById('nome').value.trim();
+  const tel = document.getElementById('telefone').value.trim();
+  const rua = document.getElementById('rua').value.trim();
+  const bairro = document.getElementById('bairro').value.trim();
+
+  if(saboresSel>0 && borda && nome && tel && rua && bairro){
+    finalizar.style.display='block';
+  } else {
+    finalizar.style.display='none';
+  }
+}
+
+// Atualiza quando digitar no endereço
+document.querySelectorAll('.endereco input').forEach(input=>{
+  input.addEventListener('input',verificarSelecao);
+});
+
+// Modal
+finalizar.addEventListener('click',()=>{
+  const selecionados = Array.from(document.querySelectorAll('.sabor-item.selected')).map(i=>i.dataset.value);
+  const borda = document.querySelector('input[name="borda"]:checked').value;
+  const nome = document.getElementById('nome').value.trim();
+  const tel = document.getElementById('telefone').value.trim();
+  const rua = document.getElementById('rua').value.trim();
+  const bairro = document.getElementById('bairro').value.trim();
+  const comp = document.getElementById('complemento').value.trim();
+
+  document.getElementById('clienteNome').textContent = nome.split(" ")[0];
+  document.getElementById('resumoPedido').innerHTML = `
+    <p><strong>Sabores:</strong> ${selecionados.join(', ')}</p>
+    <p><strong>Borda:</strong> ${borda}</p>
+    <p><strong>Endereço:</strong> ${rua}, ${bairro} ${comp ? "- "+comp : ""}</p>
+    <p><strong>Contato:</strong> ${tel}</p>
+    <p><strong>Total:</strong> R$39,90</p>
+  `;
+  modal.style.display = "flex";
+});
+
+function fecharModal(){ modal.style.display="none"; }
+function irPagamento(){ window.open(checkoutURL,'_blank'); }
+</script>
+</body>
 </html>
