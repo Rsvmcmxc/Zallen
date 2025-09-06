@@ -4,6 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gordo Pizzaria – Delivery</title>
+
+<!-- Meta tags para Facebook Ads -->
+<meta property="og:title" content="🍕 Pizza 8 Fatias + Refri 2Lt por R$ 39,90 - Gordo Pizzaria">
+<meta property="og:description" content="Super oferta! Pizza 8 fatias com até 4 sabores + Refrigerante 2Lt e Entrega grátis. Apenas R$ 39,90. Peça agora!">
+<meta property="og:image" content="pizza_refri_nova.jpg">
+<meta property="og:url" content="">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="">
+
+<!-- Meta tags para conversão -->
+<meta name="description" content="Pizza 8 fatias com até 4 sabores + Refri 2Lt por apenas R$ 39,90. Entrega grátis em 25-40 min. Peça já!">
+<meta name="keywords" content="pizza delivery, pizza barata, oferta pizza, pizza 4 sabores, entrega grátis">
+
+<!-- Pixel do Facebook (adicionar ID real) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'SEU_PIXEL_ID_AQUI');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+/></noscript>
 <style>
   :root {
     --red:#e74c3c;--green:#27ae60;--yellow:#f39c12;--orange:#e67e22;--bg:#fefefe;
@@ -304,36 +333,159 @@
     bottom:20px;
     left:50%;
     transform:translateX(-50%);
-    background:linear-gradient(135deg, var(--pizza-red), var(--pizza-orange));
+    background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+    background-size: 200% 200%;
     border:none;
     width:calc(100% - 30px);
-    max-width: 470px;
-    padding:20px;
-    border-radius:20px;
-    font-weight:900;
-    font-size:18px;
+    max-width: 420px;
+    padding:18px 28px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:17px;
     color:#fff;
     cursor:pointer;
-    box-shadow:0 10px 30px rgba(231, 76, 60, 0.4);
+    box-shadow:0 12px 35px rgba(255, 107, 53, 0.4);
     display:none;
     text-align:center;
-    animation:pulse-btn 2s infinite;
     z-index: 100;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(255,255,255,0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255,255,255,0.3);
+    position: relative;
+    overflow: hidden;
+    animation: pulse-btn 2s infinite, gradient-shift 3s ease-in-out infinite;
   }
+  
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e, #ff4757, #ff6b35);
+    background-size: 400% 400%;
+    border-radius: 50px;
+    z-index: -1;
+    animation: gradient-border 4s ease infinite;
+    opacity: 0.8;
+  }
+  
   .btn:hover {
-    transform: translateX(-50%) translateY(-4px) scale(1.02);
-    box-shadow:0 15px 35px rgba(231, 76, 60, 0.5);
+    transform: translateX(-50%) translateY(-4px) scale(1.05);
+    box-shadow:0 20px 45px rgba(255, 107, 53, 0.6);
+    background: linear-gradient(135deg, #ff4757, #ff6b35, #ff4757);
+    animation: pulse-btn-hover 1s infinite, gradient-shift 2s ease-in-out infinite;
   }
+  
+  .btn:hover::before {
+    left: 100%;
+  }
+  
   .btn:active {
-    transform: translateX(-50%) translateY(0) scale(0.98);
+    transform: translateX(-50%) translateY(-2px) scale(1.02);
+    box-shadow:0 15px 35px rgba(255, 107, 53, 0.5);
   }
+  
+  .btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .btn-icon {
+    font-size: 20px;
+    animation: bounce-icon 2s infinite;
+  }
+  
+  .btn-text {
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  .btn-price {
+    font-weight: 800;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-shadow: none;
+    animation: price-glow 2s infinite;
+  }
+  
   @keyframes pulse-btn {
-    0%{transform:translateX(-50%) scale(0.98);}
-    50%{transform:translateX(-50%) scale(1.02);}
-    100%{transform:translateX(-50%) scale(0.98);}
+    0% { 
+      transform: translateX(-50%) scale(1);
+      box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4);
+    }
+    50% { 
+      transform: translateX(-50%) scale(1.03);
+      box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+    }
+    100% { 
+      transform: translateX(-50%) scale(1);
+      box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4);
+    }
+  }
+  
+  @keyframes pulse-btn-hover {
+    0% { 
+      transform: translateX(-50%) translateY(-4px) scale(1.05);
+    }
+    50% { 
+      transform: translateX(-50%) translateY(-6px) scale(1.08);
+    }
+    100% { 
+      transform: translateX(-50%) translateY(-4px) scale(1.05);
+    }
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes gradient-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes bounce-icon {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-4px); }
+    60% { transform: translateY(-2px); }
+  }
+  
+  @keyframes price-glow {
+    0% { 
+      background: rgba(255,255,255,0.2);
+      transform: scale(1);
+    }
+    50% { 
+      background: rgba(255,255,255,0.35);
+      transform: scale(1.05);
+    }
+    100% { 
+      background: rgba(255,255,255,0.2);
+      transform: scale(1);
+    }
   }
 
   @keyframes pulse-status {
@@ -495,9 +647,18 @@
     }
     .btn {
       width: calc(100% - 24px);
-      padding: 18px;
-      font-size: 17px;
+      padding: 16px 24px;
+      font-size: 16px;
       bottom: 15px;
+      max-width: 380px;
+    }
+    .btn-icon {
+      font-size: 18px;
+    }
+    .btn-price {
+      font-size: 15px;
+      padding: 3px 10px;
+    }
     }
     .modal {
       padding: 15px;
@@ -534,9 +695,9 @@
     <span class="rating-container">
       <span class="star-icon">⭐</span>
       <strong>4.9</strong>
-      <span>(1.257 avaliações)</span>
+      <span>(1.250 avaliações)</span>
     </span>
-    <span>🧭 1,7km de você</span>
+    <span>🧭 1,5km de você</span>
     <span>🚴 25-40 min</span>
     <span>📦 Entrega grátis</span>
   </div>
@@ -544,16 +705,19 @@
 
 <div class="section">
   <div class="card">
-    <div class="tag">🔥 SUPER OFERTA</div>
-    <h2>Pizza 8 Fatias + Refri 2Lt</h2>
-    <div class="bonus">Refrigerante 2Lt + Entrega Grátis</div>
+    <div class="tag">🔥 SUPER OFERTA - ÚLTIMAS HORAS</div>
+    <h2>Pizza 8 Fatias + Refri 2LT</h2>
+    <div class="bonus">✅ Refrigerante 2L + Entrega Grátis + Até 4 Sabores</div>
     <div class="preco"><span class="antigo">R$ 69,90</span> por R$ 39,90</div>
+    <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 10px; padding: 12px; margin: 15px 0; font-size: 14px; font-weight: 600; color: #856404;">
+      ⏰ Oferta válida apenas hoje! Restam poucas unidades
+    </div>
     <img src="pizza_refri_nova.jpg" alt="Pizza com Refrigerante">
   </div>
 
   <!-- Sabores -->
   <div class="sabores">
-    <h3>🍕 Escolha o Sabor da Pizza:</h3>
+    <h3>🍕 Escolha até 4 Sabores da Pizza: <span id="contador-sabores">(0/4)</span></h3>
     <div class="sabores-grid">
       <div class="sabor-item">🍅 Margherita</div>
       <div class="sabor-item">🥓 Calabresa</div>
@@ -596,7 +760,13 @@
 </div>
 
 <!-- Botão Fixado -->
-<button class="btn" id="btnFinalizar">🍕 Finalizar Pedido – R$39,90</button>
+<button class="btn" id="btnFinalizar">
+  <div class="btn-content">
+    <span class="btn-icon">🍕</span>
+    <span class="btn-text">Finalizar Pedido</span>
+    <span class="btn-price">R$ 39,90</span>
+  </div>
+</button>
 
 <!-- Modal Confirmação -->
 <div class="modal" id="modal">
@@ -604,7 +774,17 @@
     <h2>✅ Pedido Confirmado!</h2>
     <p>Obrigado <span id="resNome"></span> 🎉</p>
     <div class="detalhes" id="resumoPedido"></div>
-    <button class="pagamento" onclick="window.open('https://go.tribopay.com.br/ou2nmp9gu1', '_blank')">💳 Pagar Agora</button>
+    <button class="pagamento" onclick="
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Purchase', {
+          content_name: 'Pizza 8 Fatias + Refri 2L',
+          content_category: 'Food',
+          value: 39.90,
+          currency: 'BRL'
+        });
+      }
+      window.open('https://go.tribopay.com.br/ou2nmp9gu1', '_blank')
+    ">💳 Pagar Agora</button>
   </div>
 </div>
 
@@ -617,21 +797,36 @@
   const sabores = document.querySelectorAll('.sabor-item');
   const bordas = document.querySelectorAll('.borda-item');
   
-  let saborSelecionado = false;
+  let saboresSelecionados = [];
   let bordaSelecionada = false;
-  let saborEscolhido = '';
   let bordaEscolhida = '';
 
   // Seleção de sabor
   sabores.forEach(sabor => {
     sabor.addEventListener('click', () => {
-      sabores.forEach(x => x.classList.remove('selected'));
-      sabor.classList.add('selected');
-      saborSelecionado = true;
-      saborEscolhido = sabor.textContent;
+      const saborTexto = sabor.textContent;
+      if (sabor.classList.contains('selected')) {
+        sabor.classList.remove('selected');
+        saboresSelecionados = saboresSelecionados.filter(s => s !== saborTexto);
+      } else {
+        if (saboresSelecionados.length < 4) {
+          sabor.classList.add('selected');
+          saboresSelecionados.push(saborTexto);
+        } else {
+          alert('Você pode selecionar no máximo 4 sabores.');
+        }
+      }
+      atualizarContadorSabores();
       verificarFormulario();
     });
   });
+
+  // Função para atualizar contador de sabores
+  function atualizarContadorSabores() {
+    const contador = document.getElementById('contador-sabores');
+    contador.textContent = `(${saboresSelecionados.length}/4)`;
+    contador.style.color = saboresSelecionados.length === 4 ? 'var(--pizza-green)' : 'var(--gray)';
+  }
 
   // Seleção de borda
   bordas.forEach(borda => {
@@ -656,7 +851,7 @@
     enderecoInput.classList.toggle('filled', endereco.length > 0);
     
     // Mostrar botão se tudo preenchido
-    if (nome && whats && endereco && saborSelecionado && bordaSelecionada) {
+    if (nome && whats && endereco && saboresSelecionados.length > 0 && bordaSelecionada) {
       btn.style.display = 'block';
     } else {
       btn.style.display = 'none';
@@ -686,11 +881,22 @@
     const whats = whatsInput.value.trim();
     const endereco = enderecoInput.value.trim();
     
-    if (nome && whats && endereco && saborSelecionado && bordaSelecionada) {
+    if (nome && whats && endereco && saboresSelecionados.length > 0 && bordaSelecionada) {
+      // Evento de conversão para Facebook Ads
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Pizza 8 Fatias + Refri 2L',
+          content_category: 'Food',
+          value: 39.90,
+          currency: 'BRL',
+          num_items: saboresSelecionados.length
+        });
+      }
+      
       document.getElementById('resNome').textContent = nome;
       document.getElementById('resumoPedido').innerHTML = `
-        <strong>🍕 Pedido:</strong> Pizza 8 Fatias ${saborEscolhido} + Refri 2L<br>
-        <strong>🧀 Borda:</strong> ${bordaEscolhida}<br>
+        <strong>✍🏼 Pedido:</strong> Pizza 8 Fatias (${saboresSelecionados.join(', ')}) + Refri 2Lt<br>
+        <strong>🍕 Borda:</strong> ${bordaEscolhida}<br>
         <strong>👤 Cliente:</strong> ${nome}<br>
         <strong>📱 WhatsApp:</strong> ${whats}<br>
         <strong>📍 Endereço:</strong> ${endereco}<br>
