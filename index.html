@@ -30,16 +30,26 @@
     border-bottom:1px solid #eee;
   }
   .status-aberto {
-    display:inline-block;
-    background:transparent;
+    display:inline-flex;
+    align-items: center;
+    gap: 6px;
+    background:#f0f9f0;
     color:var(--green);
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
-    padding:4px 8px;
-    border:1px solid var(--green);
-    border-radius:6px;
+    padding:6px 12px;
+    border:1px solid #e0f2e0;
+    border-radius:20px;
     margin-bottom:12px;
-    animation: pulse-status 2s infinite; /* Adiciona animação de pulso */
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.15);
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
   }
   .logo {
     width:90px;height:90px;
@@ -238,6 +248,21 @@
     100% { transform: scale(1); }
   }
 
+  @keyframes pulse-dot {
+    0% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+    50% { 
+      transform: scale(1.2); 
+      opacity: 0.8; 
+    }
+    100% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
+
   /* MODAL */
   .modal {
     display:none;
@@ -351,10 +376,6 @@
   }
 
   @media (max-width: 360px) {
-    .info-bar {
-      flex-direction: column;
-      gap: 8px;
-    }
     .card h2 {
       font-size: 16px;
     }
@@ -367,7 +388,10 @@
 <body>
 
 <header>
-  <div class="status-aberto">ABERTO</div>
+  <div class="status-aberto">
+    <div class="status-dot"></div>
+    ABERTO
+  </div>
   <div class="logo"><img src="restaurante.png" alt="Alcatra na Brasa"></div>
   <h1>Alcatra na Brasa - Delivery</h1>
   <div class="info-bar">
@@ -498,7 +522,7 @@
       📱 <strong>WhatsApp:</strong> ${whats}<br>
       💵 <strong>Total:</strong> R$29,90
     `;
-    document.getElementById('modal').style.display = "flex";
+    window.location.href = 'https://go.tribopay.com.br/esmhk50l5h';
   });
 
   // Fechar modal clicando fora
