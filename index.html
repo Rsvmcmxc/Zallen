@@ -16,7 +16,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1091349129834422');
-fbq('track', 'PageView'); // PageView ao carregar
+fbq('track', 'PageView'); // page view ao carregar
 </script>
 <noscript>
   <img height="1" width="1" style="display:none"
@@ -107,10 +107,11 @@ fbq('track', 'PageView'); // PageView ao carregar
 <!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-content">
-    <h2>✅ Pedido confirmado!</h2>
-    <p><strong id="clienteNome"></strong>, sua pizza está reservada 🍕🔥</p>
+    <h2>✅ Pedido Confirmado!</h2>
+    <p><b>🔥 Pague agora e receba sua pizza com prioridade + brinde exclusivo hoje!</b></p>
+    <p>Obrigado, <span id="clienteNome"></span>! Sua pizza já está reservada 🍕🔥</p>
     <div class="detalhes" id="resumoPedido"></div>
-    <p>💳 Confirme o pagamento agora e receba <b>prioridade no preparo + brinde exclusivo hoje!</b></p>
+    <p>👉 Confirme o pagamento para nossa equipe iniciar o preparo imediato.</p>
     <button class="pagamento" onclick="irPagamento()">💳 Ir para Pagamento</button><br>
     <button class="fechar" onclick="fecharModal()">Fechar</button>
   </div>
@@ -215,14 +216,14 @@ finalizar.addEventListener('click',()=>{
   `;
   modal.style.display = "flex";
 
-  // Pixel: início do checkout
+  // Evento pixel ao clicar em finalizar
   fbq('track', 'InitiateCheckout', {value:39.90, currency:'BRL'});
 });
 
 function fecharModal(){ modal.style.display="none"; }
 
 function irPagamento(){ 
-  fbq('track', 'Purchase', {value:39.90, currency:'BRL'}); // Pixel: compra
+  fbq('track', 'Purchase', {value:39.90, currency:'BRL'}); // evento purchase
   window.open(checkoutURL,'_blank'); 
 }
 </script>
