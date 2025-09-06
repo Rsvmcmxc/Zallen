@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alcatra na Brasa – Delivery</title>
+<title>Gordo Pizzaria – Delivery</title>
 <style>
   :root {
-    --red:#d62828;--green:#2a9d8f;--yellow:#fcbf49;--orange:#f77f00;--bg:#fffdf9;
-    --gray:#666;--star:#ffb703;
+    --red:#e74c3c;--green:#27ae60;--yellow:#f39c12;--orange:#e67e22;--bg:#fefefe;
+    --gray:#666;--star:#f39c12;--pizza-red:#c0392b;--pizza-green:#2ecc71;
+    --pizza-orange:#ff6b35;--pizza-yellow:#f1c40f;
   }
   
   * {
@@ -27,69 +28,78 @@
     text-align:center;
     padding:20px 15px;
     background:#fff;
-    border-bottom:1px solid #eee;
+    border-bottom:2px solid #eee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
   .status-aberto {
     display:inline-flex;
     align-items: center;
-    gap: 6px;
-    background:#f0f9f0;
-    color:var(--green);
-    font-size:13px;
-    font-weight:700;
-    padding:6px 12px;
-    border:1px solid #e0f2e0;
-    border-radius:20px;
-    margin-bottom:12px;
-    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.15);
+    gap: 8px;
+    background:linear-gradient(135deg, #2ecc71, #27ae60);
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    padding:8px 16px;
+    border:2px solid #27ae60;
+    border-radius:25px;
+    margin-bottom:15px;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    animation: pulse-status 2s infinite;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
   
   .status-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
+    width: 10px;
+    height: 10px;
+    background: #fff;
     border-radius: 50%;
     animation: pulse-dot 2s infinite;
   }
   .logo {
-    width:90px;height:90px;
+    width:100px;height:100px;
     border-radius:50%;
     overflow:hidden;
-    border:4px solid #fff;
-    margin:0 auto 12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+    border:4px solid var(--pizza-red);
+    margin:0 auto 15px;
+    box-shadow:0 6px 20px rgba(231, 76, 60, 0.25);
   }
   .logo img {width:100%;height:100%;object-fit:cover;}
   header h1 {
-    font-size:22px;
-    font-weight:800;
-    margin:8px 0;
+    font-size:26px;
+    font-weight:900;
+    margin:10px 0;
     line-height: 1.2;
+    color: var(--pizza-red);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
   .info-bar {
     display:flex;
     justify-content:center;
-    align-items: center; /* Adicionado para alinhar verticalmente */
+    align-items: center;
     flex-wrap:wrap;
-    gap:15px;
+    gap:20px;
     font-size:14px;
-    margin-top:8px;
+    margin-top:12px;
     color:var(--gray);
   }
   .info-bar span {
     display:flex;
     align-items:center;
-    gap:5px;
+    gap:6px;
     white-space: nowrap;
-    min-height: 24px; /* Garante altura mínima consistente */
+    min-height: 24px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
   }
   .info-bar strong {color:var(--star);}
   
-  /* Correção do alinhamento da estrela */
   .rating-container {
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 4px;
   }
   .star-icon {
     font-size: 16px;
@@ -99,116 +109,193 @@
 
   /* SEÇÃO OFERTA */
   .section {
-    padding:20px 15px;
+    padding:25px 15px;
     max-width: 500px;
     margin: 0 auto;
   }
   .card {
     background:#fff;
-    border:1px solid #eee;
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
-    margin-bottom:25px;
+    border:2px solid #e9ecef;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+    margin-bottom:30px;
     text-align:center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pizza-red), var(--pizza-orange), var(--pizza-yellow));
   }
   .tag {
     display:inline-block;
-    background:var(--red);
+    background:linear-gradient(135deg, var(--pizza-red), #e74c3c);
     color:#fff;
-    font-size:12px;
-    font-weight:700;
-    padding:6px 10px;
-    border-radius:8px;
-    margin-bottom:10px;
+    font-size:13px;
+    font-weight:800;
+    padding:8px 15px;
+    border-radius:12px;
+    margin-bottom:15px;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
   .card h2 {
-    font-size:20px;
-    font-weight:800;
-    margin:8px 0;
+    font-size:22px;
+    font-weight:900;
+    margin:12px 0;
     line-height: 1.3;
+    color: var(--pizza-red);
   }
   .bonus {
-    color:var(--green);
-    font-size:16px;
-    font-weight:700;
-    margin:10px 0;
+    color:var(--pizza-green);
+    font-size:17px;
+    font-weight:800;
+    margin:12px 0;
+    padding: 8px 12px;
+    background: #f0fff4;
+    border-radius: 10px;
+    border: 1px solid #c3e6cb;
   }
   .preco {
-    font-size:24px;
+    font-size:28px;
     font-weight:900;
-    color:var(--green);
-    margin: 10px 0;
+    color:var(--pizza-green);
+    margin: 15px 0;
   }
   .antigo {
     text-decoration:line-through;
     color:#999;
-    font-size:16px;
-    margin-right:8px;
+    font-size:18px;
+    margin-right:10px;
   }
   .card img {
     width:100%;
-    max-width: 300px;
-    border-radius:12px;
-    margin:15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 320px;
+    border-radius:15px;
+    margin:20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 2px solid #f8f9fa;
   }
 
-  /* ACOMPANHAMENTOS */
-  .acomp {
-    margin:25px 0;
+  /* SABORES */
+  .sabores {
+    margin:30px 0;
     text-align:left;
   }
-  .acomp h3 {
-    font-size:17px;
-    font-weight:800;
-    margin-bottom:15px;
-    color: #333;
+  .sabores h3 {
+    font-size:19px;
+    font-weight:900;
+    margin-bottom:20px;
+    color: var(--pizza-red);
+    text-align: center;
   }
-  .acomp-item {
-    border:2px solid #eee;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:10px;
+  .sabores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .sabor-item {
+    border:2px solid #e9ecef;
+    border-radius:15px;
+    padding:10px;
     cursor:pointer;
-    font-size:15px;
+    font-size:13px;
     font-weight:600;
     transition: all 0.3s ease;
     background: #fff;
+    text-align: center;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .acomp-item:hover {
-    border-color: #ccc;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  .sabor-item:hover {
+    border-color: var(--pizza-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
   }
-  .acomp-item.selected {
-    border-color:var(--red);
-    background: #fff5f5;
-    box-shadow: 0 2px 10px rgba(214, 40, 40, 0.2);
+  .sabor-item.selected {
+    border-color:var(--pizza-red);
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.25);
+    color: var(--pizza-red);
+  }
+
+  /* BORDAS */
+  .bordas {
+    margin:25px 0;
+    text-align:left;
+  }
+  .bordas h3 {
+    font-size:19px;
+    font-weight:900;
+    margin-bottom:20px;
+    color: var(--pizza-red);
+    text-align: center;
+  }
+  .bordas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .borda-item {
+    border:2px solid #e9ecef;
+    border-radius:15px;
+    padding:10px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:600;
+    transition: all 0.3s ease;
+    background: #fff;
+    text-align: center;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .borda-item:hover {
+    border-color: var(--pizza-yellow);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(241, 196, 15, 0.2);
+  }
+  .borda-item.selected {
+    border-color:var(--pizza-yellow);
+    background: linear-gradient(135deg, #fffbf0, #fff8e1);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.25);
+    color: var(--pizza-yellow);
   }
 
   /* FORM */
   .form {
     display:flex;
     flex-direction:column;
-    gap:15px;
-    margin-top:20px;
+    gap:18px;
+    margin-top:25px;
   }
   .form input {
-    padding:15px;
-    border:2px solid #ddd;
-    border-radius:10px;
+    padding:18px;
+    border:2px solid #e9ecef;
+    border-radius:12px;
     font-size:16px;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
     background: #fff;
+    font-weight: 500;
   }
   .form input:focus {
-    border-color:var(--red);
+    border-color:var(--pizza-red);
     outline:none;
-    box-shadow: 0 0 0 3px rgba(214, 40, 40, 0.1);
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
+    transform: translateY(-1px);
   }
   .form input.filled {
-    border-color: var(--green);
+    border-color: var(--pizza-green);
   }
 
   /* BOTÃO FIXO */
@@ -217,34 +304,35 @@
     bottom:20px;
     left:50%;
     transform:translateX(-50%);
-    background:linear-gradient(135deg, #FF6B35, #F7931E);
+    background:linear-gradient(135deg, var(--pizza-red), var(--pizza-orange));
     border:none;
     width:calc(100% - 30px);
     max-width: 470px;
-    padding:18px;
-    border-radius:16px;
+    padding:20px;
+    border-radius:20px;
     font-weight:900;
-    font-size:17px;
+    font-size:18px;
     color:#fff;
     cursor:pointer;
-    box-shadow:0 8px 25px rgba(255, 107, 53, 0.4);
+    box-shadow:0 10px 30px rgba(231, 76, 60, 0.4);
     display:none;
     text-align:center;
-    animation:pulse 2s infinite;
+    animation:pulse-btn 2s infinite;
     z-index: 100;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.2);
   }
   .btn:hover {
-    transform: translateX(-50%) translateY(-3px) scale(1.02);
-    box-shadow:0 12px 30px rgba(255, 107, 53, 0.5);
+    transform: translateX(-50%) translateY(-4px) scale(1.02);
+    box-shadow:0 15px 35px rgba(231, 76, 60, 0.5);
   }
   .btn:active {
     transform: translateX(-50%) translateY(0) scale(0.98);
   }
-  @keyframes pulse {
+  @keyframes pulse-btn {
     0%{transform:translateX(-50%) scale(0.98);}
-    50%{transform:translateX(-50%) scale(1.01);}
+    50%{transform:translateX(-50%) scale(1.02);}
     100%{transform:translateX(-50%) scale(0.98);}
   }
 
@@ -260,8 +348,8 @@
       opacity: 1; 
     }
     50% { 
-      transform: scale(1.2); 
-      opacity: 0.8; 
+      transform: scale(1.3); 
+      opacity: 0.7; 
     }
     100% { 
       transform: scale(1); 
@@ -278,74 +366,78 @@
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
     padding: 20px;
   }
   .modal-content {
     background:#fff;
-    padding:30px;
-    border-radius:20px;
+    padding:35px;
+    border-radius:25px;
     text-align:center;
-    max-width:420px;
+    max-width:450px;
     width: 100%;
-    box-shadow:0 15px 40px rgba(0,0,0,0.3);
-    animation: modalSlide 0.3s ease;
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+    animation: modalSlide 0.4s ease;
+    border: 3px solid var(--pizza-red);
   }
   @keyframes modalSlide {
-    from { transform: translateY(-50px); opacity: 0; }
+    from { transform: translateY(-60px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
   }
   .modal-content h2 {
-    color:var(--green);
-    margin-bottom:15px;
-    font-size: 22px;
-    font-weight: 800;
+    color:var(--pizza-green);
+    margin-bottom:18px;
+    font-size: 24px;
+    font-weight: 900;
   }
   .modal-content p {
-    margin:8px 0;
-    font-size:16px;
+    margin:10px 0;
+    font-size:17px;
+    font-weight: 600;
   }
   .detalhes {
     background:#f8f9fa;
-    padding:20px;
-    border-radius:12px;
-    margin:20px 0;
+    padding:25px;
+    border-radius:15px;
+    margin:25px 0;
     text-align:left;
-    font-size:14px;
-    line-height: 1.6;
-    border-left: 4px solid var(--green);
+    font-size:15px;
+    line-height: 1.7;
+    border-left: 5px solid var(--pizza-green);
+    border: 2px solid #e9ecef;
   }
   .pagamento {
-    background: linear-gradient(135deg, #FF6B35, #F7931E);
+    background: linear-gradient(135deg, var(--pizza-red), var(--pizza-orange));
     border: none;
-    padding: 20px 30px;
-    font-size: 18px;
-    border-radius: 16px;
+    padding: 22px 35px;
+    font-size: 19px;
+    border-radius: 20px;
     font-weight: 900;
     color: #fff;
     cursor: pointer;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 30px;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
     letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.2);
   }
   .pagamento::before {
     content: '🛒';
-    margin-right: 12px;
-    font-size: 20px;
+    margin-right: 15px;
+    font-size: 22px;
   }
   .pagamento:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.5);
   }
   .pagamento:active {
     transform: translateY(0) scale(0.98);
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
   }
   .pagamento::after {
     content: '';
@@ -354,8 +446,8 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
   }
   .pagamento:hover::after {
     left: 100%;
@@ -364,62 +456,67 @@
   /* RESPONSIVIDADE MOBILE */
   @media (max-width: 480px) {
     header {
-      padding: 15px 10px;
+      padding: 18px 12px;
     }
     header h1 {
-      font-size: 18px;
+      font-size: 20px;
     }
     .info-bar {
-      gap: 8px;
+      gap: 10px;
       font-size: 12px;
     }
     .info-bar span {
-      gap: 3px;
+      gap: 4px;
+      padding: 3px 6px;
     }
     .section {
-      padding: 15px 10px;
+      padding: 20px 12px;
     }
     .card {
-      padding: 15px;
+      padding: 20px;
     }
     .card h2 {
-      font-size: 18px;
+      font-size: 19px;
     }
     .preco {
-      font-size: 20px;
+      font-size: 24px;
     }
-    .acomp-item {
+    .sabores-grid, .bordas-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .sabor-item, .borda-item {
       padding: 12px;
       font-size: 14px;
     }
     .form input {
-      padding: 12px;
-      font-size: 16px; /* Evita zoom no iOS */
-    }
-    .btn {
-      width: calc(100% - 20px);
       padding: 15px;
       font-size: 16px;
+    }
+    .btn {
+      width: calc(100% - 24px);
+      padding: 18px;
+      font-size: 17px;
       bottom: 15px;
     }
     .modal {
       padding: 15px;
     }
     .modal-content {
-      padding: 25px;
+      padding: 30px;
     }
     .pagamento {
-      padding: 18px 25px;
-      font-size: 16px;
+      padding: 20px 30px;
+      font-size: 17px;
     }
   }
 
   @media (max-width: 360px) {
     .card h2 {
-      font-size: 16px;
+      font-size: 17px;
     }
     .bonus {
-      font-size: 14px;
+      font-size: 15px;
     }
   }
 </style>
@@ -429,38 +526,65 @@
 <header>
   <div class="status-aberto">
     <div class="status-dot"></div>
-    ABERTO
+    ABERTO AGORA
   </div>
-  <div class="logo"><img src="restaurante.png" alt="Alcatra na Brasa"></div>
-  <h1>Alcatra na Brasa - Delivery</h1>
+  <div class="logo"><img src="logo-pizzaria.png" alt="Gordo Pizzaria"></div>
+  <h1>Gordo Pizzaria - Delivery</h1>
   <div class="info-bar">
     <span class="rating-container">
       <span class="star-icon">⭐</span>
       <strong>4.9</strong>
-      <span>(980 avaliações)</span>
+      <span>(1.257 avaliações)</span>
     </span>
-    <span>📍 1,9km de você</span>
-    <span>🚴 30-50 min</span>
+    <span>🧭 1,7km de você</span>
+    <span>🚴 25-40 min</span>
     <span>📦 Entrega grátis</span>
   </div>
 </header>
 
 <div class="section">
   <div class="card">
-    <div class="tag">🔥 IMPERDÍVEL</div>
-    <h2>Marmita G Alcatra na Brasa + Refri 2LT</h2>
-    <div class="bonus">Refrigerante 2L + Entrega Grátis</div>
-    <div class="preco"><span class="antigo">R$ 49,90</span> por R$ 29,90</div>
-    <img src="marmita.jpg" alt="Marmita na Brasa">
+    <div class="tag">🔥 SUPER OFERTA</div>
+    <h2>Pizza 8 Fatias + Refri 2Lt</h2>
+    <div class="bonus">Refrigerante 2Lt + Entrega Grátis</div>
+    <div class="preco"><span class="antigo">R$ 69,90</span> por R$ 39,90</div>
+    <img src="pizza_refri_nova.jpg" alt="Pizza com Refrigerante">
   </div>
 
-  <!-- Acompanhamentos -->
-  <div class="acomp">
-    <h3>Escolha 1 Acompanhamento:</h3>
-    <div class="acomp-item">🥔 Batata Assada</div>
-    <div class="acomp-item">🍟 Polenta Frita</div>
-    <div class="acomp-item">🍚 Arroz Branco</div>
-    <div class="acomp-item">🥓 Farofa Crocante</div>
+  <!-- Sabores -->
+  <div class="sabores">
+    <h3>🍕 Escolha o Sabor da Pizza:</h3>
+    <div class="sabores-grid">
+      <div class="sabor-item">🍅 Margherita</div>
+      <div class="sabor-item">🥓 Calabresa</div>
+      <div class="sabor-item">🧀 Mussarela</div>
+      <div class="sabor-item">🍄 Portuguesa</div>
+      <div class="sabor-item">🌶️ Pepperoni</div>
+      <div class="sabor-item">🥩 Frango Catupiry</div>
+      <div class="sabor-item">🍖 Bacon</div>
+      <div class="sabor-item">🌽 Milho Verde</div>
+      <div class="sabor-item">🍕 Quatro Queijos</div>
+      <div class="sabor-item">🥩 Carne Seca</div>
+      <div class="sabor-item">🐟 Atum</div>
+      <div class="sabor-item">🥬 Vegetariana</div>
+      <div class="sabor-item">🌶️ Mexicana</div>
+      <div class="sabor-item">🍄 Champignon</div>
+      <div class="sabor-item">🥓 Bacon Especial</div>
+      <div class="sabor-item">🍗 Frango Especial</div>
+    </div>
+  </div>
+
+  <!-- Bordas -->
+  <div class="bordas">
+    <h3>🧀 Escolha a Borda:</h3>
+    <div class="bordas-grid">
+      <div class="borda-item">🍞 Tradicional</div>
+      <div class="borda-item">🧀 Catupiry</div>
+      <div class="borda-item">🥛 Cream Cheese</div>
+      <div class="borda-item">🧄 Alho</div>
+      <div class="borda-item">🌿 Ervas Finas</div>
+      <div class="borda-item">🌶️ Pimenta</div>
+    </div>
   </div>
 
   <!-- Formulário -->
@@ -472,7 +596,7 @@
 </div>
 
 <!-- Botão Fixado -->
-<button class="btn" id="btnFinalizar">🍽️ Finalizar Pedido – R$29,90</button>
+<button class="btn" id="btnFinalizar">🍕 Finalizar Pedido – R$39,90</button>
 
 <!-- Modal Confirmação -->
 <div class="modal" id="modal">
@@ -480,7 +604,7 @@
     <h2>✅ Pedido Confirmado!</h2>
     <p>Obrigado <span id="resNome"></span> 🎉</p>
     <div class="detalhes" id="resumoPedido"></div>
-    <button class="pagamento" onclick="window.open('https://go.tribopay.com.br/esmhk50l5h', '_blank')">💳 Pagar Agora</button>
+    <button class="pagamento" onclick="window.open('https://go.tribopay.com.br/ou2nmp9gu1', '_blank')">💳 Pagar Agora</button>
   </div>
 </div>
 
@@ -490,40 +614,56 @@
   const whatsInput = document.getElementById('whatsapp');
   const enderecoInput = document.getElementById('endereco');
   const btn = document.getElementById('btnFinalizar');
-  const itens = document.querySelectorAll('.acomp-item');
+  const sabores = document.querySelectorAll('.sabor-item');
+  const bordas = document.querySelectorAll('.borda-item');
   
-  let acompanhamentoSelecionado = false;
+  let saborSelecionado = false;
+  let bordaSelecionada = false;
+  let saborEscolhido = '';
+  let bordaEscolhida = '';
 
-  // Seleção de acompanhamento
-  itens.forEach(item => {
-    item.addEventListener('click', () => {
-      itens.forEach(x => x.classList.remove('selected'));
-      item.classList.add('selected');
-      acompanhamentoSelecionado = true;
+  // Seleção de sabor
+  sabores.forEach(sabor => {
+    sabor.addEventListener('click', () => {
+      sabores.forEach(x => x.classList.remove('selected'));
+      sabor.classList.add('selected');
+      saborSelecionado = true;
+      saborEscolhido = sabor.textContent;
       verificarFormulario();
     });
   });
 
-  // Função para verificar se todos os campos estão preenchidos
+  // Seleção de borda
+  bordas.forEach(borda => {
+    borda.addEventListener('click', () => {
+      bordas.forEach(x => x.classList.remove('selected'));
+      borda.classList.add('selected');
+      bordaSelecionada = true;
+      bordaEscolhida = borda.textContent;
+      verificarFormulario();
+    });
+  });
+
+  // Verificação do formulário
   function verificarFormulario() {
     const nome = nomeInput.value.trim();
     const whats = whatsInput.value.trim();
     const endereco = enderecoInput.value.trim();
     
-    // Adicionar classe visual para campos preenchidos
+    // Marcar campos preenchidos
     nomeInput.classList.toggle('filled', nome.length > 0);
     whatsInput.classList.toggle('filled', whats.length > 0);
     enderecoInput.classList.toggle('filled', endereco.length > 0);
     
-    // Mostrar botão apenas se todos os campos estiverem preenchidos E acompanhamento selecionado
-    if (nome && whats && endereco && acompanhamentoSelecionado) {
-      btn.style.display = "block";
+    // Mostrar botão se tudo preenchido
+    if (nome && whats && endereco && saborSelecionado && bordaSelecionada) {
+      btn.style.display = 'block';
     } else {
-      btn.style.display = "none";
+      btn.style.display = 'none';
     }
   }
 
-  // Listeners para os campos do formulário
+  // Eventos de input
   nomeInput.addEventListener('input', verificarFormulario);
   whatsInput.addEventListener('input', verificarFormulario);
   enderecoInput.addEventListener('input', verificarFormulario);
@@ -540,39 +680,33 @@
     e.target.value = value;
   });
 
-  // Modal
+  // Finalizar pedido
   btn.addEventListener('click', () => {
     const nome = nomeInput.value.trim();
     const whats = whatsInput.value.trim();
     const endereco = enderecoInput.value.trim();
-    const acomp = document.querySelector('.acomp-item.selected')?.innerText || "Não escolhido";
-
-    // Validação extra (não deveria ser necessária, mas por segurança)
-    if (!nome || !whats || !endereco || !acompanhamentoSelecionado) {
-      alert("Por favor, preencha todos os campos e escolha um acompanhamento!");
-      return;
+    
+    if (nome && whats && endereco && saborSelecionado && bordaSelecionada) {
+      document.getElementById('resNome').textContent = nome;
+      document.getElementById('resumoPedido').innerHTML = `
+        <strong>🍕 Pedido:</strong> Pizza 8 Fatias ${saborEscolhido} + Refri 2L<br>
+        <strong>🧀 Borda:</strong> ${bordaEscolhida}<br>
+        <strong>👤 Cliente:</strong> ${nome}<br>
+        <strong>📱 WhatsApp:</strong> ${whats}<br>
+        <strong>📍 Endereço:</strong> ${endereco}<br>
+        <strong>💰 Total:</strong> R$ 39,90<br>
+        <strong>🚚 Entrega:</strong> Grátis (25-40 min)
+      `;
+      document.getElementById('modal').style.display = 'flex';
     }
-
-    document.getElementById('resNome').innerText = nome;
-    document.getElementById('resumoPedido').innerHTML = `
-      🍽️ <strong>Marmita G + Refrigerante 2L</strong><br>
-      ➕ <strong>Acompanhamento:</strong> ${acomp}<br>
-      🚚 <strong>Endereço:</strong> ${endereco}<br>
-      📱 <strong>WhatsApp:</strong> ${whats}<br>
-      💵 <strong>Total:</strong> R$29,90
-    `;
-    document.getElementById('modal').style.display = "flex";
   });
 
   // Fechar modal clicando fora
   document.getElementById('modal').addEventListener('click', (e) => {
-    if (e.target.id === "modal") {
-      e.currentTarget.style.display = "none";
+    if (e.target.id === 'modal') {
+      e.target.style.display = 'none';
     }
   });
-
-  // Verificação inicial
-  verificarFormulario();
 </script>
 
 </body>
